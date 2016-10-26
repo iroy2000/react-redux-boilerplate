@@ -1,0 +1,8 @@
+/vendor/
+/bower_components/
+/node_modules/
+/.idea
+/docroot/
+.DS_Store
+npm-debug.log
+.eslintcache

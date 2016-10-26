@@ -1,0 +1,25 @@
+{
+  "publicPath": "localhost:8080",
+  "host": "localhost",
+  "port": "8080",
+  "s3Deploy": false,
+  "jsSourcePath": "src/js",
+  "env": "default",
+  "s3": {
+    "bucket": "",
+    "accessKey": "",
+    "accessSecret": "",
+    "defaultCDNBase": ""
+  },
+  "html": [
+    {
+			"name": "homepage",
+      "title": "Everything is Awesome",
+      "template": "_default.html",
+      "filename": "index.html"
+    }
+  ],
+  "app": {
+    "description": "config inside 'app' will be injected to your frontend code automatically"
+  }
+}

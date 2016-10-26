@@ -1,0 +1,12 @@
+/* TODO: import is not working
+ ---------------------- */
+@import "configs/color";
+
+/* Example handler
+ ---------------------- */
+.example__output {
+  margin-top:36px;
+  background: none;
+  color: brown;
+  font-size: 0.8em;
+}

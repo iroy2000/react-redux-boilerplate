@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "globals": {
+    "__CONFIG__": true,
+    "__ENV__": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      // Enabled object spread
+      "experimentalObjectRestSpread": true
+    }
+  },
+  // Rule changes from Airbnb's eslint config
+  "rules": {
+    "import/no-unresolved": 0,
+    "new-cap": 0,
+    "global-require": 0,
+    "no-underscore-dangle": 0,
+    "arrow-body-style": 0,
+    "no-console": 0,
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "import/prefer-default-export": 0,
+    "react/prop-types": 0
+  }
+}
