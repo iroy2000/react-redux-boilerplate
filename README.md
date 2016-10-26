@@ -47,6 +47,7 @@ If you are interested, please read the `package.json` for all installed modules 
 ## Table of Contents
 
 1. [Installation](#installation)
+1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
 1. [Developing Template](#developing-template)
 1. [Integration Note](#integration-note)
@@ -68,7 +69,7 @@ If you would like to have Redux debug capabilities, you can download this Chrome
 ![Redux DevTool](https://www.dropbox.com/s/wni425e3d4xiy85/redux-devtool.png?raw=1)
 
 
-### Initialize your project
+## Initialize your project
 
 Now run the following commands in your terminal
 
