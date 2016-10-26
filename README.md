@@ -61,6 +61,12 @@ If you are interested, please read the `package.json` for all installed modules 
 
 You need to have Node.js installed.
 
+### Post Installation
+
+If you would like to have Redux debug capabilities, you can download this Chrome extension [Redux DevTool](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+![Redux DevTool](https://www.dropbox.com/s/wni425e3d4xiy85/redux-devtool.png?raw=1)
+
 
 ### Initialize your project
 
