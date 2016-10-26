@@ -192,6 +192,10 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ---
 
+* __How to activate S3 support ?__
+	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. 	
+
+
 * __What is our standard to control our npm module dependencies ?__
     * We are using `^version`, it means "Compatible with version". The reason we are using `^version` is simply we want the ability for us to roll back to previous working version together with the source code.
 
@@ -227,4 +231,6 @@ We welcome anyone to send us __pull request__ to improve this boilerplate, the g
 
 This boilerplate will be maintained separately.  So please do not check in any business logic to it unless it is for example purpose. 
 
+## License
+In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care. 
 

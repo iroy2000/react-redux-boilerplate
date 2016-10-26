@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/iroy2000/retro-community",
   "author": "Roy Yu <iroy2000@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
     "autoprefixer": "^6.5.1",
