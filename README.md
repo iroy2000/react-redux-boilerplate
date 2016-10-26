@@ -50,7 +50,6 @@ If you are interested, please read the `package.json` for all installed modules 
 
 ## Installation
 
----
 
 ### Prerequisite
 
@@ -96,7 +95,6 @@ $ npm run test   # run test
 
 ## Suggested Workflow
 
----
 
 After you check out the repo, I will usually do the following :
 
@@ -165,8 +163,6 @@ __CONFIG__.apiURL
 
 ## Developing Template
 
----
-
 The `docroot/index.html` is a generated artifact. If look at our sample template at `src/assets/template/_default.html`, the `docroot/index.html` is generated from that file.
 
 We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin) to generate the `docroot/index.html`.
@@ -177,7 +173,7 @@ We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack
 **[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
 
 ## Integration Note
----
+
 
 ### How to integrate with other server side framework ?
 
@@ -190,7 +186,6 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## QA
 
----
 
 * __How to activate S3 support ?__
 	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. 	
@@ -209,7 +204,6 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## Knowledge Base Reading
 
----
 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Redux](http://redux.js.org/)
@@ -223,8 +217,6 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 
 ## How to Contribute
-
----
 
 
 We welcome anyone to send us __pull request__ to improve this boilerplate, the goal is to make it better from time to time and we all can learn from it.
