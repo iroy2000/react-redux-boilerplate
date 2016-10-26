@@ -24,8 +24,10 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux, 
 
 * React
 * Redux
+* Webpack
 * Reselect
 * ES6 
+* ImmutableJS
 * PostCSS ( it support CSS modules, but we also recommended B.E.M style )
 * ESLint integrated
 * Integrated with fancy cli dashboard
@@ -192,7 +194,30 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 
 * __How to activate S3 support ?__
-	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. 	
+	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. Below is an `example` in `config/default.json`
+	
+	
+        ```
+        // Example in config/default.json
+        // You can overwrite default using your other config file
+        // ========================================================
+        // default.json     - global
+        // development.json - development   ( NODE_ENV=development)
+        // release.json     - test/release  ( NODE_ENV=release)
+        // production.json  - production    ( NODE_ENV=production)
+        // ========================================================
+        {
+          "s3Deploy": true,
+          "s3": {
+            "bucket": "",         // aws bucket
+            "accessKey": "",      // asw access key
+            "accessSecret": "",   // aws secret key
+            "defaultCDNBase": ""  // append cdn url to your build assets
+          },
+         
+        }
+
+        ```	
 
 
 * __What is our standard to control our npm module dependencies ?__
