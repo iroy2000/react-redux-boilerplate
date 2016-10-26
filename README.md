@@ -22,9 +22,13 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux, 
 
 ### Features / Benefits
 
-* ES6 end to end 
+* React
+* Redux
+* Reselect
+* ES6 
 * PostCSS ( it support CSS modules, but we also recommended B.E.M style )
 * ESLint integrated
+* Integrated with fancy cli dashboard
 * Hot Module Reload during development
 * CSS / HTML / JS minification / Image optimization when built
 * JS code duplication removal during built
