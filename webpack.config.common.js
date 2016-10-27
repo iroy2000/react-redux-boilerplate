@@ -9,7 +9,7 @@ import postcssImport from 'postcss-import';  //https://github.com/postcss/postcs
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import config from 'config';
 import fs from 'fs';
-
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 
 // Environment variable injection
 // ================================================================================
@@ -64,6 +64,7 @@ export default {
   },
   plugins: [
     new webpack.IgnorePlugin(/vertx/), // https://github.com/webpack/webpack/issues/353
+    new CaseSensitivePathsPlugin(),
   ],
   resolveLoader: {
     modulesDirectories: ['node_modules'],

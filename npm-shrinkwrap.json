@@ -1,6 +1,6 @@
 {
-  "name": "retro-community",
-  "version": "0.5.0",
+  "name": "react-redux-boilerplate",
+  "version": "0.5.1",
   "dependencies": {
     "abab": {
       "version": "1.0.3",

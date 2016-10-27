@@ -1,6 +1,6 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -- node bin/commands.js dev",
@@ -34,6 +34,7 @@
     "babel-runtime": "^6.11.6",
     "browser-sync": "^2.17.4",
     "browser-sync-webpack-plugin": "^1.1.3",
+    "case-sensitive-paths-webpack-plugin": "^1.1.4",
     "colors": "^1.1.2",
     "concurrently": "^3.1.0",
     "config": "^1.21.0",
@@ -80,7 +81,7 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "automock":true, 
+    "automock": true,
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx|json)$",
     "moduleFileExtensions": [
       "js",
