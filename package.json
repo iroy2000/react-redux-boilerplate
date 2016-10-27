@@ -1,7 +1,7 @@
 {
-  "name": "retro-community",
-  "version": "0.5.0",
-  "description": "Retro Community is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
+  "name": "react-redux-boilerplate",
+  "version": "0.5.1",
+  "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
@@ -80,13 +80,8 @@
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ],
-    "testFileExtensions": [
-      "js",
-      "jsx"
-    ],
+    "automock":true, 
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx|json)$",
     "moduleFileExtensions": [
       "js",
       "json",
