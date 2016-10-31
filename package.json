@@ -6,7 +6,9 @@
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
     "test": "jest --verbose",
-    "lint": "node bin/commands.js lint"
+    "lint": "node bin/commands.js lint",
+    "styleguide-server": "styleguidist server",
+    "styleguide-build": "styleguidist build"
   },
   "repository": {
     "type": "git",
@@ -57,6 +59,7 @@
     "postcss-nested": "^1.0.0",
     "precss": "^1.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-styleguidist": "^4.1.0",
     "shelljs": "^0.7.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
