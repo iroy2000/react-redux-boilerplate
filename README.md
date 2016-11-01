@@ -49,7 +49,7 @@ If you are interested, please read the `package.json` for all installed modules 
 1. [Installation](#installation)
 1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
-1. [Confiuration](#configuration)
+1. [Configuration](#configuration)
 1. [Developing Template](#developing-template)
 1. [Integration Note](#integration-note)
 1. [QA](#qa)
