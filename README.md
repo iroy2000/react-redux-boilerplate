@@ -141,7 +141,7 @@ That's very easy, isn't it?
 Please let me know if you have better work flow suggestion!!
 
 ## Configuration
-React Redux Boilerplate has 2 flavors of configuration, one is for normal configuration, the other one is for sensitive information that you don't want other people to know. 
+React Redux Boilerplate has two configuration strategies, one is for normal configuration, the other one is for sensitive information that you don't want others to know. 
 
 ### Configuring your application
 
@@ -187,7 +187,7 @@ AWS_CDN_URL=YOUR_AWS_CDN_URL
 
 ```
 
-And your in node application or webpack config, those key/value pair will be injected into `process.env` .
+And your in node application or webpack config, those key/value pair will be available inside `process.env` ( e.g. `process.env.AWS_ACCESS_KEY` ).
 
 __Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there. 
 
