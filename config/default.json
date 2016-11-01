@@ -2,7 +2,7 @@
   "publicPath": "localhost:8080",
   "host": "localhost",
   "port": "8080",
-  "s3Deploy": true,
+  "s3Deploy": false,
   "jsSourcePath": "src/js",
   "env": "default",
   "html": [
