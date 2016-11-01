@@ -6,9 +6,11 @@ import SaveAssetsJson from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
-const PUBLIC_PATH = config.get('publicPath');
+const S3_DEPLOY = config.get('s3Deploy') || 'false';
+const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
+
+const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
-const S3_DEPLOY = process.env.S3_DEPLOY;
 
 const webpackProdOutput = {
   publicPath: PUBLIC_PATH,
@@ -37,7 +39,7 @@ webpackConfig.entry = {
   ],
 };
 
-if (String(S3_DEPLOY) === 'true') {
+if (IS_S3_DEPLOY) {
   const S3Plugin = require('webpack-s3-plugin');
 
   const s3Config = new S3Plugin({
@@ -45,15 +47,15 @@ if (String(S3_DEPLOY) === 'true') {
     // include: /.*\.(css|js)/,
     // s3Options are required
     s3Options: {
-      accessKeyId: config.get('s3.accessKey'),
-      secretAccessKey: config.get('s3.accessSecret'),
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_KEY,
     },
     s3UploadOptions: {
-      Bucket: config.get('s3.bucket'),
+      Bucket: process.env.AWS_BUCKET,
     },
     cdnizerCss: {
       test: /images/,
-      cdnUrl: config.get('s3.defaultCDNBase'),
+      cdnUrl: process.env.AWS_CDN_URL,
     },
   });
 
@@ -104,15 +106,6 @@ webpackConfig.plugins.push(
   new SaveAssetsJson({
     path: path.join(__dirname, 'docroot'),
     filename: 'assets.json',
-    prettyPrint: true,
-    metadata: {
-      version: process.env.PACKAGE_VERSION,
-      assetsFile: `assets-v${process.env.PACKAGE_VERSION}.json`,
-    },
-  }),
-  new SaveAssetsJson({
-    path: path.join(__dirname, 'docroot'),
-    filename: `assets-v${process.env.PACKAGE_VERSION}.json`,
     prettyPrint: true,
     metadata: {
       version: process.env.PACKAGE_VERSION,

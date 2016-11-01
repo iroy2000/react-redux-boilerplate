@@ -4,7 +4,6 @@ const colors = require('colors');
 
 const host = config.get('host') || 'localhost';
 const port = config.get('port') || '8080';
-const s3Deploy = config.get('s3Deploy') || 'false';
 
 const option = process.argv[2];
 
@@ -16,7 +15,7 @@ switch (option) {
     shell.exec(`HOST=${host} PORT=${port} webpack-dev-server --hot --progress --inline --colors --content-base ./docroot`);
     break;
   case 'build':
-    shell.exec(`rm -rf docroot/assets && S3_DEPLOY=${s3Deploy} NODE_ENV=production webpack --progress`);
+    shell.exec(`rm -rf docroot/assets && webpack --progress`);
     break;
   default:
     // If the app type is invalid, stop execution of the file.

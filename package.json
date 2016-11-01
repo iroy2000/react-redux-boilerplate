@@ -1,18 +1,19 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.5.2",
+  "version": "0.6.2",
   "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
+    "build:release": "NODE_ENV=release node bin/commands.js build",
     "test": "jest --verbose",
     "lint": "node bin/commands.js lint"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iroy2000/retro-community.git"
+    "url": "https://github.com/iroy2000/react-redux-boilerplate.git"
   },
-  "homepage": "https://github.com/iroy2000/retro-community",
+  "homepage": "https://github.com/iroy2000/react-redux-boilerplate",
   "author": "Roy Yu <iroy2000@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -40,6 +41,7 @@
     "config": "^1.21.0",
     "css-loader": "^0.25.0",
     "debug": "^2.2.0",
+    "dotenv": "^2.0.0",
     "eslint": "^3.8.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-friendly-formatter": "^2.0.6",
