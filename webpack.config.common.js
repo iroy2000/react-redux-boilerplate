@@ -1,5 +1,6 @@
 // Requiring dependencies
 // ================================================================================
+import dotenv from'dotenv';
 import path from 'path';
 import webpack from 'webpack';
 import precss from 'precss';
@@ -10,6 +11,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import config from 'config';
 import fs from 'fs';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+
+dotenv.config({ silent: true });
 
 // Environment variable injection
 // ================================================================================

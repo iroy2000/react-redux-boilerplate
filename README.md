@@ -49,6 +49,7 @@ If you are interested, please read the `package.json` for all installed modules 
 1. [Installation](#installation)
 1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
+1. [Confiuration](#configuration)
 1. [Developing Template](#developing-template)
 1. [Integration Note](#integration-note)
 1. [QA](#qa)
@@ -139,14 +140,17 @@ That's very easy, isn't it?
 
 Please let me know if you have better work flow suggestion!!
 
+## Confiuration
+React Redux Boilerplate has 2 flavors of configuration, one is for normal configuration, the other one is for sensitive information that you don't want other people to know. 
+
 ### Configuring your application
 
 If you look at folder `config`, there are four files
 
 `default.json` - all default configuration
 `development.json` - when you run `npm run dev`, it will pull configuration from that file
-`release.json` - when you have NODE_ENV=release, it will use this configuration
-`production.json` - when you have NODE_ENV=production, it will use this configuration
+`release.json` - when you run `npm run build:release`, it will use this configuration
+`production.json` - when you run `npm run build`, it will use this configuration
 
 We are using [node-config](https://github.com/lorenwest/node-config), they have a pretty easy to understand documentation.
 
@@ -171,6 +175,28 @@ __CONFIG__.apiURL
 
 ```
 
+### Configuring secret key/value pair
+
+There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secret over there ( we have put that into `.gitignore` just in case ). For example, in order to use the feature to deploy to S3, you need to provide the following information. 
+
+```
+AWS_ACCESS_KEY=YOUR_AWS_ACCESS_KEY
+AWS_SECRET_KEY=YOUR_AWS_SECRET_KEY
+AWS_BUCKET=YOUR_AWS_BUCKET
+AWS_CDN_URL=YOUR_AWS_CDN_URL
+
+```
+
+And your in node application or webpack config, those key/value pair will be injected into `process.env` .
+
+__Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there. 
+
+However, with `.env`, you can create a ready to use list of environment variables for your different environment.  You can even have another service to generate the `.env` file before building the project, but in terms of how to achieve that, it is out of scope of this documentation.
+
+__Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! 
+
+
+We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
 
 
@@ -205,26 +231,32 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 	
 	
         ```
+        ( STEP 1 )
+        
         // Example in config/default.json
         // You can overwrite default using your other config file
         // ========================================================
         // default.json     - global
-        // development.json - development   ( NODE_ENV=development)
-        // release.json     - test/release  ( NODE_ENV=release)
-        // production.json  - production    ( NODE_ENV=production)
+        // development.json - development   ( npm run dev )
+        // release.json     - test/release  ( npm run build:release )
+        // production.json  - production    ( npm run build )
         // ========================================================
         {
           "s3Deploy": true,
-          "s3": {
-            "bucket": "",         // aws bucket
-            "accessKey": "",      // asw access key
-            "accessSecret": "",   // aws secret key
-            "defaultCDNBase": ""  // append cdn url to your build assets
-          },
-         
         }
-
         ```	
+        
+        And create a `.env` file and put in the following information.  Please read [Configuration](#configuration) section for more information.
+        
+
+        ```
+        ( STEP 2 )
+        
+        AWS_ACCESS_KEY=blah...
+        AWS_SECRET_KEY=blah...
+        AWS_BUCKET=blah...
+        AWS_CDN_URL=blah...
+        ```
 
 
 * __What is our standard to control our npm module dependencies ?__

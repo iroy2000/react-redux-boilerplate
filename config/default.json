@@ -2,15 +2,9 @@
   "publicPath": "localhost:8080",
   "host": "localhost",
   "port": "8080",
-  "s3Deploy": false,
+  "s3Deploy": true,
   "jsSourcePath": "src/js",
   "env": "default",
-  "s3": {
-    "bucket": "",
-    "accessKey": "",
-    "accessSecret": "",
-    "defaultCDNBase": ""
-  },
   "html": [
     {
 			"name": "homepage",
