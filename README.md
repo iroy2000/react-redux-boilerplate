@@ -140,7 +140,7 @@ That's very easy, isn't it?
 
 Please let me know if you have better work flow suggestion!!
 
-## Confiuration
+## Configuration
 React Redux Boilerplate has 2 flavors of configuration, one is for normal configuration, the other one is for sensitive information that you don't want other people to know. 
 
 ### Configuring your application
