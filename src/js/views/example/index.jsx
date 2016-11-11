@@ -72,11 +72,17 @@ class ResultsContainer extends Component {
   generate_results(inputString) {
     var counts = {};
 
-    // Count how many times we see each character
-    [...inputString].forEach(function(chr) {
-      var count = counts[chr] || 0;
-      counts[chr] = count + 1;
-    });
+    // loop variables
+    var startPos;
+    var endPos;
+    var substring;
+    // loop through all the substrings, and count them up!
+    for (startPos = 0; inputString.length > startPos; startPos++) {
+      for (endPos = startPos + 1; inputString.length >= endPos; endPos++) {
+        substring = inputString.substring(startPos, endPos);
+        counts[substring] = (counts[substring] || 0) + 1;
+      }
+    }
 
     // Sort the keys alphabetically
     var keys = Object.keys(counts).sort();
