@@ -4,9 +4,47 @@
 
 /* Example handler
  ---------------------- */
-.example__output {
-  margin-top:36px;
-  background: none;
-  color: brown;
-  font-size: 0.8em;
+.duplicate_string_checker {
+    padding: 10px;
 }
+.results_container {
+    background-color: white;
+}
+.result_box {
+    float: left;
+    background-color: #DDDDDD;
+    border: 1px solid #666666;
+}
+
+.result_substring,
+.result_count {
+  border: 1px solid #666666;
+  background-color: #FFFFFF;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.result_substring {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.results_container_label {
+  font-weight: bold;
+}
+
+.result_box,
+.result_substring,
+.result_count,
+#input_string,
+.results_container_label {
+  margin: 10px;
+}
+
+.result_substring,
+.result_count,
+#check_button {
+  border-radius: 8px;
+} 
