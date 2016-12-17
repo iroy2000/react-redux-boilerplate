@@ -14,7 +14,7 @@ const reduxDevTool = () => {
   typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f;
 };
 
-export default function configureStore(initialState, history) {
+export default function configureStore(initialState: Object, history: Object) {
   const middleware = applyMiddleware(promiseMiddleware, routerMiddleware(history));
 
   const composedStoreEnhancer = compose(

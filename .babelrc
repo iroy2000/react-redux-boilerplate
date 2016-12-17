@@ -4,5 +4,12 @@
     "development": {
       "presets": ["react-hmre"]
     }
-  }
+  },
+  "plugins": [
+    ["typecheck", {
+      "disable": {
+        "production": true
+      }
+    }]
+  ]
 }
