@@ -29,6 +29,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux, 
 * ES6 
 * ImmutableJS
 * PostCSS ( it support CSS modules, but we also recommended B.E.M style )
+* Type Checking with Babel Type Check ( Flow style )
 * ESLint integrated
 * Integrated with fancy cli dashboard
 * Hot Module Reload during development
