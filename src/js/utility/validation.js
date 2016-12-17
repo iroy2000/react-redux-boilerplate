@@ -12,7 +12,7 @@ export function email(value) {
   return null;
 }
 
-export function phone(value) {
+export function phone(value: string) {
   // Let's not start a debate on phone regex! This one is the best I can find, the best way to
   // do it correctly is utilizing a third party verification, but for our use case, it is
   // just overkill
@@ -23,7 +23,7 @@ export function phone(value) {
   return null;
 }
 
-export function required(value) {
+export function required(value: string) {
   if (isEmpty(value)) {
     return 'Required';
   }
@@ -31,7 +31,7 @@ export function required(value) {
   return null;
 }
 
-export function minLength(min) {
+export function minLength(min: number) {
   return (value) => {
     if (!isEmpty(value) && value.length < min) {
       return `Must be at least ${min} characters`;
@@ -41,7 +41,7 @@ export function minLength(min) {
   };
 }
 
-export function maxLength(max) {
+export function maxLength(max: number) {
   return (value) => {
     if (!isEmpty(value) && value.length > max) {
       return `Must be no more than ${max} characters`;
@@ -51,7 +51,7 @@ export function maxLength(max) {
   };
 }
 
-export function integer(value) {
+export function integer(value: string|number) {
   if (!Number.isInteger(Number(value))) {
     return 'Must be an integer';
   }
