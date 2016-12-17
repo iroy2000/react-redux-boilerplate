@@ -3,6 +3,7 @@
 /node_modules/
 /.idea
 /docroot/
+/build/
 .DS_Store
 npm-debug.log
 .eslintcache
