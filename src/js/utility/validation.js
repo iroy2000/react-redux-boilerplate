@@ -16,7 +16,7 @@ export function phone(value: string) {
   // Let's not start a debate on phone regex! This one is the best I can find, the best way to
   // do it correctly is utilizing a third party verification, but for our use case, it is
   // just overkill
-  if (!isEmpty(value) && !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g.test(value)) {
+  if (!isEmpty(value) && !/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s/0-9]*$/g.test(value)) {
     return 'Invalid phone number';
   }
 
