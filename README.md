@@ -1,12 +1,12 @@
 ### Preface
 
-While React Redux Boilerplate is a __production ready__ boilerplate for frontend client development ( we welcomed pull request, please ),  __we are also using that for our recruiting purpose__. 
+React Redux Boilerplate is a __PRODUCTION ready__ boilerplate for frontend client development ( we welcome pull request ),  __and also we are using that as our recruiting purpose__. 
 
-The technologies in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team, and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as stay relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
+The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team, and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
 
 If you are interested in working with us, feel free to send a message to [iroy2000](https://www.linkedin.com/in/iroy2000).
 
-__Note:__ This boilerplate is not to show case how to develop in React / Redux, it is a boilerplate that hook everything up for you that you can develop on, so you won't see complicated example here. 
+__Note:__ This boilerplate is not to show case how to develop in React / Redux ( and there are tons of tutorials available online ), it is a boilerplate that hook everything up for you that you can develop on, so you won't see complicated example here. 
 
 ---
 
@@ -29,7 +29,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux, 
 * ES6 
 * ImmutableJS
 * PostCSS ( it support CSS modules, but we also recommended B.E.M style )
-* Type Checking with Babel Type Check ( Flow style )
+* Type Checking with Babel Type Check ( Flow syntax )
 * ESLint integrated
 * Integrated with fancy cli dashboard
 * Hot Module Reload during development
