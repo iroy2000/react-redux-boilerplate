@@ -1,6 +1,6 @@
 ### Preface
 
-While React Redux Boilerplate is a ready to use workflow boilerplate for frontend client development ( we welcomed pull request, please ),  __we are also using that for our recruiting purpose__. 
+While React Redux Boilerplate is a __production ready__ boilerplate for frontend client development ( we welcomed pull request, please ),  __we are also using that for our recruiting purpose__. 
 
 The technologies in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team, and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as stay relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
 
