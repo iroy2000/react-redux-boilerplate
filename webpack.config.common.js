@@ -1,6 +1,5 @@
 // Requiring dependencies
 // ================================================================================
-import dotenv from'dotenv';
 import path from 'path';
 import webpack from 'webpack';
 import precss from 'precss';
@@ -8,11 +7,18 @@ import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
 import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import config from 'config';
 import fs from 'fs';
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 
-dotenv.config({ silent: true });
+import { SHOULD_BUILD } from './bin/shouldBuild';
+
+// Please read the following link if
+// you have no idea how to use this feature
+// https://github.com/motdotla/dotenv
+if(!SHOULD_BUILD) {
+  require('dotenv').config({silent: true});
+}
 
 // Environment variable injection
 // ================================================================================
@@ -25,7 +31,7 @@ const BUILD_PATH = path.join(__dirname, 'docroot');
 
 const COMMON_LOADERS = [
   {
-    test: /\.(jpe?g|png|gif|svg)$/i,
+    test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
     loaders: [
       'file?hash=sha512&digest=hex&name=assets/[hash].[ext]',
       'image?bypassOnDebug&optimizationLevel=7&interlaced=false',
@@ -38,6 +44,22 @@ const COMMON_LOADERS = [
       cacheDirectory: true,
       plugins: ['transform-runtime', 'transform-decorators-legacy'],
     },
+  },
+  {
+    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'url?limit=10000&mimetype=application/font-woff'
+  },
+  {
+    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'url?limit=10000&mimetype=application/font-woff'
+  },
+  {
+    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'url?limit=10000&mimetype=application/octet-stream'
+  },
+  {
+    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+    loader: 'file'
   }
 ];
 

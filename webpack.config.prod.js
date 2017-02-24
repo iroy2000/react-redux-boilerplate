@@ -42,6 +42,8 @@ webpackConfig.entry = {
 if (IS_S3_DEPLOY) {
   const S3Plugin = require('webpack-s3-plugin');
 
+  // Please read README if you have no idea where
+  // `process.env.AWS_ACCESS_KEY` is coming from
   const s3Config = new S3Plugin({
     // Only upload css and js
     // include: /.*\.(css|js)/,
