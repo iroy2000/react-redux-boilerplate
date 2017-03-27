@@ -21,6 +21,7 @@ const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 const webpackProdOutput = {
   publicPath: PUBLIC_PATH,
   filename: 'assets/[name]-[hash].js',
+  chunkFilename: "assets/[id].[hash].js",
 };
 
 // Merges webpackProdOutput and webpackConfig.output
@@ -136,9 +137,8 @@ webpackConfig.plugins.push(
       version: process.env.PACKAGE_VERSION,
     },
   }),
-
   new ExtractTextPlugin({
-    filename: 'assets/app-[hash].css',
+    filename: 'assets/[name]-[hash].css',
     disable: false,
     allChunks: true,
   })

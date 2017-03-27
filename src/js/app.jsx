@@ -8,8 +8,4 @@ function App({ children }) {
   );
 }
 
-App.propTypes = {
-  children: React.PropTypes.element,
-};
-
 export default App;

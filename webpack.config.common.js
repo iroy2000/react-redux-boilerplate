@@ -9,6 +9,11 @@ import fs from 'fs';
 
 import { SHOULD_BUILD } from './bin/shouldBuild';
 
+
+// trace which loader is deprecated
+// feel free to remove that if you don't need this feature
+process.traceDeprecation = true;
+
 // Please read the following link if
 // you have no idea how to use this feature
 // https://github.com/motdotla/dotenv

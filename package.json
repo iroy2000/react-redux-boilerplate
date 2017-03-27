@@ -98,6 +98,9 @@
     "React",
     "Redux",
     "webpack",
-    "webpack 2"
+    "webpack 2",
+    "PostCSS",
+    "Babel",
+    "ESLint"
   ]
 }

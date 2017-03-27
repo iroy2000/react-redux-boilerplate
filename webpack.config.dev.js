@@ -11,9 +11,6 @@ import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
-// trace which loader is deprecated
-process.traceDeprecation = true;
-
 const PUBLIC_PATH = config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
