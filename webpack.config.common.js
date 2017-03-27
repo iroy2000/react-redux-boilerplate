@@ -2,10 +2,6 @@
 // ================================================================================
 import path from 'path';
 import webpack from 'webpack';
-import precss from 'precss';
-import autoprefixer from 'autoprefixer';
-import postcssNested from 'postcss-nested';
-import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import config from 'config';
@@ -32,34 +28,77 @@ const BUILD_PATH = path.join(__dirname, 'docroot');
 const COMMON_LOADERS = [
   {
     test: /\.(?:ico|gif|png|jpg|jpeg|webp|svg)$/i,
-    loaders: [
-      'file?hash=sha512&digest=hex&name=assets/[hash].[ext]',
-      'image?bypassOnDebug&optimizationLevel=7&interlaced=false',
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          hash: 'sha512',
+          digest: 'hex',
+          name: 'assets/[hash].[ext]',
+        }
+      },
+      {
+        loader: 'image-loader',
+        options: {
+          bypassOnDebug: true,
+          optimizationLevel: 7,
+          interlaced: false,
+        }
+
+      }
     ],
   }, {
     test: /\.(js|jsx)?$/,
     exclude: /node_modules/,
-    loader: 'babel',
-    query: {
+    loader: 'babel-loader',
+    options: {
       cacheDirectory: true,
       plugins: ['transform-runtime', 'transform-decorators-legacy'],
     },
   },
   {
     test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url?limit=10000&mimetype=application/font-woff'
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+        }
+      }
+    ],
   },
   {
     test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url?limit=10000&mimetype=application/font-woff'
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/font-woff',
+        }
+      }
+    ],
   },
   {
     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'url?limit=10000&mimetype=application/octet-stream'
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/octet-stream',
+        }
+      }
+    ],
   },
   {
     test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-    loader: 'file'
+    use: [
+      {
+        loader: 'file-loader',
+      }
+    ],
   }
 ];
 
@@ -71,31 +110,21 @@ export default {
   output: {
     path: BUILD_PATH,
   },
-  postcss: () => {
-    // https://github.com/postcss/postcss-loader/issues/8
-    // https://github.com/jonathantneal/precss/issues/6
-    return [precss, autoprefixer, postcssNested, postcssImport({
-      addDependencyTo: webpack
-    })];
-  },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
-    modulesDirectories: ['node_modules'],
-    root: [
+    extensions: ['.js', '.jsx', '.css'],
+    modules: [
       path.join(__dirname, 'src'),
       path.join(__dirname, 'assets'),
       path.join(__dirname, JS_SOURCE),
+      "node_modules"
     ],
   },
   plugins: [
     new webpack.IgnorePlugin(/vertx/), // https://github.com/webpack/webpack/issues/353
     new CaseSensitivePathsPlugin(),
   ],
-  resolveLoader: {
-    modulesDirectories: ['node_modules'],
-  },
   module: {
-    loaders: COMMON_LOADERS,
+    rules: COMMON_LOADERS,
   },
   node: {
 		console: true,

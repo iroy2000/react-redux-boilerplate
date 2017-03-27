@@ -4,6 +4,12 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import SaveAssetsJson from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import precss from 'precss';
+import autoprefixer from 'autoprefixer';
+import postcssNested from 'postcss-nested';
+import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
+import postcssCssnext from 'postcss-cssnext';
+
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
 const S3_DEPLOY = config.get('s3Deploy') || 'false';
@@ -14,29 +20,44 @@ const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
 const webpackProdOutput = {
   publicPath: PUBLIC_PATH,
-  filename: 'assets/app-[hash].js',
+  filename: 'assets/[name]-[hash].js',
 };
 
 // Merges webpackProdOutput and webpackConfig.output
 webpackConfig.output = Object.assign(webpackConfig.output, webpackProdOutput);
 
-webpackConfig.module.loaders = webpackConfig.module.loaders.concat({
+webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,
-  loader: ExtractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader']),
+  use: ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: [
+      {
+        loader: 'css-loader',
+        options: { sourceMap: true, importLoaders: 1 }
+      },
+      {
+        loader: 'postcss-loader',
+        options: {
+          sourceMap: true,
+          plugins: () => [
+            precss(),
+            postcssNested(),
+            postcssImport({ addDependencyTo: webpack }),
+            postcssCssnext({
+              browsers: ['last 2 versions', 'ie >= 9'],
+              compress: true,
+            }),
+          ],
+        },
+      }
+    ]
+  })
 });
 
 webpackConfig.devtool = 'source-map';
 
 webpackConfig.entry = {
   app: ['babel-polyfill', path.resolve(__dirname, APP_ENTRY_POINT)],
-  vendors: [
-    'react',
-    'react-dom',
-    'react-router',
-    'react-redux',
-    'react-router-redux',
-    'redux-actions'
-  ],
 };
 
 if (IS_S3_DEPLOY) {
@@ -93,18 +114,20 @@ webpackConfig.plugins.push(
       NODE_ENV: JSON.stringify('production')
     },
   }),
+  new webpack.LoaderOptionsPlugin({
+    minimize: true
+  }),
 
    // how you want your code to be optimized
   // all configurable
-  new webpack.optimize.OccurenceOrderPlugin(true),
   new webpack.IgnorePlugin(/un~$/),
   new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    },
+    sourceMap: true,
   }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.CommonsChunkPlugin('vendors', 'assets/vendor-[hash].js'),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'common',
+    filename: 'assets/common-[hash].js'
+  }),
   new SaveAssetsJson({
     path: path.join(__dirname, 'docroot'),
     filename: 'assets.json',
@@ -113,7 +136,12 @@ webpackConfig.plugins.push(
       version: process.env.PACKAGE_VERSION,
     },
   }),
-  new ExtractTextPlugin('assets/app-[hash].css', { allChunks: true })
+
+  new ExtractTextPlugin({
+    filename: 'assets/app-[hash].css',
+    disable: false,
+    allChunks: true,
+  })
 );
 
 webpackConfig.plugins = webpackConfig.plugins.concat(htmlPlugins);

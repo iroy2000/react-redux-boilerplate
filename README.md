@@ -1,3 +1,9 @@
+### News
+
+We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
+
+---
+
 ### Preface
 
 React Redux Boilerplate is a __PRODUCTION ready__ boilerplate for frontend client development ( we welcome pull request ),  __and also we are using that as our recruiting purpose__. 

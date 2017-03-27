@@ -1,10 +1,18 @@
-import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 import config from 'config';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
-import postcssImport from 'postcss-import';
+import precss from 'precss';
+import autoprefixer from 'autoprefixer';
+import postcssNested from 'postcss-nested';
+import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
+import postcssCssnext from 'postcss-cssnext';
+
+import webpackConfig, { JS_SOURCE } from './webpack.config.common';
+
+// trace which loader is deprecated
+process.traceDeprecation = true;
 
 const PUBLIC_PATH = config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
@@ -34,10 +42,12 @@ const htmlPlugins = html.map((page) =>
 
 webpackConfig.plugins.push(
   new DashboardPlugin({ port: 3300 }),
+  new webpack.LoaderOptionsPlugin({
+    debug: true
+  }),
   // Since we specify --hot mode, we don’t need to add this plugin
   // It is mutually exclusive with the --hot option.
   // new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
     __CONFIG__: JSON.stringify(config.get('app')),
     'process.env': {
@@ -61,13 +71,35 @@ webpackConfig.plugins.push(
 
 webpackConfig.plugins = webpackConfig.plugins.concat(htmlPlugins);
 
-webpackConfig.module.loaders = webpackConfig.module.loaders.concat({
+webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,
-  loaders: ['style', 'css', 'postcss']
+  use: [
+    {
+      loader: 'style-loader',
+    },
+    {
+      loader: 'css-loader',
+      options: { sourceMap: true, importLoaders: 1 }
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: true,
+        plugins: () => [
+          precss(),
+          postcssNested(),
+          postcssImport({ addDependencyTo: webpack }),
+          postcssCssnext({
+            browsers: ['last 2 versions', 'ie >= 9'],
+            compress: true,
+          }),
+        ],
+      },
+    },
+  ],
 });
 
 webpackConfig.devtool = 'cheap-module-eval-source-map';
-webpackConfig.debug = true;
 
 webpackConfig.entry = [
   'babel-polyfill',
