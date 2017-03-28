@@ -116,7 +116,8 @@ webpackConfig.plugins.push(
     },
   }),
   new webpack.LoaderOptionsPlugin({
-    minimize: true
+    minimize: true,
+    debug: false,
   }),
 
    // how you want your code to be optimized

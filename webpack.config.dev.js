@@ -22,6 +22,14 @@ const webpackDevOutput = {
 // Merges webpackDevOutput and webpackConfig.output
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 
+webpackConfig.devServer = {
+  clientLogLevel: "error",
+  compress: true,
+  noInfo: true,
+  quiet: true,
+  stats: "errors-only",
+};
+
 // This is your testing container, we did
 // that for you, so you don't need to, if
 // you need to change the container template
