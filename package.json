@@ -52,6 +52,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.28.0",
+    "image-loader": "0.0.1",
     "image-webpack-loader": "^3.3.0",
     "jest-cli": "^19.0.2",
     "jsonfile": "^2.4.0",
