@@ -11,6 +11,10 @@ import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
+// ----------------------------------------------------------
+//  CONSTANT DECLARATION
+// ----------------------------------------------------------
+
 const S3_DEPLOY = config.get('s3Deploy') || 'false';
 const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
 
@@ -22,6 +26,41 @@ const webpackProdOutput = {
   filename: 'assets/[name]-[hash].js',
   chunkFilename: "assets/[id].[hash].js",
 };
+
+// This section is for common chunk behavior
+// do we need to exclude css from this rule
+const optimizationMinChunks = config.get('optimization.cssExclusion') ?
+  function(module, count) {
+    return module.resource &&
+      !(/\.css/).test(module.resource) &&
+      count >= config.get('optimization.commonMinCount');
+  }
+  :
+  config.get('optimization.commonMinCount');
+
+const html = config.get('html');
+
+// Please configure this section if you plan
+// to deploy the generated html to production.
+// I don't mind you name your page as Retro
+// if you want to ...
+const htmlPlugins = html.map((page) =>
+  new HtmlWebpackPlugin({
+    title: page.title,
+    template: `src/assets/template/${page.template}`,
+    inject: 'body',
+    filename: page.filename,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+    }
+  })
+);
+
+// ----------------------------------------------------------
+//  Extending Webpack Configuration
+// ----------------------------------------------------------
 
 // Merges webpackProdOutput and webpackConfig.output
 webpackConfig.output = Object.assign(webpackConfig.output, webpackProdOutput);
@@ -87,25 +126,18 @@ if (IS_S3_DEPLOY) {
   webpackConfig.output.publicPath = '/';
 }
 
-const html = config.get('html');
+if(config.get('optimization.analyzeMode') === true) {
+  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-// Please configure this section if you plan
-// to deploy the generated html to production.
-// I don't mind you name your page as Retro
-// if you want to ...
-const htmlPlugins = html.map((page) =>
-  new HtmlWebpackPlugin({
-    title: page.title,
-    template: `src/assets/template/${page.template}`,
-    inject: 'body',
-    filename: page.filename,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      conservativeCollapse: true,
-    }
-  })
-);
+  webpackConfig.plugins = webpackConfig.plugins.concat(
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      analyzerHost: 'localhost',
+      analyzerPort: config.get('optimization.analyze.port'),
+      openAnalyzer: true,
+    })
+  );
+}
 
 webpackConfig.plugins.push(
   new webpack.DefinePlugin({
@@ -126,7 +158,8 @@ webpackConfig.plugins.push(
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'common',
-    filename: 'assets/common-[hash].js'
+    filename: 'assets/common-[hash].js',
+    minChunks: optimizationMinChunks,
   }),
   new SaveAssetsJson({
     path: path.join(__dirname, 'docroot'),

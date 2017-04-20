@@ -1,10 +1,22 @@
 {
+  "env": "default",
   "publicPath": "localhost:8080",
   "host": "localhost",
   "port": "8080",
-  "s3Deploy": false,
   "jsSourcePath": "src/js",
-  "env": "default",
+  "s3Deploy": false,
+  "s3": {
+    "bucket": "if-any",
+    "defaultCDNBase": "if-any"
+  },
+  "optimization": {
+    "commonMinCount": 3,
+    "cssExclusion": true,
+    "analyzeMode": true,
+    "analyze": {
+      "port": 8888
+    }
+  },
   "html": [
     {
 			"name": "homepage",

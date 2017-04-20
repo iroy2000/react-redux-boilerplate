@@ -138,6 +138,34 @@ React Redux Boilerplate supports production preview, which means that you can ru
 
 That's very easy, isn't it?
 
+### Production Optimization and Bundle Analysis
+
+For optimization, you can tweak the `config` under the following.  This optimization covers basic use case, feel free to make modification to fit your needs.
+
+```
+  "optimization": {
+    "commonMinCount": 3,   // how many times a module is used before we consider it a common module ?
+    "cssExclusion": true,  // do you want to exclude css from this optimization ?
+    ...
+  },
+```
+
+This boilerplate shipped with Production Bundle Analysis, it gives you data visualization on helping you to optimize the production assets
+
+![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
+
+You can turn `on` and `off` the analysis feature
+
+```
+  "optimization": {
+    ...
+    "analyzeMode": true,   // changing to false will turn it off
+    "analyze": {
+      "port": 8888  // it will open localhost:8888 and show your bundle analysis
+    }
+  },
+```
+
 
 ### Difference between `npm run dev` v.s. `npm run build`
 
@@ -279,12 +307,15 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## Knowledge Base Reading
 
-
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Redux](http://redux.js.org/)
-* [redux-cli documentation](https://github.com/SpencerCDixon/redux-cli)
+* [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
+* [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
+* [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
+* [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
+* [Webpack how-to](https://github.com/petehunt/webpack-howto)
+* [Webpack - The Confusing Part](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
 * [Lazy Loading and Code Split for React Route](https://github.com/webpack/react-proxy-loader)
-* [Learning SASS](http://sass-lang.com/)
 * [Learning PostCSS](https://github.com/postcss/postcss)
 * [Jest = Awesome JS Testing Framework](https://facebook.github.io/jest/docs/tutorial-react.html)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
