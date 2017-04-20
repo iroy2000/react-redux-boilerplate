@@ -155,6 +155,8 @@ This boilerplate shipped with `Production Bundle Analysis` tool which will give 
 
 For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
 
+The tool is to help you understand what is your bundle looks like and what is include in your bundle. 
+
 ![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
 
 You can turn `on` and `off` the analysis feature
