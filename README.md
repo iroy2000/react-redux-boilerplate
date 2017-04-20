@@ -151,7 +151,9 @@ For optimization, you can tweak the `config` under the following.  This optimiza
   },
 ```
 
-This boilerplate shipped with Production Bundle Analysis, it gives you data visualization on helping you to optimize the production assets
+This boilerplate shipped with Production Bundle Analysis, it gives you data visualization on helping you to optimize the production assets.
+
+For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
 
 ![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
 
