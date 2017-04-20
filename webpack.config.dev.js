@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import precss from 'precss';
-import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
 import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import postcssCssnext from 'postcss-cssnext';
@@ -36,13 +35,13 @@ webpackConfig.devServer = {
 // go to the file in `template` below
 const html = config.get('html');
 
-const htmlPlugins = html.map((page) => 
-	new HtmlWebpackPlugin({
-		title: page.title,
-		template: `src/assets/template/${page.template}`,
-		inject: 'body',
-		filename: page.filename,
-	})
+const htmlPlugins = html.map((page) =>
+  new HtmlWebpackPlugin({
+    title: page.title,
+    template: `src/assets/template/${page.template}`,
+    inject: 'body',
+    filename: page.filename,
+  })
 );
 
 webpackConfig.plugins.push(
@@ -74,8 +73,6 @@ webpackConfig.plugins.push(
   })
 );
 
-webpackConfig.plugins = webpackConfig.plugins.concat(htmlPlugins);
-
 webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,
   use: [
@@ -90,6 +87,7 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
       loader: 'postcss-loader',
       options: {
         sourceMap: true,
+        // https://github.com/postcss/postcss-loader/issues/92
         plugins: () => [
           precss(),
           postcssNested(),
@@ -103,6 +101,8 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
     },
   ],
 });
+
+webpackConfig.plugins = webpackConfig.plugins.concat(htmlPlugins);
 
 webpackConfig.devtool = 'cheap-module-eval-source-map';
 

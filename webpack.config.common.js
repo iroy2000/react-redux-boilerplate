@@ -9,10 +9,9 @@ import fs from 'fs';
 
 import { SHOULD_BUILD } from './bin/shouldBuild';
 
-
 // trace which loader is deprecated
 // feel free to remove that if you don't need this feature
-process.traceDeprecation = true;
+process.traceDeprecation = false;
 
 // Please read the following link if
 // you have no idea how to use this feature
@@ -43,13 +42,24 @@ const COMMON_LOADERS = [
         }
       },
       {
-        loader: 'image-loader',
+        loader: 'image-webpack-loader',
         options: {
-          bypassOnDebug: true,
-          optimizationLevel: 7,
-          interlaced: false,
+          query: {
+            mozjpeg: {
+              progressive: true,
+            },
+            gifsicle: {
+              interlaced: true,
+            },
+            optipng: {
+              optimizationLevel: 7,
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 4
+            }
+          },
         }
-
       }
     ],
   }, {
@@ -132,15 +142,15 @@ export default {
     rules: COMMON_LOADERS,
   },
   node: {
-		console: true,
-		fs: 'empty',
-		net: 'empty',
-		tls: 'empty'
-	},
-	externals: {
-		console:true,
-		fs:'{}',
-		tls:'{}',
-		net:'{}'
-	},
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
+  externals: {
+    console:true,
+    fs:'{}',
+    tls:'{}',
+    net:'{}'
+  },
 };

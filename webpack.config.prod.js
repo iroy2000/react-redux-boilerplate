@@ -5,7 +5,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import SaveAssetsJson from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import precss from 'precss';
-import autoprefixer from 'autoprefixer';
 import postcssNested from 'postcss-nested';
 import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import postcssCssnext from 'postcss-cssnext';
@@ -94,18 +93,18 @@ const html = config.get('html');
 // to deploy the generated html to production.
 // I don't mind you name your page as Retro
 // if you want to ...
-const htmlPlugins = html.map((page) => 
+const htmlPlugins = html.map((page) =>
   new HtmlWebpackPlugin({
-		title: page.title,
-		template: `src/assets/template/${page.template}`,
-		inject: 'body',
-		filename: page.filename,
-		minify: {
-			removeComments: true,
-			collapseWhitespace: true,
-			conservativeCollapse: true,
-		}
-	})
+    title: page.title,
+    template: `src/assets/template/${page.template}`,
+    inject: 'body',
+    filename: page.filename,
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      conservativeCollapse: true,
+    }
+  })
 );
 
 webpackConfig.plugins.push(
@@ -119,8 +118,7 @@ webpackConfig.plugins.push(
     minimize: true,
     debug: false,
   }),
-
-   // how you want your code to be optimized
+  // how you want your code to be optimized
   // all configurable
   new webpack.IgnorePlugin(/un~$/),
   new webpack.optimize.UglifyJsPlugin({
