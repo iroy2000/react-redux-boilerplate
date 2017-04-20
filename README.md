@@ -30,7 +30,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 
 * React
 * Redux
-* Webpack
+* Webpack 2
 * Reselect
 * ES6 
 * ImmutableJS
@@ -38,6 +38,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint integrated
 * Integrated with fancy cli dashboard
+* Production bundle analyzing capability
 * Hot Module Reload during development
 * CSS / HTML / JS minification / Image optimization when built
 * JS code duplication removal during built
