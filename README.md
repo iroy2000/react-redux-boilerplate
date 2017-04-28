@@ -1,6 +1,14 @@
-### News
+### Updates
 
+__4 / 13 / 2017__
 We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
+
+
+__4 / 28 / 2017__
+We upgrade our dependencies packages to the latest, and we have updated our example to reflect those changes. It means you now can enjoy the new React, Redux, React Router features. 
+
+We also adding Media Query `jsx` support.
+
 
 ---
 
@@ -238,6 +246,34 @@ __Just remember__, `.env` file suppose to keep your secret, and prevent your fro
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
+### Media Query in jsx
+
+You can now use the following syntax in your jsx, and your page resources won't until the media query is a matched
+
+```js
+          // simple media query
+          // ----------------------
+          <MediaQuery query='(min-device-width: 1224px)'>
+            <div>
+              simple media query
+            </div>
+          </MediaQuery>
+          
+          // nested media query
+          // ----------------------
+          <MediaQuery query='(min-device-width: 1224px)'>
+            <MediaQuery query='(orientation: portrait)'>
+              <div>
+                nested media query : portrait mode
+              </div>
+            </MediaQuery>
+            <MediaQuery query='(orientation: landscape)'>
+              <div>
+                nested media query : landscape mode
+              </div>
+            </MediaQuery>
+          </MediaQuery>
+```
 
 
 ## Developing Template
@@ -307,7 +343,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 
 * __What is B.E.M style  ?__
-    * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable.
+    * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable. Please read the links below for getting deeper insight of it. 
 
 
 ## Knowledge Base Reading
@@ -325,6 +361,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Jest = Awesome JS Testing Framework](https://facebook.github.io/jest/docs/tutorial-react.html)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
 * [B.E.M 101](https://css-tricks.com/bem-101/)
+* [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 
 ## How to Contribute
