@@ -6,7 +6,7 @@
  ---------------------- */
 .example__output {
   margin-top:36px;
-  background: none;
+  background-color: $light-teal;
   color: brown;
   font-size: 0.8em;
 }

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
+import { HashRouter as Router } from 'react-router-dom';
 
-export default class Root extends React.Component {
+export default class Root extends Component {
   get content() {
     return (
       <Router history={this.props.history}>
@@ -21,7 +22,7 @@ export default class Root extends React.Component {
 }
 
 Root.propTypes = {
-  history: React.PropTypes.object.isRequired,
-  routes: React.PropTypes.element.isRequired,
-  store: React.PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  routes: PropTypes.element.isRequired,
+  store: PropTypes.object.isRequired,
 };
