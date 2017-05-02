@@ -1,12 +1,13 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.8.14",
+  "version": "0.8.19",
   "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -t dashboard -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
     "build:release": "NODE_ENV=release node bin/commands.js build",
-    "test": "jest --verbose",
+    "clean": "rimraf build",
+    "test": "jest --verbose --no-cache",
     "lint": "node bin/commands.js lint"
   },
   "repository": {
@@ -16,6 +17,10 @@
   "homepage": "https://github.com/iroy2000/react-redux-boilerplate",
   "author": "Roy Yu <iroy2000@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "npm": ">=3.10.0",
+    "node": ">=6.9.0"
+  },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
     "babel-cli": "^6.24.1",
@@ -61,6 +66,7 @@
     "precss": "^1.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^4.1.1",
+    "rimraf": "^2.6.1",
     "shelljs": "^0.7.7",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1",
@@ -87,7 +93,9 @@
     "reselect": "^3.0.0"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "transform": {
+      ".*": "<rootDir>/preprocessor.js"
+    },
     "automock": true,
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx|json)$",
     "moduleFileExtensions": [
@@ -97,12 +105,13 @@
     ]
   },
   "keywords": [
-    "React",
-    "Redux",
+    "react",
+    "redux",
     "webpack",
-    "webpack 2",
-    "PostCSS",
-    "Babel",
-    "ESLint"
+    "webpack-dev-server",
+    "postcss",
+    "jest",
+    "boilerplate",
+    "hmr"
   ]
 }
