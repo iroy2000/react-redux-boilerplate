@@ -1,13 +1,14 @@
 ### Updates
 
-__4 / 13 / 2017__
-We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
-
-
 __4 / 28 / 2017__
+
 We upgrade our dependencies packages to the latest, and we have updated our example to reflect those changes. It means you now can enjoy the new React, Redux, React Router features. 
 
 We also adding Media Query `jsx` support.
+
+__4 / 13 / 2017__
+
+We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
 
 
 ---
@@ -65,6 +66,7 @@ If you are interested, please read the `package.json` for all installed modules 
 1. [Installation](#installation)
 1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
+1. [Production Readiness](#production-readiness)
 1. [Configuration](#configuration)
 1. [Developing Template](#developing-template)
 1. [Integration Note](#integration-note)
@@ -120,6 +122,7 @@ $ npm run dev    # build and watch, but javascript not minified
 $ npm run build  # build a minified production version
 $ npm run lint   # linting
 $ npm run test   # run test
+$ npm run clean  # it runs before each build, so you don't need to
 ```
 
 
@@ -137,12 +140,12 @@ After you check out the repo, I will usually do the following :
 
 That's very easy, isn't it?
 
-### Production Preview
+## Production Readiness
 
 React Redux Boilerplate supports production preview, which means that you can run the production build job and see how it looks like in production.
 
-1. Run `npm run build` and wait until it is done (it'll take awhile)
-2. Go to the project `docroot`, you will see a `index.html`
+1. Run `npm run build` and wait until it is done
+2. Go to the project `docroot`, you will see a `index.html`  (template is customizable, please read `Developing Template` section)
 3. Open that `index.html` in your browser, and that is the build version that just got generated
 
 That's very easy, isn't it?
@@ -159,7 +162,7 @@ For optimization, you can tweak the `config` under the following.  This optimiza
   },
 ```
 
-This boilerplate shipped with `Production Bundle Analysis` tool which will give you insight to optimize the production assets.
+This boilerplate shipped with `Production Bundle Analysis` tool which is `turn on` by default and will give you insight to optimize the production assets.
 
 For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
 
@@ -191,7 +194,7 @@ Please let me know if you have better work flow suggestion!!
 ## Configuration
 React Redux Boilerplate has two configuration strategies, one is for normal configuration, the other one is for sensitive information that you don't want others to know. 
 
-### Configuring your application
+### Configuring application
 
 If you look at folder `config`, there are four files
 
@@ -235,18 +238,30 @@ AWS_CDN_URL=YOUR_AWS_CDN_URL
 
 ```
 
-And your in node application or webpack config, those key/value pair will be available inside `process.env` ( e.g. `process.env.AWS_ACCESS_KEY` ).
+And your in node application or webpack config, those key/value pair will inject into `process.env` ( e.g. `process.env.AWS_ACCESS_KEY` ).
 
 __Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there. 
 
 However, with `.env`, you can create a ready to use list of environment variables for your different environment.  You can even have another service to generate the `.env` file before building the project, but in terms of how to achieve that, it is out of scope of this documentation.
 
-__Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! 
-
+__Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! `DO NOT` check in `.env` into your source repo !!
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
-### Media Query in jsx
+
+## Developing Template
+
+The `docroot/index.html` is a generated artifact. If look at our sample template at `src/assets/template/_default.html`, the `docroot/index.html` is generated from that file.
+
+We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin) to generate the `docroot/index.html`.
+
+* If you are developing a single page application, you probably can reuse that file or customize it.
+* If you are building multiple pages application, please read the [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin) documentation for template development and how to configure it.
+
+**[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
+
+
+## Media Query in jsx
 
 You can now use the following syntax in your jsx, and your page resources won't until the media query is a matched
 
@@ -275,17 +290,6 @@ You can now use the following syntax in your jsx, and your page resources won't 
           </MediaQuery>
 ```
 
-
-## Developing Template
-
-The `docroot/index.html` is a generated artifact. If look at our sample template at `src/assets/template/_default.html`, the `docroot/index.html` is generated from that file.
-
-We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin) to generate the `docroot/index.html`.
-
-* If you are developing a single page application, you probably can reuse that file or customize it.
-* If you are building multiple pages application, please read the [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin) documentation for template development and how to configure it.
-
-**[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
 
 ## Integration Note
 

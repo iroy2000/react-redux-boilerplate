@@ -15,7 +15,7 @@ switch (option) {
     shell.exec(`HOST=${host} PORT=${port} webpack-dev-server --hot --progress --inline --colors --content-base ./docroot`);
     break;
   case 'build':
-    shell.exec(`rm -rf docroot/assets && webpack --progress`);
+    shell.exec(`rimraf docroot && webpack --progress`);
     break;
   default:
     // If the app type is invalid, stop execution of the file.

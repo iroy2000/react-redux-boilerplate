@@ -6,7 +6,7 @@
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -t dashboard -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
     "build:release": "NODE_ENV=release node bin/commands.js build",
-    "clean": "rimraf build",
+    "clean": "rimraf docroot",
     "test": "jest --verbose --no-cache",
     "lint": "node bin/commands.js lint"
   },
