@@ -1,10 +1,16 @@
 ### Updates
 
+__6 / 20 / 2017__
+
+Webpack 3 just announced yesterday, we are so excited about it, thus we also upgraded this boilerplate to use `Webpack 3`.
+
+If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
+
 __4 / 28 / 2017__
 
 We upgrade our dependencies packages to the latest, and we have updated our example to reflect those changes. It means you now can enjoy the new React, Redux, React Router features. 
 
-We also adding Media Query `jsx` support.
+We also adding Media Query `jsx` support.  But if you don't like it, go to `package.json` and remove `react-responsive` in `dependencies` section.
 
 __4 / 13 / 2017__
 
