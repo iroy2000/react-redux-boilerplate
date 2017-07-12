@@ -6,12 +6,6 @@ Webpack 3 just announced yesterday, we are so excited about it, thus we also upg
 
 If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
 
-__4 / 28 / 2017__
-
-We upgrade our dependencies packages to the latest, and we have updated our example to reflect those changes. It means you now can enjoy the new React, Redux, React Router features. 
-
-We also adding Media Query `jsx` support.  But if you don't like it, go to `package.json` and remove `react-responsive` in `dependencies` section.
-
 __4 / 13 / 2017__
 
 We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
@@ -267,36 +261,6 @@ We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack
 **[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
 
 
-## Media Query in jsx
-
-You can now use the following syntax in your jsx, and your page resources won't until the media query is a matched
-
-```js
-          // simple media query
-          // ----------------------
-          <MediaQuery query='(min-device-width: 1224px)'>
-            <div>
-              simple media query
-            </div>
-          </MediaQuery>
-          
-          // nested media query
-          // ----------------------
-          <MediaQuery query='(min-device-width: 1224px)'>
-            <MediaQuery query='(orientation: portrait)'>
-              <div>
-                nested media query : portrait mode
-              </div>
-            </MediaQuery>
-            <MediaQuery query='(orientation: landscape)'>
-              <div>
-                nested media query : landscape mode
-              </div>
-            </MediaQuery>
-          </MediaQuery>
-```
-
-
 ## Integration Note
 
 
@@ -373,6 +337,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [B.E.M 101](https://css-tricks.com/bem-101/)
 * [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
+* [React Responsive](https://github.com/contra/react-responsive)
 
 ## How to Contribute
 
