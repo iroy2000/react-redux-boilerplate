@@ -31,7 +31,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 
 `React Redux Boilerplate` is for developing client side application. So,  if you are looking for: 
 
-* `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
+* `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
 
 
