@@ -1,5 +1,11 @@
 ### Updates
 
+__7 / 15 / 2017__
+
+We integrated Storybook into this project, now you can create your UI testing and documentation with awesomeness!
+
+We also added Enzyme to make React unit testing easier :)
+
 __6 / 20 / 2017__
 
 Webpack 3 just announced yesterday, we are so excited about it, thus we also upgraded this boilerplate to use `Webpack 3`.
@@ -15,7 +21,7 @@ We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing t
 
 ### Preface
 
-React Redux Boilerplate is a __PRODUCTION ready__ boilerplate for frontend client development ( we welcome pull request ),  __and also we are using that as our recruiting purpose__. 
+React Redux Boilerplate is a full fledged __PRODUCTION READY__ boilerplate for React client side development ( we welcome pull request ),  __and also we are using this project as our recruiting purpose__. 
 
 The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team, and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
 
@@ -29,7 +35,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 
 `React Redux Boilerplate` is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.
 
-`React Redux Boilerplate` is for developing client side application. So,  if you are looking for: 
+`React Redux Boilerplate` is for developing React client side application. So,  if you are looking for: 
 
 * `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
@@ -39,14 +45,16 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 
 * React
 * Redux
-* Webpack 2
+* Webpack 3
 * Reselect
 * ES6 
 * ImmutableJS
-* PostCSS ( it support CSS modules, but we also recommended B.E.M style )
+* PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Type Checking with Babel Type Check ( Flow syntax )
-* ESLint integrated
+* Integrated with Jest and Enzyme for Unit testing
+* Integrated with storybook for UI testing / documentation
 * Integrated with fancy cli dashboard
+* ESLint integrated
 * Production bundle analyzing capability
 * Hot Module Reload during development
 * CSS / HTML / JS minification / Image optimization when built
@@ -118,11 +126,12 @@ If you see the landing page, it means you have set up everything successfully.
 
 
 ```sh
-$ npm run dev    # build and watch, but javascript not minified
-$ npm run build  # build a minified production version
-$ npm run lint   # linting
-$ npm run test   # run test
-$ npm run clean  # it runs before each build, so you don't need to
+$ npm run dev       # build and watch, but javascript not minified
+$ npm run build     # build a minified production version
+$ npm run lint      # linting
+$ npm run test      # run test
+$ npm run clean     # it runs before each build, so you don't need to
+$ npm run storybook # it starts storybook server
 ```
 
 
@@ -338,6 +347,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 * [React Responsive](https://github.com/contra/react-responsive)
+* [Storybook.JS](https://storybook.js.org/)
 
 ## How to Contribute
 
