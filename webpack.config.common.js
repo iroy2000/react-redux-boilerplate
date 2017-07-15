@@ -96,7 +96,7 @@ const COMMON_LOADERS = [
     ],
   },
   {
-    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    test: /\.[ot]tf(\?v=\d+\.\d+\.\d+)?$/,
     use: [
       {
         loader: 'url-loader',
@@ -111,7 +111,11 @@ const COMMON_LOADERS = [
     test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
     use: [
       {
-        loader: 'file-loader',
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          mimetype: 'application/vnd.ms-fontobject',
+        }
       }
     ],
   }

@@ -1,5 +1,3 @@
-/* TODO: import is not working
- ---------------------- */
 @import "configs/color";
 
 /* Example handler
@@ -9,4 +7,8 @@
   background-color: $light-teal;
   color: brown;
   font-size: 0.8em;
+}
+
+h2 {
+  font-family: Aspira;
 }

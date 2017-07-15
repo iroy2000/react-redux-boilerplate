@@ -1,14 +1,16 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.8.20",
+  "version": "0.8.30",
   "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -t dashboard -- node bin/commands.js dev",
     "build": "NODE_ENV=production node bin/commands.js build",
     "build:release": "NODE_ENV=release node bin/commands.js build",
     "clean": "rimraf docroot",
-    "test": "jest --verbose --no-cache",
-    "lint": "node bin/commands.js lint"
+    "test": "jest --no-cache",
+    "lint": "node bin/commands.js lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o docroot/doc"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "node": ">=6.9.0"
   },
   "devDependencies": {
+    "@storybook/react": "^3.1.8",
     "assets-webpack-plugin": "^3.5.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -47,6 +50,7 @@
     "css-loader": "^0.28.4",
     "debug": "^2.6.8",
     "dotenv": "^4.0.0",
+    "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-friendly-formatter": "^3.0.0",
@@ -56,6 +60,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
+    "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.3.1",
     "jest-cli": "^20.0.4",
     "jsonfile": "^3.0.1",
@@ -66,6 +71,7 @@
     "precss": "^1.4.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^4.1.1",
+    "react-test-renderer": "^15.6.1",
     "rimraf": "^2.6.1",
     "shelljs": "^0.7.8",
     "style-loader": "^0.18.2",
@@ -91,10 +97,12 @@
     "reselect": "^3.0.1"
   },
   "jest": {
-    "transform": {
-      ".*": "<rootDir>/preprocessor.js"
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css)$": "identity-obj-proxy"
     },
-    "automock": true,
+    "automock": false,
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx|json)$",
     "moduleFileExtensions": [
       "js",

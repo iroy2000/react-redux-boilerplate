@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
+
 import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
+import { Example } from '../../common/components/Example'
 
 require('../../../style/index.css');
 
@@ -25,21 +27,7 @@ class ExampleView extends Component {
   }
 
   render() {
-    const result = this.props.example.result ? this.props.example.result : null;
-
-    if (result && result.size && result.size > 0) {
-      return (
-
-          <div className="row example">
-            <pre className="col-md-12 example__output">
-              {JSON.stringify(result.toJS(), undefined, 2)}
-            </pre>
-          </div>
-
-
-      );
-    }
-    return <div />;
+    return <Example {...this.props } />
   }
 }
 
