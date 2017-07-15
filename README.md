@@ -1,3 +1,6 @@
+## Build Status
+[![linux build](https://api.travis-ci.org/iroy2000/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/iroy2000/react-redux-boilerplate)
+
 ### Updates
 
 __7 / 15 / 2017__
