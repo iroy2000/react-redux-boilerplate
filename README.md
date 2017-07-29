@@ -70,6 +70,8 @@ Advanced
 1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
 1. [Integration Note](#integration-note)
 1. [QA](#qa)
+
+Other
 1. [Knowledge Base Reading](#knowledge-base-reading)
 1. [How to Contribute](#how-to-contribute)
 1. [Updates](#updates)
@@ -321,22 +323,24 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * __What is B.E.M style  ?__
     * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable. Please read the links below for getting deeper insight of it. 
 
+# Other
 
 ## Knowledge Base Reading
 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
+* [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
 * [Redux](http://redux.js.org/)
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
-* [Redux Saga](https://redux-saga.js.org/)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
+* [Redux Saga](https://redux-saga.js.org/)
 * [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
 * [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
+* [ImmutableJS for beginners](https://github.com/iroy2000/immutablejs-for-beginners)
 * [Webpack how-to](https://github.com/petehunt/webpack-howto)
 * [Webpack - The Confusing Part](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
 * [Lazy Loading and Code Split for React Route](https://github.com/webpack/react-proxy-loader)
 * [Learning PostCSS](https://github.com/postcss/postcss)
 * [Jest = Awesome JS Testing Framework](https://facebook.github.io/jest/docs/tutorial-react.html)
-* [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
 * [B.E.M 101](https://css-tricks.com/bem-101/)
 * [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
