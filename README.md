@@ -25,28 +25,32 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 ### Features / Benefits
 
+Development
+
 * React
 * Redux
+* ES6 / ES7
+* ImmutableJS
+* PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Webpack 3
 * Reselect
 * Saga
-* ES6 
-* ImmutableJS
-* PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Type Checking with Babel Type Check ( Flow syntax )
-* Integrated with Jest and Enzyme for Unit testing
-* Integrated with storybook for UI testing / documentation
-* Integrated with fancy cli dashboard
-* ESLint integrated
+* ESLint for syntax check
+* Jest and Enzyme for Unit testing
+* Storybook for UI testing / documentation
+
+Workflow
+
 * Production bundle analyzing capability
 * Hot Module Reload during development
 * CSS / HTML / JS minification / Image optimization when built
-* JS code duplication removal during built
+* JS code duplication removal during built ( tree shaking capability )
+* Built-in fancy cli dashboard for reporting run time compile status
 * Built-in process to deploy files directly to S3 ( optional )
 * Built-in lightweight config system
-* Built-in support for multiple device concurrent debugging and easy network sharing options with your peers from your laptop.
-* When you build it, it will optimize JS, HTML and image assets ... etc, for you ( production quality )
-* Build system functionality are powerful and easy to configure ( webpack )
+* Built-in support for multiple device concurrent debugging.
+* Highly configurable build and workflow system ( webpack )
 * Minimal setup time and allow you to invest into things that matters
 * Everything automatic, you just care about development, nothing else \o/ Yeah ?!
 
