@@ -1,27 +1,6 @@
 ## Build Status
 [![linux build](https://api.travis-ci.org/iroy2000/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/iroy2000/react-redux-boilerplate)
 
-### Updates
-
-__7 / 15 / 2017__
-
-We integrated Storybook into this project, now you can create your UI testing and documentation with awesomeness!
-
-We also added Enzyme to make React unit testing easier :)
-
-__6 / 20 / 2017__
-
-Webpack 3 just announced yesterday, we are so excited about it, thus we also upgraded this boilerplate to use `Webpack 3`.
-
-If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
-
-__4 / 13 / 2017__
-
-We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
-
-
----
-
 ### Preface
 
 React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerplate for building complex React / Redux application.
@@ -75,16 +54,23 @@ If you are interested, please read the `package.json` for all installed modules 
 
 ## Table of Contents
 
+Basic
 1. [Installation](#installation)
 1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
 1. [Production Readiness](#production-readiness)
 1. [Configuration](#configuration)
+
+Advanced
 1. [Developing Template](#developing-template)
+1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
 1. [Integration Note](#integration-note)
 1. [QA](#qa)
 1. [Knowledge Base Reading](#knowledge-base-reading)
 1. [How to Contribute](#how-to-contribute)
+1. [Updates](#updates)
+
+# Basic
 
 ## Installation
 
@@ -163,39 +149,6 @@ React Redux Boilerplate supports production preview, which means that you can ru
 
 That's very easy, isn't it?
 
-### Production Optimization and Bundle Analysis
-
-For optimization, you can tweak the `config` under the following.  This optimization covers basic use case, feel free to make modification to fit your needs.
-
-```
-  "optimization": {
-    "commonMinCount": 3,   // how many times a module is used before we consider it a common module ?
-    "cssExclusion": true,  // do you want to exclude css from this optimization ?
-    ...
-  },
-```
-
-This boilerplate shipped with `Production Bundle Analysis` tool which is `turn on` by default and will give you insight to optimize the production assets.
-
-For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
-
-The tool is to help you understand what your bundle looks like and what is included in your bundle. 
-
-![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
-
-You can turn `on` and `off` the analysis feature
-
-```
-  "optimization": {
-    ...
-    "analyzeMode": true,   // changing to false will turn it off
-    "analyze": {
-      "port": 8888  // it will open localhost:8888 and show your bundle analysis
-    }
-  },
-```
-
-
 ### Difference between `npm run dev` v.s. `npm run build`
 
 `npn run dev` is best to do JS / CSS only changes, and it comes with live reload functionality
@@ -261,6 +214,7 @@ __Just remember__, `.env` file suppose to keep your secret, and prevent your fro
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
+# Advanced
 
 ## Developing Template
 
@@ -273,6 +227,37 @@ We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack
 
 **[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
 
+## Production Optimization and Bundle Analysis
+
+For optimization, you can tweak the `config` under the following.  This optimization covers basic use case, feel free to make modification to fit your needs.
+
+```
+  "optimization": {
+    "commonMinCount": 3,   // how many times a module is used before we consider it a common module ?
+    "cssExclusion": true,  // do you want to exclude css from this optimization ?
+    ...
+  },
+```
+
+This boilerplate shipped with `Production Bundle Analysis` tool which is `turn on` by default and will give you insight to optimize the production assets.
+
+For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
+
+The tool is to help you understand what your bundle looks like and what is included in your bundle. 
+
+![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
+
+You can turn `on` and `off` the analysis feature
+
+```
+  "optimization": {
+    ...
+    "analyzeMode": true,   // changing to false will turn it off
+    "analyze": {
+      "port": 8888  // it will open localhost:8888 and show your bundle analysis
+    }
+  },
+```
 
 ## Integration Note
 
@@ -356,10 +341,27 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## How to Contribute
 
-
 We welcome anyone to send us __pull request__ to improve this boilerplate, the goal is to make it better from time to time and we all can learn from it.
 
 This boilerplate will be maintained separately.  So please do not check in any business logic to it unless it is for example purpose. 
+
+## Updates
+
+__7 / 15 / 2017__
+
+We integrated Storybook into this project, now you can create your UI testing and documentation with awesomeness!
+
+We also added Enzyme to make React unit testing easier :)
+
+__6 / 20 / 2017__
+
+Webpack 3 just announced yesterday, we are so excited about it, thus we also upgraded this boilerplate to use `Webpack 3`.
+
+If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
+
+__4 / 13 / 2017__
+
+We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
 
 ## License
 In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care. 
