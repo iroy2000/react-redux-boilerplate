@@ -231,7 +231,7 @@ If you look at the dashboard, you should see some messages like below ( Note: yo
 
 ![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353275/share_screen_g3ofe1.png)
 
-For example, you can enter the address into multiple real device at the same time and you can test those devices all at the same time, like the following :-
+For example, you can enter the address into multiple real devices and you can test those devices all at the same time, like the following :-
 
 ![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353811/multiple_screen_d2b7fg.png)
 
