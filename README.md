@@ -66,6 +66,7 @@ Basic
 1. [Configuration](#configuration)
 
 Advanced
+1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
 1. [Developing Template](#developing-template)
 1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
 1. [Integration Note](#integration-note)
@@ -221,6 +222,18 @@ __Just remember__, `.env` file suppose to keep your secret, and prevent your fro
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
 # Advanced
+
+## Multiple Device Concurrent Debugging
+
+React Redux Boilerpalate has built in support for multiple device concurrent access by entering the ip address provide.
+
+If you look at the dashboard, you should see some messages like below ( Note: your ip will be different )
+
+![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353275/share_screen_g3ofe1.png)
+
+For example, you can enter the address into multiple real device at the same time and you can test those devices all at the same time, like the following :-
+
+![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353811/multiple_screen_d2b7fg.png)
 
 ## Developing Template
 
