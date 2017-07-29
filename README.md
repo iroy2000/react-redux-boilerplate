@@ -363,4 +363,3 @@ This boilerplate will be maintained separately.  So please do not check in any b
 
 ## License
 In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care. 
-

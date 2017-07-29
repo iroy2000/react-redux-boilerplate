@@ -1,11 +1,11 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.8.32",
+  "version": "0.8.33",
   "description": "React Redux Boilerplate is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dashboard -p 3300 -c red -t dashboard -- node bin/commands.js dev",
-    "build": "NODE_ENV=production node bin/commands.js build",
-    "build:release": "NODE_ENV=release node bin/commands.js build",
+    "dev": "cross-env NODE_ENV=development webpack-dashboard -p 3300 -c red -t dashboard -- node bin/commands.js dev",
+    "build": "cross-env NODE_ENV=production node bin/commands.js build",
+    "build:release": "cross-env NODE_ENV=release node bin/commands.js build",
     "clean": "rimraf docroot",
     "test": "jest --no-cache",
     "lint": "node bin/commands.js lint",
@@ -47,6 +47,7 @@
     "colors": "^1.1.2",
     "concurrently": "^3.5.0",
     "config": "^1.26.1",
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "debug": "^2.6.8",
     "dotenv": "^4.0.0",
@@ -93,7 +94,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.1",
     "redux-actions": "^2.2.1",
-    "redux-promised": "^1.3.0",
+    "redux-saga": "^0.15.6",
     "reselect": "^3.0.1"
   },
   "jest": {
