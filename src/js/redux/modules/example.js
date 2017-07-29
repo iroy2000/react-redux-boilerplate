@@ -1,34 +1,27 @@
-import { handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
-import { resolve } from 'redux-promised';
 
 const GET_EXAMPLE = 'reto/example/GET_EXAMPLE';
+const UPDATE_EXAMPLE = 'reto/example/UPDATE_EXAMPLE';
 
 export const constants = {
   GET_EXAMPLE,
+  UPDATE_EXAMPLE,
 };
 
-const getAwesomeCode = () => ({
-  type: GET_EXAMPLE,
-  payload: new Promise((resolved) => {
-    const result = {
-      title: 'Everything is Awesome',
-      description: __CONFIG__.description,
-      source: 'This message is coming from Redux',
-    };
-
-    resolved({
-      result,
-    });
-  }),
-});
+// ------------------------------------
+// Actions
+// ------------------------------------
+export const getAwesomeCode = createAction(GET_EXAMPLE, () => ({}))
+export const updateExample = createAction(UPDATE_EXAMPLE, (result) => ({ result }))
 
 export const actions = {
   getAwesomeCode,
+  updateExample,
 };
 
 export default handleActions({
-  [resolve(GET_EXAMPLE)]: (state, { payload }) =>
+  [UPDATE_EXAMPLE]: (state, { payload }) =>
     state.merge({
       ...payload,
     }),

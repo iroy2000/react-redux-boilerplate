@@ -1,4 +1,4 @@
-import promiseMiddleware from 'redux-promised';
+import createSagaMiddleware from 'redux-saga'
 import { routerMiddleware } from 'react-router-redux';
 import {
   applyMiddleware,
@@ -6,6 +6,7 @@ import {
   createStore,
 } from 'redux';
 
+import sagas from './sagas'
 import rootReducer from './rootReducers';
 
 // Redux DevTools Extension for Chrome and Firefox
@@ -14,8 +15,10 @@ const reduxDevTool = () => {
   typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f;
 };
 
-export default function configureStore(initialState: Object, history: Object) {
-  const middleware = applyMiddleware(promiseMiddleware, routerMiddleware(history));
+export default function configureStore(initialState, history) {
+  const sagaMiddleware = createSagaMiddleware()
+
+  const middleware = applyMiddleware(sagaMiddleware, routerMiddleware(history));
 
   const composedStoreEnhancer = compose(
     middleware, reduxDevTool()
@@ -25,11 +28,11 @@ export default function configureStore(initialState: Object, history: Object) {
     rootReducer, initialState
   );
 
+  sagaMiddleware.run(sagas)
+
   if (module.hot) {
     module.hot.accept('./rootReducers', () => {
-      const nextRootReducer = require('./rootReducers').default;
-
-      store.replaceReducer(nextRootReducer);
+      store.replaceReducer(require('./rootReducers'));
     });
   }
 
