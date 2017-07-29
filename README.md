@@ -24,13 +24,13 @@ We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing t
 
 ### Preface
 
-React Redux Boilerplate is a full fledged __PRODUCTION READY__ boilerplate for React client side development ( we welcome pull request ),  __and also we are using this project as our recruiting purpose__. 
+React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerplate for building complex React / Redux application,  __even though we put this project in github purely as our recruiting purpose for our team__. 
 
 The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team, and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
 
 If you are interested in working with us, feel free to send a message to [iroy2000](https://www.linkedin.com/in/iroy2000).
 
-__Note:__ This boilerplate is not to show case how to develop in React / Redux ( and there are tons of tutorials available online ), it is a boilerplate that hook everything up for you that you can develop on, so you won't see complicated example here. 
+__Note:__ This boilerplate is not to show case how to code in React / Redux, it is a boilerplate that hook everything up for you to develop a complex React / Redux project. And if you just want to learn React, we don't have complicated code example here and this boilerplate might be too complicated for your need. 
 
 ---
 
@@ -50,6 +50,7 @@ __Note:__ This boilerplate is not to show case how to develop in React / Redux (
 * Redux
 * Webpack 3
 * Reselect
+* Saga
 * ES6 
 * ImmutableJS
 * PostCSS ( it support CSS modules, and we recommended B.E.M style )
@@ -337,6 +338,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Redux](http://redux.js.org/)
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
+* [Redux Saga](https://redux-saga.js.org/)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
 * [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
 * [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
