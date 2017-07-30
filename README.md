@@ -11,8 +11,6 @@ If you are interested in working with us, feel free to send a message to [iroy20
 
 __Note:__ This boilerplate is not to show case how to code in React / Redux, it is a boilerplate that hook everything up for you to develop a complex React / Redux project. And if you just want to learn React, we don't have complicated code example here and this boilerplate might be too complicated for your need. 
 
-![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501352649/react_redux_boilerplate_logo_oidsgv.png)
-
 # React Redux Boilerplate
 
 `React Redux Boilerplate` is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.
