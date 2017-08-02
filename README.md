@@ -11,7 +11,7 @@ If you are interested in working with us, feel free to send a message to [iroy20
 
 __Note:__ This boilerplate is not to show case how to code in React / Redux, it is a boilerplate that hook everything up for you to develop a complex React / Redux project. And if you just want to learn React, we don't have complicated code example here and this boilerplate might be too complicated for your need. 
 
-![React Redux Workflow Boilerplate Logo](http://res.cloudinary.com/search-engine/image/upload/v1501650001/logo_rrb_tt78bt.png)
+![React Redux Workflow Boilerplate Logo](http://res.cloudinary.com/search-engine/image/upload/v1501650214/logo_rrb_qmv4sp.png)
 
 # React Redux Boilerplate
 
