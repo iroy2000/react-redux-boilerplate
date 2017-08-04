@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Aspira";
-  src: url("Aspira-Regular.eot") format("embedded-opentype");
-  src: url("Aspira-Regular.otf") format("opentype");
+  font-family: "YourFavoriteFont";
+  src: url("YourFavoriteFont.eot") format("embedded-opentype");
+  src: url("YourFavoriteFont.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
