@@ -66,6 +66,7 @@ Basic
 1. [Configuration](#configuration)
 
 Advanced
+1. [Writing Unit Test](#writing-unit-test)
 1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
 1. [Developing Template](#developing-template)
 1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
@@ -222,6 +223,14 @@ __Just remember__, `.env` file suppose to keep your secret, and prevent your fro
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
 
 # Advanced
+
+## Writing Unit Test
+
+We are using Jest and Enzyme for unit testing, please refer to the Knowledge Base section below for more information.
+
+In order to add unit test, the current setup requires you to put your test under `__tests__` directory, and suffix it with "spec" or "test", for example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spec.js`.  
+
+We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related file separately, these two folders are safe to delete. 
 
 ## Multiple Device Concurrent Debugging
 
