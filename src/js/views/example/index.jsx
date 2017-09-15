@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
-import { Example } from '../../common/components/Example'
+import { Example } from '../../common/components/Example';
 
 require('../../../style/index.css');
 
@@ -27,7 +27,7 @@ class ExampleView extends Component {
   }
 
   render() {
-    return <Example {...this.props } />
+    return <Example {...this.props} />;
   }
 }
 

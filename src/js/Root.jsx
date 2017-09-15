@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 

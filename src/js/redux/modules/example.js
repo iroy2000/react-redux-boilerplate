@@ -12,8 +12,8 @@ export const constants = {
 // ------------------------------------
 // Actions
 // ------------------------------------
-export const getAwesomeCode = createAction(GET_EXAMPLE, () => ({}))
-export const updateExample = createAction(UPDATE_EXAMPLE, (result) => ({ result }))
+export const getAwesomeCode = createAction(GET_EXAMPLE, () => ({}));
+export const updateExample = createAction(UPDATE_EXAMPLE, result => ({ result }));
 
 export const actions = {
   getAwesomeCode,

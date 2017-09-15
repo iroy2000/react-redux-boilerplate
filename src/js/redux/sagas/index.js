@@ -1,8 +1,8 @@
-import { exampleSaga } from './exampleSaga'
+import { exampleSaga } from './exampleSaga';
 
 
-export default function* sagas () {
+export default function* sagas() {
   yield [
     ...exampleSaga,
-  ]
+  ];
 }

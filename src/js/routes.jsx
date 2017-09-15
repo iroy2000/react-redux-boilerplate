@@ -11,7 +11,7 @@ const Home = () => (
   <div>
     <h2>This is Homepage</h2>
   </div>
-)
+);
 
 module.exports = (
   <div>
@@ -22,9 +22,9 @@ module.exports = (
     <hr />
     <DemoApp>
       <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/example" component={ExampleRouteHandler}/>
-        <Route path="*" component={Home}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/example" component={ExampleRouteHandler} />
+        <Route path="*" component={Home} />
       </Switch>
     </DemoApp>
   </div>

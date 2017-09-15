@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 
 class Example extends PureComponent {
-  render () {
+  render() {
     const props = this.props;
     const result = props.example && props.example.result ? props.example.result : null;
 
@@ -9,9 +9,9 @@ class Example extends PureComponent {
       return (
 
         <div className="row example">
-            <pre className="col-md-12 example__output">
-              {JSON.stringify(result.toJS(), undefined, 2)}
-            </pre>
+          <pre className="col-md-12 example__output">
+            {JSON.stringify(result.toJS(), undefined, 2)}
+          </pre>
         </div>
 
 
@@ -21,4 +21,4 @@ class Example extends PureComponent {
   }
 }
 
-export default Example
+export default Example;

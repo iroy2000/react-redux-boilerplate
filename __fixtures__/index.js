@@ -1,9 +1,9 @@
-import { fromJS } from 'immutable'
+import { fromJS } from 'immutable';
 
 export const exampleData = {
-  example:{
+  example: {
     result: fromJS({
-      testing: 'data'
-    })
-  }
-}
+      testing: 'data',
+    }),
+  },
+};
