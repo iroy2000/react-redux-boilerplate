@@ -4,12 +4,12 @@
 ### Preface
 
 React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerplate for building complex React / Redux application.
- 
+
 The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team ( __we put this project in github mainly as recruiting purpose for our team__ ),  and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
 
 If you are interested in working with us, feel free to send a message to [iroy2000](https://www.linkedin.com/in/iroy2000).
 
-__Note:__ This boilerplate is not to show case how to code in React / Redux, it is a boilerplate that hook everything up for you to develop a complex React / Redux project. And if you just want to learn React, we don't have complicated code example here and this boilerplate might be too complicated for your need. 
+__Note:__ This boilerplate is not to show case how to code in React / Redux, it is a boilerplate that hook everything up for you to develop a complex React / Redux project. And if you just want to learn React, we don't have complicated code example here and this boilerplate might be too complicated for your need.
 
 ![React Redux Workflow Boilerplate Logo](http://res.cloudinary.com/search-engine/image/upload/v1501696716/logo-rrb-002_zxvml0.png)
 
@@ -17,7 +17,7 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 `React Redux Boilerplate` is a workflow boilerplate that make life easier for developers by providing a virtual development environment and production ready build process framework out of the box.
 
-`React Redux Boilerplate` is for developing React client side application. So,  if you are looking for: 
+`React Redux Boilerplate` is for developing React client side application. So,  if you are looking for:
 
 * `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
@@ -166,7 +166,7 @@ That's very easy, isn't it?
 Please let me know if you have better work flow suggestion!!
 
 ## Configuration
-React Redux Boilerplate has two configuration strategies, one is for normal configuration, the other one is for sensitive information that you don't want others to know. 
+React Redux Boilerplate has two configuration strategies, one is for normal configuration, the other one is for sensitive information that you don't want others to know.
 
 ### Configuring application
 
@@ -182,7 +182,7 @@ We are using [node-config](https://github.com/lorenwest/node-config), they have 
 
 And in your config file ( json config file ), whatever you put inside the `app`, it will be injected into the client application and you can access to your `app` config data by using `__CONFIG__` variables.
 
-Let's say you have a config like the following 
+Let's say you have a config like the following
 
 ```
 {
@@ -202,7 +202,7 @@ __CONFIG__.apiURL
 
 ### Configuring secret key/value pair
 
-There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secret over there ( we have put that into `.gitignore` just in case ). For example, in order to use the feature to deploy to S3, you need to provide the following information. 
+There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secret over there ( we have put that into `.gitignore` just in case ). For example, in order to use the feature to deploy to S3, you need to provide the following information.
 
 ```
 AWS_ACCESS_KEY=YOUR_AWS_ACCESS_KEY
@@ -214,13 +214,13 @@ AWS_CDN_URL=YOUR_AWS_CDN_URL
 
 And your in node application or webpack config, those key/value pair will inject into `process.env` ( e.g. `process.env.AWS_ACCESS_KEY` ).
 
-__Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there. 
+__Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there.
 
 However, with `.env`, you can create a ready to use list of environment variables for your different environment.  You can even have another service to generate the `.env` file before building the project, but in terms of how to achieve that, it is out of scope of this documentation.
 
 __Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! `DO NOT` check in `.env` into your source repo !!
 
-We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation. 
+We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation.
 
 # Advanced
 
@@ -228,11 +228,11 @@ We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature
 
 We are using Jest and Enzyme for unit testing, please refer to the Knowledge Base section below for more information.
 
-In order to add unit test, the current setup requires you to put your test under `__tests__` directory, and suffix the filename with `spec` or `test`. 
+In order to add unit test, the current setup requires you to put your test under `__tests__` directory, and suffix the filename with `spec` or `test`.
 
 For example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spec.js`.  
 
-We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related files separately, these two folders are safe to delete if you don't need them. 
+We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related files separately, these two folders are safe to delete if you don't need them.
 
 ## Multiple Device Concurrent Debugging
 
@@ -271,9 +271,9 @@ For optimization, you can tweak the `config` under the following.  This optimiza
 
 This boilerplate shipped with `Production Bundle Analysis` tool which is `turn on` by default and will give you insight to optimize the production assets.
 
-For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build. 
+For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build.
 
-The tool is to help you understand what your bundle looks like and what is included in your bundle. 
+The tool is to help you understand what your bundle looks like and what is included in your bundle.
 
 ![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
 
@@ -296,7 +296,7 @@ You can turn `on` and `off` the analysis feature
 
 When you run `npm run build`, it will generate a meta data file `assets.json` with the list of generated frontend artifacts.  Think about that as a contract / interface for your server side framework.
 
-And your framework just need to consume that meta information as integration point. 
+And your framework just need to consume that meta information as integration point.
 
 And this boilerplate has a process integrated to upload artifacts ( assets.json and generated client ifacts ) to S3 / cloudfront.  One of the integration path is the `consumer` can query against s3 for the assets.json, and use the information in assets.json to get the artifacts which is uploaded to S3 / cdn.
 
@@ -306,11 +306,11 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 * __How to activate S3 support ?__
 	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. Below is an `example` in `config/default.json`
-	
-	
+
+
         ```
         ( STEP 1 )
-        
+
         // Example in config/default.json
         // You can overwrite default using your other config file
         // ========================================================
@@ -322,14 +322,14 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
         {
           "s3Deploy": true,
         }
-        ```	
-        
+        ```
+
         And create a `.env` file and put in the following information.  Please read [Configuration](#configuration) section for more information.
-        
+
 
         ```
         ( STEP 2 )
-        
+
         AWS_ACCESS_KEY=blah...
         AWS_SECRET_KEY=blah...
         AWS_BUCKET=blah...
@@ -345,7 +345,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 
 * __What is B.E.M style  ?__
-    * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable. Please read the links below for getting deeper insight of it. 
+    * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable. Please read the links below for getting deeper insight of it.
 
 # Other
 
@@ -375,9 +375,21 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 We welcome anyone to send us __pull request__ to improve this boilerplate, the goal is to make it better from time to time and we all can learn from it.
 
-This boilerplate will be maintained separately.  So please do not check in any business logic to it unless it is for example purpose. 
+This boilerplate will be maintained separately.  So please do not check in any business logic to it unless it is for example purpose.
 
 ## Updates
+
+__9 / 14 / 2017__
+
+For those of you seeing the following error
+
+`mozjpeg pre-build test failed ...`
+
+There is a bug in `imagemin` with Node 6 or above, and [here is the discussion](https://github.com/imagemin/imagemin/issues/168)
+
+If you are using mac, you can fix that by doing this
+
+`brew install automake autoconf libtool dpkg pkgconfig nasm libpng`
 
 __7 / 15 / 2017__
 
@@ -391,9 +403,6 @@ Webpack 3 just announced yesterday, we are so excited about it, thus we also upg
 
 If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
 
-__4 / 13 / 2017__
-
-We just upgraded this boilerplate to use `Webpack 2`.  The reason we are doing that is because there are quite a few people in communities are asking for example for a real world project using `Webpack 2`, and here it is.
 
 ## License
-In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care. 
+In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care.
