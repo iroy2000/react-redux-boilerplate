@@ -34,6 +34,7 @@ Development
 * PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Webpack 3
 * Reselect
+* Saga
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
 * Jest and Enzyme for Unit testing
@@ -233,18 +234,6 @@ For example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spe
 
 We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related files separately, these two folders are safe to delete if you don't need them.
 
-## Multiple Device Concurrent Debugging
-
-React Redux Boilerpalate has built in support for multiple device concurrent access by entering the ip address provide.
-
-If you look at the dashboard, you should see some messages like below ( Note: your ip will be different )
-
-![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353275/share_screen_g3ofe1.png)
-
-For example, you can enter the address into multiple real devices and you can test those devices all at the same time, like the following :-
-
-![Logo](http://res.cloudinary.com/search-engine/image/upload/v1501353811/multiple_screen_d2b7fg.png)
-
 ## Developing Template
 
 The `docroot/index.html` is a generated artifact. If look at our sample template at `src/assets/template/_default.html`, the `docroot/index.html` is generated from that file.
@@ -302,7 +291,6 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## QA
 
-
 * __How to activate S3 support ?__
 	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. Below is an `example` in `config/default.json`
 
@@ -355,6 +343,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Redux](http://redux.js.org/)
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
+* [Redux Saga](https://redux-saga.js.org/)
 * [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
 * [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
 * [ImmutableJS for beginners](https://github.com/iroy2000/immutablejs-for-beginners)

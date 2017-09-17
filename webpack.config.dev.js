@@ -1,7 +1,6 @@
 import config from 'config';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import precss from 'precss';
 import postcssNested from 'postcss-nested';
@@ -57,19 +56,6 @@ webpackConfig.plugins.push(
     'process.env': {
       NODE_ENV: JSON.stringify('development'),
     },
-  }),
-  new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 3001,
-    proxy: `http://localhost:${process.env.PORT}/`,
-
-    // Prevents BrowserSync from automatically opening up the app in your browser
-    open: false,
-    reloadDelay: 2500,
-  }, {
-    // Disable BrowserSync's browser reload/asset injections feature because
-    // Webpack Dev Server handles this for us already
-    reload: false,
   })
 );
 
