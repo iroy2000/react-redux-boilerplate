@@ -2,19 +2,15 @@ import React, { PureComponent } from 'react';
 
 class Example extends PureComponent {
   render() {
-    const props = this.props;
-    const result = props.example && props.example.result ? props.example.result : null;
+    const { result } = this.props;
 
-    if (result && result.size && result.size > 0) {
+    if (result) {
       return (
-
-        <div className="row example">
-          <pre className="col-md-12 example__output">
-            {JSON.stringify(result.toJS(), undefined, 2)}
-          </pre>
+        <div className="jumbotron">
+          <h1>Let's Get Started</h1>
+          <p>If you see this screen, it means you are all setup</p>
+          <p>{result}</p>
         </div>
-
-
       );
     }
     return <div />;

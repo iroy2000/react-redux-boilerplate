@@ -6,10 +6,10 @@ import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
 import { Example } from '../../common/components/Example';
 
-require('../../../style/index.css');
+require('./example.css');
 
 const mapStateToProps = state => ({
-  example: exampleSelector(state),
+  ...exampleSelector(state),
 });
 
 const mapDispatchToProps = {
@@ -23,7 +23,7 @@ class ExampleView extends Component {
   }
 
   componentDidMount() {
-    this.props.getAwesomeCode();
+    this.props.setAwesomeCode('Well done, and this is awesome !!');
   }
 
   render() {

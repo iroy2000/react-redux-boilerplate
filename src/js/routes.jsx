@@ -1,31 +1,19 @@
 import React from 'react';
 import {
   Route,
-  Link,
   Switch,
 } from 'react-router-dom';
-import DemoApp from './app';
 import ExampleRouteHandler from './views/example';
 
-const Home = () => (
-  <div>
-    <h2>This is Homepage</h2>
-  </div>
-);
+require('../style/index.css');
 
 module.exports = (
-  <div>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/example">Example</Link></li>
-    </ul>
-    <hr />
-    <DemoApp>
+  <div className="container">
+    <div className="container__content">
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/example" component={ExampleRouteHandler} />
-        <Route path="*" component={Home} />
+        <Route exact path="/" component={ExampleRouteHandler} />
+        <Route path="*" component={ExampleRouteHandler} />
       </Switch>
-    </DemoApp>
+    </div>
   </div>
 );

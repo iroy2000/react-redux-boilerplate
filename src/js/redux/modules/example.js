@@ -1,30 +1,28 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
-const GET_EXAMPLE = 'reto/example/GET_EXAMPLE';
-const UPDATE_EXAMPLE = 'reto/example/UPDATE_EXAMPLE';
+const SET_EXAMPLE = 'workshop/example/SET_EXAMPLE';
 
 export const constants = {
-  GET_EXAMPLE,
-  UPDATE_EXAMPLE,
+  SET_EXAMPLE,
 };
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export const getAwesomeCode = createAction(GET_EXAMPLE, () => ({}));
-export const updateExample = createAction(UPDATE_EXAMPLE, result => ({ result }));
+export const setAwesomeCode = createAction(SET_EXAMPLE, message => ({ message }));
 
 export const actions = {
-  getAwesomeCode,
-  updateExample,
+  setAwesomeCode,
 };
 
-export default handleActions({
-  [UPDATE_EXAMPLE]: (state, { payload }) =>
-    state.merge({
-      ...payload,
-    }),
-}, Map({
+export const reducers = {
+  [SET_EXAMPLE]: (state, { payload }) =>
+    state.set('result', payload.message),
+}
+
+export const initialState = Map({
   result: '',
-}));
+})
+
+export default handleActions(reducers, initialState);
