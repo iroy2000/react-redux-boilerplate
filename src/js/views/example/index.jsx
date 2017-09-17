@@ -6,8 +6,6 @@ import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
 import { Example } from '../../common/components/Example';
 
-require('./example.css');
-
 const mapStateToProps = state => ({
   ...exampleSelector(state),
 });

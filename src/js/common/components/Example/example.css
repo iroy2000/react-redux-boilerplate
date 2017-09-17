@@ -1,0 +1,20 @@
+@import "../../../../style/configs/color";
+
+/* Example handler
+ ---------------------- */
+.example__output {
+  padding: 20px 60px 60px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+
+  h1 {
+    font-size: 50px;
+    .emphsize {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: $color-title;
+    }
+  }
+}

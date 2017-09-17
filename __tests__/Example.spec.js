@@ -18,6 +18,6 @@ describe('ExampleView', () => {
     )
 
     expect(el.length).toEqual(1)
-    expect(el.find('.row').length).toEqual(1)
+    expect(el.find('.example__output').length).toEqual(1)
   })
 })

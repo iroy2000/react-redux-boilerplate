@@ -3,7 +3,8 @@
 /* Example handler
  ---------------------- */
 .container {
-
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
 }
 
 .container__header {
