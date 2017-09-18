@@ -34,7 +34,6 @@ Development
 * PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Webpack 3
 * Reselect
-* Saga
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
 * Jest and Enzyme for Unit testing
