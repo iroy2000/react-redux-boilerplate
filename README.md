@@ -21,7 +21,7 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 * `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
-We also have a branch called `slim`, which removed Saga. To checkout that branch, do the following :
+__Note:__ We also have a branch called `slim`, which we have removed Saga and a few dependencies. To checkout that branch, you can run the following command :
 
 `git clone -b slim https://github.com/iroy2000/react-redux-boilerplate.git`
 
@@ -356,6 +356,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
 * [Redux](http://redux.js.org/)
+* [You might not need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
 * [Redux Saga](https://redux-saga.js.org/)
