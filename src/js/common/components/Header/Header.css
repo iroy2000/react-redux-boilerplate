@@ -1,0 +1,30 @@
+.globalHeader {
+  ul {
+    list-style: none;
+    margin-left: -40px;
+    margin-top: 10px;
+    li {
+      float: left;
+      margin-right: 10px;
+      font-size: 15px;
+      border-bottom: 3px solid #fff;
+      cursor: default;
+      font-weight: bold;
+
+      &.active:hover {
+        border-bottom: 3px solid #721c24;
+      }
+
+      a {
+        text-decoration: none;
+        color: #721c24;
+      }
+    }
+
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+}

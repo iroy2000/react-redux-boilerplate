@@ -1,31 +1,33 @@
 import React from 'react';
 import {
   Route,
-  Link,
   Switch,
+  withRouter,
 } from 'react-router-dom';
-import DemoApp from './app';
+import { Header } from './common/components/Header';
 import ExampleRouteHandler from './views/example';
 
-const Home = () => (
+import '../assets/fonts/fonts.css';
+
+const JustAnotherPage = () => (
   <div>
-    <h2>This is Homepage</h2>
+    <h2>This is Just Another Page</h2>
+    <p>Please remove this from your route, it is just to show case basic setup for router.</p>
   </div>
 );
 
+const HeaderWithRouter = withRouter(props => <Header {...props} />);
+
 module.exports = (
-  <div>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/example">Example</Link></li>
-    </ul>
+  <div className="container">
+    <HeaderWithRouter />
     <hr />
-    <DemoApp>
+    <div className="container__content">
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/example" component={ExampleRouteHandler} />
-        <Route path="*" component={Home} />
+        <Route exact path="/" component={ExampleRouteHandler} />
+        <Route path="/page" component={JustAnotherPage} />
+        <Route path="*" component={ExampleRouteHandler} />
       </Switch>
-    </DemoApp>
+    </div>
   </div>
 );

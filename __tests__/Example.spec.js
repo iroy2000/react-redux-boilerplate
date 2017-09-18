@@ -9,7 +9,7 @@ describe('ExampleView', () => {
     const el = shallow(<Example />)
 
     expect(el.length).toEqual(1)
-    expect(el.find('.row').length).toEqual(0)
+    expect(el.find('.exampleOutput').length).toEqual(0)
   })
 
   it('should render with correct data', () => {
@@ -18,6 +18,6 @@ describe('ExampleView', () => {
     )
 
     expect(el.length).toEqual(1)
-    expect(el.find('.row').length).toEqual(1)
+    expect(el.find('.exampleOutput').length).toEqual(1)
   })
 })

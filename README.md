@@ -21,7 +21,9 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 * `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
+We also have a branch called `slim`, which removed Saga. To checkout that branch, do the following :
 
+`git clone -b slim https://github.com/iroy2000/react-redux-boilerplate.git`
 
 ### Features / Benefits
 

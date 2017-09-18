@@ -6,7 +6,7 @@ import { HashRouter as Router } from 'react-router-dom';
 export default class Root extends Component {
   get content() {
     return (
-      <Router history={this.props.history}>
+      <Router>
         {this.props.routes}
       </Router>
     );
@@ -22,7 +22,6 @@ export default class Root extends Component {
 }
 
 Root.propTypes = {
-  history: PropTypes.object.isRequired,
   routes: PropTypes.element.isRequired,
   store: PropTypes.object.isRequired,
 };
