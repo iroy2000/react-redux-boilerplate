@@ -4,18 +4,9 @@
   "host": "localhost",
   "port": "8080",
   "jsSourcePath": "src/js",
-  "s3Deploy": false,
-  "s3": {
-    "bucket": "if-any",
-    "defaultCDNBase": "if-any"
-  },
   "optimization": {
     "commonMinCount": 3,
-    "cssExclusion": true,
-    "analyzeMode": true,
-    "analyze": {
-      "port": 8888
-    }
+    "cssExclusion": true
   },
   "html": [
     {

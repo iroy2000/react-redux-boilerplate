@@ -15,10 +15,7 @@ import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 //  CONSTANT DECLARATION
 // ----------------------------------------------------------
 
-const S3_DEPLOY = config.get('s3Deploy') || 'false';
-const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
-
-const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
+const PUBLIC_PATH = config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
 const webpackProdOutput = {
@@ -99,45 +96,7 @@ webpackConfig.entry = {
   app: ['babel-polyfill', path.resolve(__dirname, APP_ENTRY_POINT)],
 };
 
-if (IS_S3_DEPLOY) {
-  const S3Plugin = require('webpack-s3-plugin');
-
-  // Please read README if you have no idea where
-  // `process.env.AWS_ACCESS_KEY` is coming from
-  const s3Config = new S3Plugin({
-    // Only upload css and js
-    // include: /.*\.(css|js)/,
-    // s3Options are required
-    s3Options: {
-      accessKeyId: process.env.AWS_ACCESS_KEY,
-      secretAccessKey: process.env.AWS_SECRET_KEY,
-    },
-    s3UploadOptions: {
-      Bucket: process.env.AWS_BUCKET,
-    },
-    cdnizerCss: {
-      test: /images/,
-      cdnUrl: process.env.AWS_CDN_URL,
-    },
-  });
-
-  webpackConfig.plugins = webpackConfig.plugins.concat(s3Config);
-} else {
-  webpackConfig.output.publicPath = '/';
-}
-
-if(config.get('optimization.analyzeMode') === true) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-  webpackConfig.plugins = webpackConfig.plugins.concat(
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'server',
-      analyzerHost: 'localhost',
-      analyzerPort: config.get('optimization.analyze.port'),
-      openAnalyzer: true,
-    })
-  );
-}
+webpackConfig.output.publicPath = '/';
 
 webpackConfig.plugins.push(
   new webpack.DefinePlugin({

@@ -42,14 +42,11 @@ Development
 
 Workflow
 
-* Production bundle analyzing capability
 * Hot Module Reload during development
 * CSS / HTML / JS minification / Image optimization when built
 * JS code duplication removal during built ( tree shaking capability )
 * Built-in fancy cli dashboard for reporting run time compile status
-* Built-in process to deploy files directly to S3 ( optional )
 * Built-in lightweight config system
-* Built-in support for multiple device concurrent debugging.
 * Highly configurable build and workflow system ( webpack )
 * Minimal setup time and allow you to invest into things that matters
 * Everything automatic, you just care about development, nothing else \o/ Yeah ?!
@@ -245,37 +242,6 @@ We are using [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack
 
 **[Note]** - Most of the use case of the html template system so far is for testing purpose for your dev and build enviornment before you start integration.  If all you need is a static template, you are good; but if your application requires a server side processing, you will need to integrate the artifacts with the language of your choice. Please read `Diagrams` section for how to integrate with other server side language.
 
-## Production Optimization and Bundle Analysis
-
-For optimization, you can tweak the `config` under the following.  This optimization covers basic use case, feel free to make modification to fit your needs.
-
-```
-  "optimization": {
-    "commonMinCount": 3,   // how many times a module is used before we consider it a common module ?
-    "cssExclusion": true,  // do you want to exclude css from this optimization ?
-    ...
-  },
-```
-
-This boilerplate shipped with `Production Bundle Analysis` tool which is `turn on` by default and will give you insight to optimize the production assets.
-
-For example, when you run `npm run build` with `"analyzeMode": true`, you should see something like the following at the end of your build.
-
-The tool is to help you understand what your bundle looks like and what is included in your bundle.
-
-![Production Bundle Analysis](https://www.dropbox.com/s/zun4n4tgp059neh/bundle-analysis.png?raw=1)
-
-You can turn `on` and `off` the analysis feature
-
-```
-  "optimization": {
-    ...
-    "analyzeMode": true,   // changing to false will turn it off
-    "analyze": {
-      "port": 8888  // it will open localhost:8888 and show your bundle analysis
-    }
-  },
-```
 
 ## Integration Note
 
@@ -290,39 +256,6 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 
 ## QA
-
-* __How to activate S3 support ?__
-	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. Below is an `example` in `config/default.json`
-
-
-        ```
-        ( STEP 1 )
-
-        // Example in config/default.json
-        // You can overwrite default using your other config file
-        // ========================================================
-        // default.json     - global
-        // development.json - development   ( npm run dev )
-        // release.json     - test/release  ( npm run build:release )
-        // production.json  - production    ( npm run build )
-        // ========================================================
-        {
-          "s3Deploy": true,
-        }
-        ```
-
-        And create a `.env` file and put in the following information.  Please read [Configuration](#configuration) section for more information.
-
-
-        ```
-        ( STEP 2 )
-
-        AWS_ACCESS_KEY=blah...
-        AWS_SECRET_KEY=blah...
-        AWS_BUCKET=blah...
-        AWS_CDN_URL=blah...
-        ```
-
 
 * __What is our standard to control our npm module dependencies ?__
     * We are using `^version`, it means "Compatible with version". The reason we are using `^version` is simply we want the ability for us to roll back to previous working version together with the source code.
