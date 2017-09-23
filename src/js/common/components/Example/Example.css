@@ -1,5 +1,6 @@
 @import "../../../../style/configs/color";
 
+
 /* Example handler
  ---------------------- */
  .exampleOutput {
@@ -14,8 +15,13 @@
      .emphsize {
        font-size: 1.5em;
        font-weight: bold;
-       color: $color-title;
+       @if 3 < 5 {
+    		 color: $color-title;
+       }
+       @else {
+      	 color: blue;
+       }
      }
    }
-   
+
  }

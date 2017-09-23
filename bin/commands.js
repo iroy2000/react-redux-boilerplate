@@ -15,7 +15,7 @@ switch (option) {
     shell.exec(`cross-env HOST=${host} PORT=${port} webpack-dev-server --hot --progress --inline --colors --content-base ./docroot`);
     break;
   case 'build':
-    shell.exec(`cross-env rimraf docroot && webpack --progress`);
+    shell.exec(`cross-env rimraf docroot && webpack --progress --display-error-details`);
     break;
   default:
     // If the app type is invalid, stop execution of the file.

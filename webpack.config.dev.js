@@ -4,8 +4,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import precss from 'precss';
-import postcssNested from 'postcss-nested';
-import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
@@ -88,10 +86,9 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
       options: {
         sourceMap: true,
         // https://github.com/postcss/postcss-loader/issues/92
+        // https://github.com/postcss/postcss-loader/issues/8
         plugins: () => [
           precss(),
-          postcssNested(),
-          postcssImport({ addDependencyTo: webpack }),
           postcssCssnext({
             browsers: ['last 2 versions', 'ie >= 9'],
             compress: true,

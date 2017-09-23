@@ -12,7 +12,7 @@
   "optimization": {
     "commonMinCount": 3,
     "cssExclusion": true,
-    "analyzeMode": true,
+    "analyzeMode": false,
     "analyze": {
       "port": 8888
     }
