@@ -5,8 +5,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import SaveAssetsJson from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import precss from 'precss';
-import postcssNested from 'postcss-nested';
-import postcssImport from 'postcss-import';  //https://github.com/postcss/postcss-loader/issues/8
 import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
@@ -77,8 +75,6 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
           sourceMap: true,
           plugins: () => [
             precss(),
-            postcssNested(),
-            postcssImport({ addDependencyTo: webpack }),
             postcssCssnext({
               browsers: ['last 2 versions', 'ie >= 9'],
               compress: true,
