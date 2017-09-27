@@ -382,6 +382,10 @@ This boilerplate will be maintained separately.  So please do not check in any b
 
 ## Updates
 
+__9 / 26 / 2017__
+
+We are now on React 16, and up-to-date with all our dependencies.
+
 __9 / 14 / 2017__
 
 For those of you seeing the following error
