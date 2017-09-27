@@ -1,4 +1,4 @@
-/*eslint-disable */
+/* eslint-disable */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -10,5 +10,4 @@ storiesOf('Example View', module)
   .add('no data', () => <Example />)
   .add('with example data', () => <Example {...exampleData} />);
 
-
-/*eslint-enable */
+/* eslint-enable */
