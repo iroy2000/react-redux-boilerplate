@@ -29,7 +29,7 @@ __Note:__ We also have a branch called `slim`, which we have removed Saga and a 
 
 Development
 
-* React
+* React 16
 * Redux
 * ES6 / ES7
 * ImmutableJS
@@ -87,7 +87,10 @@ Other
 
 ### Prerequisite
 
-You need to have Node.js installed.
+You need to have Node.js installed.  
+
+[Instruction for installing NodeJS in Mac](http://lmgtfy.com/?q=install+nodejs+mac)
+[Instruction for installing NodeJS in Window](http://lmgtfy.com/?q=install+nodejs+window)
 
 ### Post Installation
 
