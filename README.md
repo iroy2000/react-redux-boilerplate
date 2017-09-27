@@ -90,6 +90,7 @@ Other
 You need to have Node.js installed.  
 
 [Instruction for installing NodeJS in Mac](http://lmgtfy.com/?q=install+nodejs+mac)
+
 [Instruction for installing NodeJS in Window](http://lmgtfy.com/?q=install+nodejs+window)
 
 ### Post Installation
@@ -118,7 +119,7 @@ $ npm install # This will install the necessary packages to use the app
 $ npm run dev
 ```
 
-Wait about 5 - 10 seconds for your development environment to initialize.
+Wait about 30 seconds for your development environment to initialize.
 
 When it finishes, open your browser and go to `http://localhost:8080/`
 
