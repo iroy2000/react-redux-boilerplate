@@ -415,5 +415,5 @@ Webpack 3 just announced yesterday, we are so excited about it, thus we also upg
 If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
 
 
-## License
+## License ?!
 In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care.
