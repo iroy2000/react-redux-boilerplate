@@ -8,7 +8,7 @@ class Example extends PureComponent {
     if (result) {
       return (
         <div className="example__output">
-          <h1>Let's Get <span className="emphsize">Started</span></h1>
+          <h1>Let&apos;s Get <span className="emphsize">Started</span></h1>
           <p>If you see this screen, it means you are all setup. {result}</p>
         </div>
       );

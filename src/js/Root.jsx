@@ -22,7 +22,6 @@ export default class Root extends Component {
 }
 
 Root.propTypes = {
-  history: PropTypes.object.isRequired,
   routes: PropTypes.element.isRequired,
   store: PropTypes.object.isRequired,
 };

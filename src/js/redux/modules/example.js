@@ -19,10 +19,10 @@ export const actions = {
 export const reducers = {
   [SET_EXAMPLE]: (state, { payload }) =>
     state.set('result', payload.message),
-}
+};
 
 export const initialState = Map({
   result: '',
-})
+});
 
 export default handleActions(reducers, initialState);
