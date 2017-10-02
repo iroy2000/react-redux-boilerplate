@@ -206,6 +206,12 @@ __CONFIG__.apiURL
 
 ```
 
+__Note:__ If you want to add new npm target ( e.g. `npm run build:stage` ), you need to do the following :-
+
+1. Add a `stage.json` file inside `config` folder
+2. Add `npm run build:stage`  ( or similar ) at `package.json` scripts section
+3. Add actual command mapping at `bin/commands.js`
+
 ### Configuring secret key/value pair
 
 There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secret over there ( we have put that into `.gitignore` just in case ). For example, in order to use the feature to deploy to S3, you need to provide the following information.
