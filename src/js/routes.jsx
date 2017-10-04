@@ -4,6 +4,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import ExampleRouteHandler from './views/example';
+import Workshop1Page from './views/workshop1/index'
 
 require('../style/index.css');
 
@@ -15,6 +16,7 @@ module.exports = (
       <Switch>
         <Route exact path="/" component={ExampleRouteHandler} />
         <Route exact path="/cool" component={Cool} />
+        <Route path="/workshop1" component={ Workshop1Page } />
         <Route path="*" component={ExampleRouteHandler} />
       </Switch>
     </div>
