@@ -8,6 +8,7 @@ class Page extends React.PureComponent {
 
   componentWillMount() {
     this.state = {
+      counter: 1,
       title: 'Users',
       data: [
         { id: 1, name: 'Mike' },
@@ -27,7 +28,9 @@ class Page extends React.PureComponent {
   }
 
   onClick() {
-    alert('success');
+    this.setState({
+      counter: this.state.counter + 1
+    })
   }
 
 }

@@ -8,7 +8,7 @@ class List extends React.PureComponent {
   render() {
     return (
       <div className="list">
-        <p>{ this.props.title }</p>
+        <p>{ `${this.props.title} ${this.props.counter}` }</p>
         <ul>
           { this.renderList() }
         </ul>
@@ -31,6 +31,7 @@ class List extends React.PureComponent {
 List.defaultProps = {
   title  : 'My Title',
   onClick: () => {},
+  counter: 1,
 }
 
 // Prop types do evaluations on passed in properties to ensure they are 
@@ -42,6 +43,7 @@ List.PropTypes = {
   title  : PropTypes.string,
   data   : PropTypes.array.isRequired,
   onClick: PropTypes.func,
+  counter: PropTypes.number,
 }
 
 export default List
