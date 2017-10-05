@@ -33,6 +33,7 @@ Development
 * Redux
 * ES6 / ES7
 * ImmutableJS
+* PreCSS ( supports SASS-like markup in your CSS )
 * PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Webpack 3
 * Reselect
@@ -363,26 +364,45 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ## Knowledge Base Reading
 
+### ES6
+
+* [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
+* [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
+
+### React
+
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
+
+### Redux
+
 * [Redux](http://redux.js.org/)
 * [You might not need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
 * [Redux Saga](https://redux-saga.js.org/)
-* [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
-* [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
-* [ImmutableJS for beginners](https://github.com/iroy2000/immutablejs-for-beginners)
+
+### Webpack
+
 * [Webpack how-to](https://github.com/petehunt/webpack-howto)
 * [Webpack - The Confusing Part](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
 * [Lazy Loading and Code Split for React Route](https://github.com/webpack/react-proxy-loader)
+
+
+### Relevant Knowledge
+
+* [ImmutableJS for beginners](https://github.com/iroy2000/immutablejs-for-beginners)
 * [Learning PostCSS](https://github.com/postcss/postcss)
 * [Jest = Awesome JS Testing Framework](https://facebook.github.io/jest/docs/tutorial-react.html)
 * [B.E.M 101](https://css-tricks.com/bem-101/)
-* [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
-* [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 * [React Responsive](https://github.com/contra/react-responsive)
 * [Storybook.JS](https://storybook.js.org/)
+
+### Best Practice
+
+* [Lessons from migrating a large codebase to React 16](https://blog.discordapp.com/lessons-from-migrating-a-large-codebase-to-react-16-e60e49102aa6)
+* [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
+* [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
 
 ## How to Contribute
 
