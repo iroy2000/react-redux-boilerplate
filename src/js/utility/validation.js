@@ -3,7 +3,7 @@ function join(rules) {
   return (value, data) => rules.map(rule => rule(value, data)).filter(error => !!error)[0];
 }
 
-export function email(value) {
+export function email(value: string) {
   // Let's not start a debate on email regex! This one is quite standard
   if (!isEmpty(value) && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
     return 'Invalid email address';
