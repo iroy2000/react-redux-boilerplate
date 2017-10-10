@@ -1,7 +1,7 @@
 import { put, fork, takeLatest } from 'redux-saga/effects';
 import { constants as exampleConstants, actions as exampleActions } from '../modules/example';
 
-import { exampleType } from '../../common/types/example'
+import type { exampleType } from '../../common/types/example'
 
 function* fetchExampleData() {
   // pretend there is an api call

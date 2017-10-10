@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map } from 'immutable';
 
-import { exampleType } from '../../common/types/example'
+import type { exampleType } from '../../common/types/example'
 
 const GET_EXAMPLE = 'reto/example/GET_EXAMPLE';
 const UPDATE_EXAMPLE = 'reto/example/UPDATE_EXAMPLE';
