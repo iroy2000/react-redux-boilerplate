@@ -444,6 +444,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 ### Best Practice
 
+* [Ducks: Redux Reducer Bundles](https://github.com/erikras/ducks-modular-redux)
 * [Lessons from migrating a large codebase to React 16](https://blog.discordapp.com/lessons-from-migrating-a-large-codebase-to-react-16-e60e49102aa6)
 * [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
