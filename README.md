@@ -65,6 +65,7 @@ Basic
 1. [Installation](#installation)
 1. [Initialize your project](#initialize-your-project)
 1. [Suggested Workflow](#suggested-workflow)
+1. [Folder Structure](#folder-structure)
 1. [Production Readiness](#production-readiness)
 1. [Configuration](#configuration)
 
@@ -153,6 +154,41 @@ After you check out the repo, I will usually do the following :
 5. Repeat your development steps
 
 That's very easy, isn't it?
+
+## Folder Structure
+
+The entry point of your application is `src/js/routes`, it basically a map between your `views` to a route.
+
+All your javascript code lives in folder `src/js`
+
+```
+  -- src/
+    -- js/
+      -- common/
+        -- components/   --> all share components here
+        -- types/        --> all flow types are here
+      -- redux/
+        -- modules/      --> all redux code
+        -- saga/         --> all redux-saga code
+        -- selectors/    --> all reselect code
+      -- utility/        --> all non JSX utility
+      -- views/          --> all JSX code hook up with Route ( HoC ) or page specific components
+    -- style/            --> all global styles, layout, config
+    -- assets/           --> all static assets ( image, fonts ... etc )
+      -- template/       --> you probably won't touch this unless you want to create new template
+
+```
+
+For `config/` and `bin/` folder, it is covered at [Configuration](#configuration) section
+
+For `__tests__/` folder, it is covered at [Writing Unit Test](#writing-unit-test) section
+
+For our Redux coding style, we are using [Ducks](https://github.com/erikras/ducks-modular-redux) standards
+
+For how to write code in ES6 /React / Redux / POSTCSS, please visit the [Knowledge Base Reading](#knowledge-base-reading) section, which covers everything used in this boilerplate.
+
+**NOTE: When you import resources, please make sure you have the right path**
+
 
 ## Production Readiness
 
