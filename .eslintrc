@@ -20,6 +20,7 @@
   "rules": {
     "import/no-unresolved": 0,
     "new-cap": 0,
+    "semi": 0,
     "global-require": 0,
     "no-underscore-dangle": 0,
     "arrow-body-style": 0,

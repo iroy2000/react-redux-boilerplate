@@ -1,11 +1,19 @@
 import React from 'react'
+import { fromJS } from 'immutable'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-import { Example } from  '../src/js/common/components/Example'
-import { exampleData } from '../__fixtures__'
+import { Example } from  '../../../src/js/common/components/Example'
+
+const fixture = {
+  example: {
+    result: fromJS({
+      testing: 'data',
+    }),
+  },
+};
 
 describe('ExampleView', () => {
   it('should render a blank div without data', () => {
@@ -17,7 +25,7 @@ describe('ExampleView', () => {
 
   it('should render with correct data', () => {
     const el = shallow(
-      <Example {...exampleData} />
+      <Example {...fixture} />
     )
 
     expect(el.length).toEqual(1)

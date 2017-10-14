@@ -5,7 +5,7 @@
 
 React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerplate for building complex React / Redux application.
 
-The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team ( __we put this project in github mainly as recruiting purpose for our team__ ),  and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.  
+The technologies used in this workflow boilerplate shows case a `subset of technologies` we are currently using within our team ( __we put this project in github mainly as recruiting purpose for our team__ ),  and we are trying to give our candidates confidence that by working with us, they will be using decent technologies as well as staying relevant to the industry.  And that is what our team strongly believed in - __technology innovation and promoting developers' relevancy in the industry__.
 
 If you are interested in working with us, feel free to send a message to [iroy2000](https://www.linkedin.com/in/iroy2000).
 
@@ -67,6 +67,7 @@ Basic
 1. [Suggested Workflow](#suggested-workflow)
 1. [Production Readiness](#production-readiness)
 1. [Configuration](#configuration)
+1. [Installing Dependencies](#installing-dependencies)
 
 Advanced
 1. [Writing Unit Test](#writing-unit-test)
@@ -88,7 +89,7 @@ Other
 
 ### Prerequisite
 
-You need to have Node.js installed.  
+You need to have Node.js installed.
 
 [Instruction for installing NodeJS in Mac](http://lmgtfy.com/?q=install+nodejs+mac)
 
@@ -133,8 +134,8 @@ If you see the landing page, it means you have set up everything successfully.
 ```sh
 $ npm run dev       # build and watch, but javascript not minified
 $ npm run build     # build a minified production version
-$ npm run lint      # linting
-$ npm run test      # run test
+$ npm run lint      # linting using ESLint
+$ npm run test      # run test using Jest
 $ npm run clean     # it runs before each build, so you don't need to
 $ npm run storybook # it starts storybook server
 ```
@@ -146,11 +147,12 @@ $ npm run storybook # it starts storybook server
 After you check out the repo, I will usually do the following :
 
 0. Go to your project root in your host machine  ( e.g. your Mac )
-1. Run `npm run dev`
+1. Run `npm run dev` in your terminal ( wait until the dashboard show complete status )
 2. Go to your browser and go to `localhost:8080`
 3. Make code changes
-4. Watch your code changes reflect on browser without refreshing
-5. Repeat your development steps
+4. If there are compilation errors, you will see it in the terminal dashboard
+5. Watch your code changes reflect on browser without refreshing
+6. Repeat your development steps
 
 That's very easy, isn't it?
 
@@ -235,6 +237,12 @@ __Just remember__, `.env` file suppose to keep your secret, and prevent your fro
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation.
 
+## Installing Dependencies
+
+We are using `npm` in this project, so if you would like to install a dependencies, for example, D3, you can do something like the following :-
+
+`npm i --save d3`
+
 # Advanced
 
 ## Writing Unit Test
@@ -243,7 +251,7 @@ We are using Jest and Enzyme for unit testing, please refer to the Knowledge Bas
 
 In order to add unit test, the current setup requires you to put your test under `__tests__` directory, and suffix the filename with `spec` or `test`.
 
-For example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spec.js`.  
+For example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spec.js`.
 
 We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related files separately, these two folders are safe to delete if you don't need them.
 
