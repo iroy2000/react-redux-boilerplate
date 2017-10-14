@@ -159,7 +159,7 @@ That's very easy, isn't it?
 
 ## Folder Structure
 
-The entry point of your application is `src/js/routes`, it basically a map between your `views` to a route.
+The entry point of your application is `src/js/routes`, it's basically a mapping between your `views` to a `route`.
 
 All your javascript code lives in folder `src/js`
 
@@ -181,13 +181,13 @@ All your javascript code lives in folder `src/js`
 
 ```
 
-For `config/` and `bin/` folder, it is covered at [Configuration](#configuration) section
+* For `config/` and `bin/` folder, it is covered at [Configuration](#configuration) section
 
-For `__tests__/` folder, it is covered at [Writing Unit Test](#writing-unit-test) section
+* For `__tests__/` folder, it is covered at [Writing Unit Test](#writing-unit-test) section
 
-For our Redux coding style, we are using [Ducks](https://github.com/erikras/ducks-modular-redux) standards
+* For our Redux coding style, we are using [Ducks](https://github.com/erikras/ducks-modular-redux) standards
 
-For how to write code in ES6 /React / Redux / POSTCSS, please visit the [Knowledge Base Reading](#knowledge-base-reading) section, which covers everything used in this boilerplate.
+* For how to write code in ES6 /React / Redux / POSTCSS  ... etc, please feel free to look at our simple example code.  And if you have question or want to study future, please checkout the [Knowledge Base Reading](#knowledge-base-reading) section, which covers everything we used in this boilerplate.
 
 **NOTE: When you import resources, please make sure you have the right path**
 
