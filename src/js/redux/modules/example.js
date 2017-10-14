@@ -3,8 +3,8 @@ import { Map } from 'immutable';
 
 import type { exampleType } from '../../common/types/example'
 
-const GET_EXAMPLE = 'reto/example/GET_EXAMPLE';
-const UPDATE_EXAMPLE = 'reto/example/UPDATE_EXAMPLE';
+const GET_EXAMPLE = 'app/example/GET_EXAMPLE';
+const UPDATE_EXAMPLE = 'app/example/UPDATE_EXAMPLE';
 
 export const constants = {
   GET_EXAMPLE,
@@ -22,11 +22,16 @@ export const actions = {
   updateExample,
 };
 
-export default handleActions({
+export const reducers = {
   [UPDATE_EXAMPLE]: (state, { payload }) =>
     state.merge({
       ...payload,
     }),
-}, Map({
-  result: '',
-}));
+}
+
+export const initialState = () =>
+  Map({
+    result: '',
+  })
+
+export default handleActions(reducers, initialState());

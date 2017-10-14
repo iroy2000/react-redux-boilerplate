@@ -3,7 +3,7 @@ import { constants as exampleConstants, actions as exampleActions } from '../mod
 
 import type { exampleType } from '../../common/types/example'
 
-function* fetchExampleData() {
+export function* fetchExampleData() {
   // pretend there is an api call
   const result: exampleType = {
     title: 'Everything is Awesome',
