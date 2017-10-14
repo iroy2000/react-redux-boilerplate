@@ -69,12 +69,6 @@ Basic
 1. [Configuration](#configuration)
 1. [Installing Dependencies](#installing-dependencies)
 
-Development
-1. [Importing a Component](#importing-a-component)
-1. [Writing a Redux Module](#writing-a-redux-module)
-1. [What you can do in CSS](#what-you-can-do-in-css)
-1. [Adding static assets](#adding-static-assets)
-
 Advanced
 1. [Writing Unit Test](#writing-unit-test)
 1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
@@ -248,17 +242,6 @@ We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature
 We are using `npm` in this project, so if you would like to install a dependencies, for example, D3, you can do something like the following :-
 
 `npm i --save d3`
-
-# Development
-
-## Importing a Component
-
-## Writing a Redux Module
-
-## What you can do in CSS
-
-## Adding static assets
-
 
 # Advanced
 
