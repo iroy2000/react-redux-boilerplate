@@ -9,7 +9,6 @@ class Example extends PureComponent {
 
     if (result && result.size && result.size > 0) {
       return (
-
         <div className="exampleOutput">
           <h1>Let&apos;s Get <span className="emphsize">Started</span></h1>
           <p>If you see this screen, it means you are all setup \o/</p>

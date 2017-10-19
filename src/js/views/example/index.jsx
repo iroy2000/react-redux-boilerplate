@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
-import { Example } from '../../common/components/Example';
+import { Example, ExampleWithError } from '../../common/components/Example';
+import { ErrorBoundary } from '../../common/components/Utilities';
 
 require('../../../style/index.css');
 
@@ -27,7 +28,14 @@ class ExampleView extends Component {
   }
 
   render() {
-    return <Example {...this.props} />;
+    return (
+      <div>
+        <Example {...this.props} />
+        <ErrorBoundary>
+          <ExampleWithError {...this.props} />
+        </ErrorBoundary>
+      </div>
+    )
   }
 }
 
