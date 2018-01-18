@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = {
 
 @connect(mapStateToProps, mapDispatchToProps)
 class ExampleView extends Component {
-  static PropTypes = {
+  static propTypes = {
     example: PropTypes.object.isRequired,
   }
 
@@ -29,12 +29,12 @@ class ExampleView extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Example {...this.props} />
         <ErrorBoundary>
           <ExampleWithError {...this.props} />
         </ErrorBoundary>
-      </div>
+      </Fragment>
     )
   }
 }
