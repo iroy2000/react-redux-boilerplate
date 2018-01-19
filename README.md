@@ -41,7 +41,6 @@ Development
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
 * Jest and Enzyme for Unit testing
-* Storybook for UI testing / documentation
 
 Workflow
 
@@ -138,7 +137,6 @@ $ npm run build     # build a minified production version
 $ npm run lint      # linting using ESLint
 $ npm run test      # run test using Jest
 $ npm run clean     # it runs before each build, so you don't need to
-$ npm run storybook # it starts storybook server
 ```
 
 
@@ -417,6 +415,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
+* [How Virtual-DOM and diffing works in React](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e)
 
 ### Redux
 
@@ -425,6 +424,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Redux without profanity](https://www.gitbook.com/book/tonyhb/redux-without-profanity/details)
 * [Learned from reading the Redux source code](https://medium.freecodecamp.com/what-i-learned-from-reading-the-redux-source-code-836793a48768?gi=4bdf3c9f3396#.rjwu6x9sc)
 * [Redux Saga](https://redux-saga.js.org/)
+* [Usage of Reselect in a React-Redux Application](https://dashbouquet.com/blog/frontend-development/usage-of-reselect-in-a-react-redux-application)
 
 ### Webpack
 
@@ -475,9 +475,7 @@ If you are using mac, you can fix that by doing this
 
 __7 / 15 / 2017__
 
-We integrated Storybook into this project, now you can create your UI testing and documentation with awesomeness!
-
-We also added Enzyme to make React unit testing easier :)
+We added Enzyme to make React unit testing easier :)
 
 __6 / 20 / 2017__
 
