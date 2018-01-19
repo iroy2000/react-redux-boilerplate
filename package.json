@@ -8,7 +8,9 @@
     "build:release": "cross-env NODE_ENV=release node bin/commands.js build",
     "clean": "rimraf docroot",
     "test": "jest --no-cache",
-    "lint": "node bin/commands.js lint"
+    "lint": "node bin/commands.js lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -76,7 +78,11 @@
     "webpack-bundle-analyzer": "^2.9.2",
     "webpack-dashboard": "^1.0.2",
     "webpack-dev-server": "^2.11.0",
-    "webpack-s3-plugin": "^1.0.0-rc.0"
+    "webpack-s3-plugin": "^1.0.0-rc.0",
+    "@storybook/react": "^3.3.9",
+    "@storybook/addon-actions": "^3.3.9",
+    "@storybook/addon-links": "^3.3.9",
+    "@storybook/addons": "^3.3.9"
   },
   "dependencies": {
     "history": "^4.7.2",

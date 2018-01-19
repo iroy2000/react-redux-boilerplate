@@ -8,8 +8,6 @@
 
 const webpack = require('webpack');
 const precss = require('precss');
-const postcssNested = require('postcss-nested');
-const postcssImport = require('postcss-import');
 const postcssCssnext = require('postcss-cssnext');
 
 module.exports = {
@@ -34,8 +32,6 @@ module.exports = {
               sourceMap: true,
               plugins: () => [
                 precss(),
-                postcssNested(),
-                postcssImport({ addDependencyTo: webpack }),
                 postcssCssnext({
                   browsers: ['last 2 versions', 'ie >= 9'],
                   compress: true,
