@@ -4,8 +4,8 @@ import './Example.css';
 
 class ExampleWithError extends PureComponent {
   render() {
-    const props = this.props;
-    const result = props.example && props.example.result ? props.example.result : null;
+    const { example } = this.props;
+    const result = example && example.result ? example.result : null;
 
     if (result && result.size && result.size > 0) {
       return (

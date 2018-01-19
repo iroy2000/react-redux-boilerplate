@@ -3,7 +3,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Example } from '../src/js/common/components/Example';
-import { exampleData } from '../__fixtures__';
+//import { exampleData } from '../__fixtures__';
+
+const exampleData = {
+  example: {
+    result: 'test here'
+  }
+}
 
 
 storiesOf('Example View', module)

@@ -20,13 +20,9 @@ export default function configureStore(initialState, history) {
 
   const middleware = applyMiddleware(sagaMiddleware, routerMiddleware(history));
 
-  const composedStoreEnhancer = compose(
-    middleware, reduxDevTool()
-  );
+  const composedStoreEnhancer = compose(middleware, reduxDevTool());
 
-  const store = composedStoreEnhancer(createStore)(
-    rootReducer, initialState
-  );
+  const store = composedStoreEnhancer(createStore)(rootReducer, initialState);
 
   sagaMiddleware.run(sagas);
 
