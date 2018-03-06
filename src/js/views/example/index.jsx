@@ -1,13 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Loadable from 'react-loadable';
 
+import LazyLoading from '../../common/components/LazyLoading/LazyLoading'
 import { actions as exampleActions } from '../../redux/modules/example';
 import { exampleSelector } from '../../redux/selectors/exampleSelector';
-import { Example, ExampleWithError } from '../../common/components/Example';
+import { ExampleWithError } from '../../common/components/Example';
 import { ErrorBoundary } from '../../common/components/Utilities';
 
 require('../../../style/index.css');
+
+const LazyExample = Loadable({
+  loader: () => import('../../common/components/Example/Example'),
+  loading: LazyLoading,
+})
 
 const mapStateToProps = state => ({
   example: exampleSelector(state),
@@ -30,7 +37,7 @@ class ExampleView extends Component {
   render() {
     return (
       <Fragment>
-        <Example {...this.props} />
+        <LazyExample {...this.props} />
         <ErrorBoundary>
           <ExampleWithError {...this.props} />
         </ErrorBoundary>
