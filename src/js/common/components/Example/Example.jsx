@@ -10,7 +10,7 @@ class Example extends PureComponent {
     if (result && result.size && result.size > 0) {
       return (
         <div className="exampleOutput">
-          <h1>Let&apos;s Get <span className="emphsize">Started</span></h1>
+          <h1>Let&apos;s Get <span className="emphasize">Started</span></h1>
           <p>If you see this screen, it means you are all setup \o/</p>
           <p>The following JSON are showing contents coming from Redux, Saga and Config.</p>
           <pre>

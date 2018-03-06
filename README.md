@@ -21,9 +21,6 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 * `Isomorphic (Universal) support`, feel free to add server side support to it, or you can use something like [Next.js](https://github.com/zeit/next.js/), [react-server](https://github.com/redfin/react-server) or [electrode](http://www.electrode.io/)
 
-__Note:__ We also have a branch called `slim`, which we have removed Saga and a few dependencies. To checkout that branch, you can run the following command :
-
-`git clone -b slim https://github.com/iroy2000/react-redux-boilerplate.git`
 
 ### Features / Benefits
 
@@ -38,6 +35,7 @@ Development
 * Webpack 3
 * Reselect
 * Saga
+* Lazy Loading component supports
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
 * Jest and Enzyme for Unit testing
