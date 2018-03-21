@@ -118,8 +118,6 @@ if (IS_S3_DEPLOY) {
   });
 
   webpackConfig.plugins = webpackConfig.plugins.concat(s3Config);
-} else {
-  webpackConfig.output.publicPath = '/';
 }
 
 if(config.get('optimization.analyzeMode') === true) {
