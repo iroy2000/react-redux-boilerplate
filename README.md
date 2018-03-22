@@ -1,5 +1,7 @@
 ## Build Status
 [![linux build](https://api.travis-ci.org/iroy2000/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/iroy2000/react-redux-boilerplate)
+[![Dependency Status][david_img]][david_site]
+[![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### Preface
 
@@ -68,6 +70,7 @@ Basic
 1. [Installing Dependencies](#installing-dependencies)
 
 Advanced
+1. [Lazy Loading Component](#lazy-loading-component)
 1. [Writing Unit Test](#writing-unit-test)
 1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
 1. [Developing Template](#developing-template)
@@ -277,6 +280,32 @@ We are using `npm` in this project, so if you would like to install a dependenci
 
 # Advanced
 
+## Lazy Loading Component
+
+This boilerplate supports `Lazy Loading` and `Component Centric Splitting` out of the box by integrating `react-loadable`.
+
+In short, it will drastically reduce your initial load time by lazy loading components until the component is needed. And you can now do tricks like `above the fold` and `load component on demand` very easily with this capabilities.
+
+In order to take advantage of this capabilities
+
+You first need to import:
+
+```
+import Loadable from 'react-loadable';
+```
+
+And you now can lazy load anything like the following:
+
+```
+const LazyExample = Loadable({
+  loader: () => import('YOUR_PATH_TO/components/YourComponent'),
+  loading: LazyLoading,
+})
+```
+Can it be easier ??
+
+Please look at the example in this repo and `react-loadable` to get more idea.
+
 ## Writing Unit Test
 
 We are using Jest and Enzyme for unit testing, please refer to the Knowledge Base section below for more information.
@@ -484,3 +513,6 @@ If you encounter issues related to `Webpack 3`, it is good to report that back s
 
 ## License ?!
 In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care.
+
+[david_img]: https://img.shields.io/david/iroy2000/react-redux-boilerplate.svg
+[david_site]: https://david-dm.org/iroy2000/react-redux-boilerplate
