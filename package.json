@@ -120,8 +120,10 @@
       "jsx"
     ]
   },
-  "scripts": {
-    "prepush": "npm test",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
   },
   "keywords": [
     "react",
