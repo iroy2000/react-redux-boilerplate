@@ -61,6 +61,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.4.2",
     "jest-cli": "^22.1.3",
@@ -118,6 +119,9 @@
       "json",
       "jsx"
     ]
+  },
+  "scripts": {
+    "prepush": "npm test",
   },
   "keywords": [
     "react",

@@ -3,6 +3,25 @@
 [![Dependency Status][david_img]][david_site]
 [![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### TL;TR;
+
+Before you dive into anything, see for yourself how easy you can setup a full workflow framework for your `development` and `deployment` for your real world project.
+
+```
+git clone https://github.com/iroy2000/react-redux-boilerplate.git
+cd react-redux-boilerplate
+```
+
+and
+
+```
+npm install
+npm run dev
+```
+
+And Done \o/
+
+
 ### Preface
 
 React Redux Boilerplate is a full fledged __PRODUCTION READY__ workflow boilerplate for building complex React / Redux application.
@@ -26,17 +45,17 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 ### Features / Benefits
 
-Development
+Features
 
 * React 16
 * Redux
+* Saga
 * ES6 / ES7
 * ImmutableJS
 * PreCSS ( supports SASS-like markup in your CSS )
 * PostCSS ( it support CSS modules, and we recommended B.E.M style )
 * Webpack 3
 * Reselect
-* Saga
 * Lazy Loading component supports
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
@@ -44,17 +63,22 @@ Development
 
 Workflow
 
-* Production bundle analyzing capability
-* Hot Module Reload during development
-* CSS / HTML / JS minification / Image optimization when built
-* JS code duplication removal during built ( tree shaking capability )
-* Built-in fancy cli dashboard for reporting run time compile status
-* Built-in process to deploy files directly to S3 ( optional )
-* Built-in lightweight config system
-* Built-in support for multiple device concurrent debugging.
-* Highly configurable build and workflow system ( webpack )
-* Minimal setup time and allow you to invest into things that matters
-* Everything automatic, you just care about development, nothing else \o/ Yeah ?!
+* Development
+  * Hot Module Reload during development
+  * Built-in lightweight config system
+  * Built-in fancy cli dashboard for reporting run time compile status
+  * Built-in support for multiple device concurrent debugging
+* Build / Production
+  * Production bundle analyzing capability
+  * CSS / HTML / JS minification / Image optimization when built
+  * JS code duplication removal during built ( tree shaking capability )
+* Deployment
+  * Built-in git commit hook, helpful for CI/CD process
+  * Built-in process to deploy files directly to S3 ( optional )
+* Productivity
+  * Highly configurable build and workflow system ( webpack )
+  * Minimal setup time and allow you to invest into things that matters
+  * Everything automatic, you just care about development, nothing else \o/ Yeah ?!
 
 If you are interested, please read the `package.json` for all installed modules and plugins.
 
@@ -72,6 +96,7 @@ Basic
 Advanced
 1. [Lazy Loading Component](#lazy-loading-component)
 1. [Writing Unit Test](#writing-unit-test)
+1. [Configure git commit hook](#configure-git-commit-hook)
 1. [Multiple Device Concurrent Debugging](#multiple-device-concurrent-debugging)
 1. [Developing Template](#developing-template)
 1. [Production Optimization and Bundle Analysis](#production-optimization-and-bundle-analysis)
@@ -316,6 +341,18 @@ For example, `MyFancyComponent.test.js` or `whatever_folder/AnotherComponent.spe
 
 We also have two folders `__fixtures` and `__mocks__` in the repo, those are just handy example folders for you to put different type of test related files separately, these two folders are safe to delete if you don't need them.
 
+## Configure git commit hook
+
+We are using `husky` for preventing developers check in bad commits. Please go to package.json and look for the default settings. Currently the setting is as below :-
+
+```
+"scripts": {
+  "prepush": "npm test",
+}
+```
+
+It means every time before git push the code, it will run the `npm test` first. `husky` supports any git hooks and you can configure it to fit your needs.
+
 ## Multiple Device Concurrent Debugging
 
 React Redux Boilerpalate has built in support for multiple device concurrent access by entering the ip address provide.
@@ -458,6 +495,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Webpack how-to](https://github.com/petehunt/webpack-howto)
 * [Webpack - The Confusing Part](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
 * [Lazy Loading and Code Split for React Route](https://github.com/webpack/react-proxy-loader)
+* [Lazy Loading and Code Split for Components](https://github.com/jamiebuilds/react-loadable)
 
 
 ### Relevant Knowledge
@@ -475,6 +513,7 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 * [Lessons from migrating a large codebase to React 16](https://blog.discordapp.com/lessons-from-migrating-a-large-codebase-to-react-16-e60e49102aa6)
 * [B.E.M: 10 Common Problems And How To Avoid Them](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 * [Isomorphic JavaScript, The Future of Web Apps](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/)
+* [The Cost Of JavaScript](https://medium.com/dev-channel/the-cost-of-javascript-84009f51e99e)
 
 ## How to Contribute
 
