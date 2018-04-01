@@ -3,23 +3,29 @@
 [![Dependency Status][david_img]][david_site]
 [![Join the chat at https://gitter.im/iroy2000-react-redux-boilerplate/Lobby](https://badges.gitter.im/iroy2000-react-redux-boilerplate/Lobby.svg)](https://gitter.im/iroy2000-react-redux-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-### TL;TR;
+### TL;DR
 
 Before you dive into anything, see for yourself how easy you can setup a full workflow framework for your `development` and `deployment` for your real world project.
 
+Step 1: Clone this repo
 ```
 git clone https://github.com/iroy2000/react-redux-boilerplate.git
 cd react-redux-boilerplate
 ```
 
-and
+Step 2: Install
 
 ```
 npm install
+```
+
+Step 3: Start
+
+```
 npm run dev
 ```
 
-And Done \o/
+And Done, as easy as 123!!
 
 
 ### Preface
@@ -343,15 +349,7 @@ We also have two folders `__fixtures` and `__mocks__` in the repo, those are jus
 
 ## Configure git commit hook
 
-We are using `husky` for preventing developers check in bad commits. Please go to package.json and look for the default settings. Currently the setting is as below :-
-
-```
-"scripts": {
-  "prepush": "npm test",
-}
-```
-
-It means every time before git push the code, it will run the `npm test` first. `husky` supports any git hooks and you can configure it to fit your needs.
+We are using `husky` for preventing developers check in bad commits. Please go to package.json and look for `husky` the default settings. `husky` supports any git hooks and you can configure it to fit your needs.
 
 ## Multiple Device Concurrent Debugging
 
