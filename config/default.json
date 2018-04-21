@@ -1,11 +1,10 @@
 {
   "env": "default",
-  "publicPath": "localhost:8080",
   "host": "localhost",
   "port": "8080",
   "jsSourcePath": "src/js",
-  "s3Deploy": false,
   "s3": {
+    "s3Deploy": false,
     "bucket": "if-any",
     "defaultCDNBase": "if-any"
   },
@@ -16,6 +15,10 @@
     "analyze": {
       "port": 8888
     }
+  },
+  "browserSync": {
+    "active": true,
+    "port": 3002
   },
   "html": [
     {

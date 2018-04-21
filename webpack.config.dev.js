@@ -1,14 +1,13 @@
 import config from 'config';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import precss from 'precss';
 import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
-const PUBLIC_PATH = config.get('publicPath');
+const PUBLIC_PATH = `${config.get('host')}:${config.get('port')}`;
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
 const webpackDevOutput = {
@@ -43,7 +42,11 @@ const htmlPlugins = html.map((page) =>
 );
 
 webpackConfig.plugins.push(
-  new DashboardPlugin({ port: 3300 }),
+  new DashboardPlugin({
+    port: process.env.DASHBOARD_PORT,
+    minified: false,
+    gzip: false,
+  }),
   new webpack.LoaderOptionsPlugin({
     debug: true
   }),
@@ -56,20 +59,28 @@ webpackConfig.plugins.push(
       NODE_ENV: JSON.stringify('development'),
     },
   }),
-  new BrowserSyncPlugin({
-    host: 'localhost',
-    port: 3001,
-    proxy: `http://localhost:${process.env.PORT}/`,
-
-    // Prevents BrowserSync from automatically opening up the app in your browser
-    open: false,
-    reloadDelay: 2500,
-  }, {
-    // Disable BrowserSync's browser reload/asset injections feature because
-    // Webpack Dev Server handles this for us already
-    reload: false,
-  })
 );
+
+// We turn off browserSync by default
+// Turn that on if you want to include this use case
+if(config.get('browserSync.active') === true) {
+  const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+  webpackConfig.plugins.push(
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: config.get('browserSync.port'),
+      proxy: `http://localhost:${process.env.PORT}/`,
+
+      // Prevents BrowserSync from automatically opening up the app in your browser
+      open: false,
+      reloadDelay: 2500,
+    }, {
+      // Disable BrowserSync's browser reload/asset injections feature because
+      // Webpack Dev Server handles this for us already
+      reload: false,
+    })
+  );
+}
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,

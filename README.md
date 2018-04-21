@@ -97,6 +97,7 @@ Basic
 1. [Folder Structure](#folder-structure)
 1. [Production Readiness](#production-readiness)
 1. [Configuration](#configuration)
+1. [Port Configuration](#port-configuration)
 1. [Installing Dependencies](#installing-dependencies)
 
 Advanced
@@ -302,6 +303,16 @@ However, with `.env`, you can create a ready to use list of environment variable
 __Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! `DO NOT` check in `.env` into your source repo !!
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation.
+
+## Port Configuration
+There will be a chance that you will need your port to be other than `8080`.  For example, your local backend service might already take `8080`; Or you want to run multiple project, one on `8080` and one on `80801`.
+
+If you are running one project that needs a different port, you can just modify one place
+1) `default.json` --> `port` section.
+
+But if you want to run multiple projects at the same time, you will need to configure ports in two places
+1) `default.json` --> `port`
+2) Dashboard port --> `package.json` --> `dev`  ( default dashboard port is `9901` )
 
 ## Installing Dependencies
 
