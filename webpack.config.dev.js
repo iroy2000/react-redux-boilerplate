@@ -19,6 +19,7 @@ const webpackDevOutput = {
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 
 webpackConfig.devServer = {
+  port: config.get('port'),
   clientLogLevel: "error",
   compress: true,
   noInfo: true,
