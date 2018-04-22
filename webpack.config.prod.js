@@ -13,7 +13,7 @@ import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 //  CONSTANT DECLARATION
 // ----------------------------------------------------------
 
-const S3_DEPLOY = config.get('s3Deploy') || 'false';
+const S3_DEPLOY = config.get('s3.s3Deploy') || 'false';
 const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
 
 const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
