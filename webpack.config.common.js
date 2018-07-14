@@ -18,9 +18,6 @@ process.env.PACKAGE_VERSION = version;
 
 // Defining config variables
 // ================================================================================
-// define where the assets build to
-
-console.log('--->', config.get('publicPath'))
 
 export const BUILD_PATH = path.join(__dirname, `docroot${config.get('publicPath')}`)
 
