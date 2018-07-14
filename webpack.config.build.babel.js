@@ -21,14 +21,14 @@ const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
 const webpackProdOutput = {
   publicPath: PUBLIC_PATH,
-  filename: 'assets/[name]-[hash].js',
-  chunkFilename: "assets/[id].[hash].js",
+  filename: `${config.get('assetPath')}/[name]-[hash].js`,
+  chunkFilename: `${config.get('assetPath')}/[id].[hash].js`,
 };
 
 // This section is for common chunk behavior
 // do we need to exclude css from this rule
 const optimizationMinChunks = config.get('optimization.cssExclusion') ?
-  function(module, count) {
+  (module, count) => {
     return module.resource &&
       !(/\.css/).test(module.resource) &&
       count >= config.get('optimization.commonMinCount');
@@ -42,7 +42,7 @@ const html = config.get('html');
 // to deploy the generated html to production.
 // I don't mind you name your page as Retro
 // if you want to ...
-const htmlPlugins = html.map((page) =>
+const htmlPlugins = html.map(page =>
   new HtmlWebpackPlugin({
     title: page.title,
     template: `src/assets/template/${page.template}`,
@@ -53,8 +53,7 @@ const htmlPlugins = html.map((page) =>
       collapseWhitespace: true,
       conservativeCollapse: true,
     }
-  })
-);
+  }));
 
 // ----------------------------------------------------------
 //  Extending Webpack Configuration
@@ -66,7 +65,7 @@ webpackConfig.output = Object.assign(webpackConfig.output, webpackProdOutput);
 webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,
   use: ExtractTextPlugin.extract({
-    fallback: "style-loader",
+    fallback: 'style-loader',
     use: [
       {
         loader: 'css-loader',
@@ -120,8 +119,8 @@ if (IS_S3_DEPLOY) {
   webpackConfig.plugins = webpackConfig.plugins.concat(s3Config);
 }
 
-if(config.get('optimization.analyzeMode') === true) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+if (config.get('optimization.analyzeMode') === true) {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
   webpackConfig.plugins = webpackConfig.plugins.concat(
     new BundleAnalyzerPlugin({
@@ -152,7 +151,7 @@ webpackConfig.plugins.push(
   }),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'common',
-    filename: 'assets/common-[hash].js',
+    filename: `${config.get('assetPath')}/common-[hash].js`,
     minChunks: optimizationMinChunks,
   }),
   new SaveAssetsJson({
@@ -164,7 +163,7 @@ webpackConfig.plugins.push(
     },
   }),
   new ExtractTextPlugin({
-    filename: 'assets/[name]-[hash].css',
+    filename: `${config.get('assetPath')}/[name]-[hash].css`,
     disable: false,
     allChunks: true,
   })

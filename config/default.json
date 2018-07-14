@@ -2,6 +2,8 @@
   "env": "default",
   "host": "localhost",
   "port": "8080",
+  "publicPath": "/",
+  "assetPath": "assets",
   "jsSourcePath": "src/js",
   "s3": {
     "s3Deploy": false,
