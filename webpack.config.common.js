@@ -7,18 +7,9 @@ import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import config from 'config';
 import fs from 'fs';
 
-import { SHOULD_BUILD } from './bin/shouldBuild';
-
 // trace which loader is deprecated
 // feel free to remove that if you don't need this feature
 process.traceDeprecation = false;
-
-// Please read the following link if
-// you have no idea how to use this feature
-// https://github.com/motdotla/dotenv
-if(!SHOULD_BUILD) {
-  require('dotenv').config({silent: true});
-}
 
 // Environment variable injection
 // ================================================================================
@@ -27,7 +18,11 @@ process.env.PACKAGE_VERSION = version;
 
 // Defining config variables
 // ================================================================================
-const BUILD_PATH = path.join(__dirname, 'docroot');
+// define where the assets build to
+
+console.log('--->', config.get('publicPath'))
+
+export const BUILD_PATH = path.join(__dirname, `docroot${config.get('publicPath')}`)
 
 const COMMON_LOADERS = [
   {
@@ -38,7 +33,7 @@ const COMMON_LOADERS = [
         options: {
           hash: 'sha512',
           digest: 'hex',
-          name: 'assets/[hash].[ext]',
+          name: `${config.get('assetPath')}/[hash].[ext]`,
         }
       },
       {
@@ -83,6 +78,7 @@ const COMMON_LOADERS = [
         options: {
           limit: 10000,
           mimetype: 'application/font-woff',
+          name: `${config.get('assetPath')}/[name].[ext]`,
         }
       }
     ],
@@ -95,6 +91,7 @@ const COMMON_LOADERS = [
         options: {
           limit: 10000,
           mimetype: 'application/font-woff',
+          name: `${config.get('assetPath')}/[name].[ext]`,
         }
       }
     ],
@@ -107,6 +104,7 @@ const COMMON_LOADERS = [
         options: {
           limit: 10000,
           mimetype: 'application/octet-stream',
+          name: `${config.get('assetPath')}/[name].[ext]`,
         }
       }
     ],
@@ -119,6 +117,7 @@ const COMMON_LOADERS = [
         options: {
           limit: 10000,
           mimetype: 'application/vnd.ms-fontobject',
+          name: `${config.get('assetPath')}/[name].[ext]`,
         }
       }
     ],
@@ -131,7 +130,7 @@ export const JS_SOURCE = config.get('jsSourcePath');
 
 export default {
   output: {
-    path: BUILD_PATH,
+    path: path.join(__dirname, 'docroot'),
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],

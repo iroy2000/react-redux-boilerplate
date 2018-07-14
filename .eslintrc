@@ -31,6 +31,7 @@
     "react/prop-types": 0,
     "react/jsx-filename-extension": 0,
     "comma-dangle": [2, "always-multiline"],
+    "arrow-parens": ["warn", "always"],
     "jsx-a11y/anchor-is-valid": [ "error", {
         "components": [ "Link" ],
         "specialLink": [ "to", "hrefLeft", "hrefRight" ],

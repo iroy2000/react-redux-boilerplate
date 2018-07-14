@@ -1,7 +1,7 @@
 {
-  "env": "development",
+  "env": "local-development",
   "app": {
     "description": "you can overwrite the default config",
-    "hello": "Config is configurable"
+    "hello": "You are in local development mode"
   }
 }

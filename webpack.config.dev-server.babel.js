@@ -7,24 +7,32 @@ import postcssCssnext from 'postcss-cssnext';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
-const PUBLIC_PATH = `${config.get('host')}:${config.get('port')}`;
+// Please read the following link if
+// you have no idea how to use this feature
+// https://github.com/motdotla/dotenv
+require('dotenv').config({ silent: true });
+
+const HOST = process.env.HOST || config.get('host') || '0.0.0.0'
+const PORT = process.env.PORT || config.get('port') || '8080'
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
 const webpackDevOutput = {
-  publicPath: `http://${PUBLIC_PATH}/`,
-  filename: 'assets/bundle.js',
+  publicPath: config.get('publicPath'),
+  filename: 'bundle.js',
 };
 
 // Merges webpackDevOutput and webpackConfig.output
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 
 webpackConfig.devServer = {
-  port: config.get('port'),
-  clientLogLevel: "error",
+  host: HOST,
+  port: PORT,
+  disableHostCheck: true,
+  clientLogLevel: 'error',
   compress: true,
   noInfo: true,
   quiet: true,
-  stats: "errors-only",
+  stats: 'errors-only',
 };
 
 // This is your testing container, we did
@@ -39,8 +47,7 @@ const htmlPlugins = html.map((page) =>
     template: `src/assets/template/${page.template}`,
     inject: 'body',
     filename: page.filename,
-  })
-);
+  }));
 
 webpackConfig.plugins.push(
   new DashboardPlugin({
@@ -64,23 +71,21 @@ webpackConfig.plugins.push(
 
 // We turn off browserSync by default
 // Turn that on if you want to include this use case
-if(config.get('browserSync.active') === true) {
+if (config.get('browserSync.active') === true) {
   const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-  webpackConfig.plugins.push(
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: config.get('browserSync.port'),
-      proxy: `http://localhost:${process.env.PORT}/`,
+  webpackConfig.plugins.push(new BrowserSyncPlugin({
+    host: 'localhost',
+    port: config.get('browserSync.port'),
+    proxy: `http://localhost:${process.env.PORT}/`,
 
-      // Prevents BrowserSync from automatically opening up the app in your browser
-      open: false,
-      reloadDelay: 2500,
-    }, {
-      // Disable BrowserSync's browser reload/asset injections feature because
-      // Webpack Dev Server handles this for us already
-      reload: false,
-    })
-  );
+    // Prevents BrowserSync from automatically opening up the app in your browser
+    open: false,
+    reloadDelay: 2500,
+  }, {
+    // Disable BrowserSync's browser reload/asset injections feature because
+    // Webpack Dev Server handles this for us already
+    reload: false,
+  }));
 }
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat({
@@ -117,7 +122,7 @@ webpackConfig.devtool = 'cheap-module-eval-source-map';
 
 webpackConfig.entry = [
   'babel-polyfill',
-  `webpack-dev-server/client?http://${PUBLIC_PATH}`,
+  `webpack-dev-server/client?http://${HOST}:${PORT}`,
   'webpack/hot/only-dev-server',
   `./${APP_ENTRY_POINT}`,
 ];
