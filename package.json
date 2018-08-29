@@ -99,6 +99,7 @@
     "reselect": "^3.0.1"
   },
   "jest": {
+    "testURL": "http://www.SomeAwesome.com",
     "verbose": true,
     "testPathIgnorePatterns": [
       "<rootDir>/__tests__/setup/",
