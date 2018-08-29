@@ -5,7 +5,6 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import config from 'config';
-import fs from 'fs';
 
 // trace which loader is deprecated
 // feel free to remove that if you don't need this feature
@@ -13,8 +12,8 @@ process.traceDeprecation = false;
 
 // Environment variable injection
 // ================================================================================
-const version = JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
-process.env.PACKAGE_VERSION = version;
+import packageJSON from './package.json'
+process.env.PACKAGE_VERSION = packageJSON.version
 
 // Defining config variables
 // ================================================================================

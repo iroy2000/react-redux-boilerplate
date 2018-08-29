@@ -1,4 +1,5 @@
 @import "configs/color";
+@import "configs/font-faces";
 
 .container {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -11,5 +12,6 @@
 }
 
 h1, h2 {
+  /* This is how you use custom fonts */
   font-family: YourFavoriteFont;
 }

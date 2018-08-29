@@ -7,8 +7,6 @@ import {
 import { Header } from './common/components/Header';
 import ExampleRouteHandler from './views/example';
 
-import '../assets/fonts/fonts.css';
-
 const JustAnotherPage = () => (
   <div>
     <h2>This is Just Another Page</h2>
