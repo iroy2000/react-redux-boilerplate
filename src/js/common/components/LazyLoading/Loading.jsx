@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 
-import './LazyLoading.css'
+import './Loading.css'
 
-class LazyLoading extends PureComponent {
+class Loading extends PureComponent {
   getMessage() {
     const {
       isLoading,
@@ -16,11 +16,11 @@ class LazyLoading extends PureComponent {
     if (isLoading) {
       if (timedOut) {
         return <div>{errorMessage}</div>;
-      } else if (pastDelay) {
+      } if (pastDelay) {
         return <div className="loader">Loading...</div>;
       }
       return null;
-    } else if (error) {
+    } if (error) {
       return <div>{errorMessage}</div>;
     }
 
@@ -32,4 +32,4 @@ class LazyLoading extends PureComponent {
   }
 }
 
-export default LazyLoading;
+export default Loading;

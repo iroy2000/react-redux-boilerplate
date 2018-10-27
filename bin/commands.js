@@ -9,7 +9,7 @@ const option = process.argv[2];
 
 switch (option) {
   case 'lint':
-    shell.exec('cross-env eslint src/js/** server/** --format node_modules/eslint-friendly-formatter . --ext .js --ext .jsx  --cache; exit 0');
+    shell.exec('cross-env eslint --fix src/js/** --format node_modules/eslint-friendly-formatter . --ext .js --ext .jsx  --cache; exit 0');
     break;
   case 'dev':
     shell.exec(`cross-env HOST=${host} PORT=${port} webpack-dev-server --config webpack.config.dev-server.babel.js --hot --progress --no-info --inline --colors --content-base ./docroot`);

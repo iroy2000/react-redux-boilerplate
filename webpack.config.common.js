@@ -2,7 +2,6 @@
 // ================================================================================
 import path from 'path';
 import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import config from 'config';
 
@@ -127,6 +126,14 @@ export const JS_SOURCE = config.get('jsSourcePath');
 export default {
   output: {
     path: path.join(__dirname, 'docroot'),
+  },
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? "warning" : false
+  },
+  optimization: {
+      splitChunks: {
+      chunks: 'all'
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],

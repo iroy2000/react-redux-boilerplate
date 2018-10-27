@@ -333,16 +333,15 @@ In order to take advantage of this capabilities
 You first need to import:
 
 ```
-import Loadable from 'react-loadable';
+// Currently it lives inside common component, mostly as example
+// It is a react-loadable wrapper
+import LazyLoading from '../../common/components/LazyLoading'
 ```
 
 And you now can lazy load anything like the following:
 
 ```
-const LazyExample = Loadable({
-  loader: () => import('YOUR_PATH_TO/components/YourComponent'),
-  loading: LazyLoading,
-})
+const LazyExample = LazyLoading(() => import('YOUR_PATH_TO/components/YourComponent'))
 ```
 Can it be easier ??
 
@@ -483,11 +482,14 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 * [ES6 for Humans](https://github.com/metagrover/ES6-for-humans)
 * [ES6 Compatible Table](http://kangax.github.io/compat-table/es6/)
+* [ECMAScript Specification](https://www.ecma-international.org/ecma-262/)
 
 ### React
 
 * [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
+* [React 16.4+ life cycle methods](https://blog.bitsrc.io/understanding-react-v16-4-new-component-lifecycle-methods-fa7b224efd7d)
 * [Synchronization of props with state is an anti-pattern](https://github.com/JedWatson/react-select/issues/70)
+* [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 * [How Virtual-DOM and diffing works in React](https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e)
 
 ### Redux
@@ -531,6 +533,14 @@ We welcome anyone to send us __pull request__ to improve this boilerplate, the g
 This boilerplate will be maintained separately.  So please do not check in any business logic to it unless it is for example purpose.
 
 ## Updates
+
+__10 / 25 / 2018__
+
+We are now on Webpack 4 and React 16.4, plus up-to-date with all our dependencies.
+
+We removed css-next in favor of postcss-preset-env.
+
+We removed extract-text-webpack-plugin to mini-css-extract-plugin because of Webpack 4 upgrade.
 
 __9 / 26 / 2017__
 

@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import DashboardPlugin from 'webpack-dashboard/plugin';
 import precss from 'precss';
-import postcssCssnext from 'postcss-cssnext';
+import postcssPresetEnv from 'postcss-preset-env';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
@@ -20,6 +20,10 @@ const webpackDevOutput = {
   publicPath: config.get('publicPath'),
   filename: 'bundle.js',
 };
+
+// webpack 4 mode
+// https://webpack.js.org/concepts/mode/
+webpackConfig.mode = 'development'
 
 // Merges webpackDevOutput and webpackConfig.output
 webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
@@ -42,13 +46,12 @@ webpackConfig.devServer = {
 // go to the file in `template` below
 const html = config.get('html');
 
-const htmlPlugins = html.map((page) =>
-  new HtmlWebpackPlugin({
-    title: page.title,
-    template: `src/assets/template/${page.template}`,
-    inject: 'body',
-    filename: page.filename,
-  }));
+const htmlPlugins = html.map((page) => new HtmlWebpackPlugin({
+  title: page.title,
+  template: `src/assets/template/${page.template}`,
+  inject: 'body',
+  filename: page.filename,
+}));
 
 webpackConfig.plugins.push(
   new DashboardPlugin({
@@ -57,16 +60,13 @@ webpackConfig.plugins.push(
     gzip: false,
   }),
   new webpack.LoaderOptionsPlugin({
-    debug: true
+    debug: true,
   }),
   // Since we specify --hot mode, we don’t need to add this plugin
   // It is mutually exclusive with the --hot option.
   // new webpack.HotModuleReplacementPlugin(),
   new webpack.DefinePlugin({
     __CONFIG__: JSON.stringify(config.get('app')),
-    'process.env': {
-      NODE_ENV: JSON.stringify('development'),
-    },
   }),
 );
 
@@ -97,17 +97,19 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
     },
     {
       loader: 'css-loader',
-      options: { sourceMap: true, importLoaders: 1 }
+      options: { sourceMap: true, importLoaders: 1 },
     },
     {
       loader: 'postcss-loader',
+      ident: 'postcss',
       options: {
         sourceMap: true,
         // https://github.com/postcss/postcss-loader/issues/92
         // https://github.com/postcss/postcss-loader/issues/8
         plugins: () => [
           precss(),
-          postcssCssnext({
+          // https://github.com/csstools/postcss-preset-env
+          postcssPresetEnv({
             browsers: ['last 2 versions', 'ie >= 9'],
             compress: true,
           }),
@@ -119,7 +121,8 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
 
 webpackConfig.plugins = webpackConfig.plugins.concat(htmlPlugins);
 
-webpackConfig.devtool = 'cheap-module-eval-source-map';
+// webpack 4, if you set mode = 'development', it will set this value
+// webpackConfig.devtool = 'cheap-module-eval-source-map';
 
 webpackConfig.entry = [
   'babel-polyfill',
