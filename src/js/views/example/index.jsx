@@ -1,28 +1,24 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Loadable from 'react-loadable';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import LazyLoading from '../../common/components/LazyLoading/LazyLoading'
-import { actions as exampleActions } from '../../redux/modules/example';
-import { exampleSelector } from '../../redux/selectors/exampleSelector';
-import { ExampleWithError } from '../../common/components/Example';
-import { ErrorBoundary } from '../../common/components/Utilities';
+import LazyLoading from '../../common/components/LazyLoading'
+import { actions as exampleActions } from '../../redux/modules/example'
+import { exampleSelector } from '../../redux/selectors/exampleSelector'
+import { ExampleWithError } from '../../common/components/Example'
+import { ErrorBoundary } from '../../common/components/Utilities'
 
-require('../../../style/index.css');
+require('../../../style/index.css')
 
-const LazyExample = Loadable({
-  loader: () => import('../../common/components/Example/Example'),
-  loading: LazyLoading,
-})
+const LazyExample = LazyLoading(() => import('../../common/components/Example/Example'))
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   example: exampleSelector(state),
-});
+})
 
 const mapDispatchToProps = {
   ...exampleActions,
-};
+}
 
 @connect(mapStateToProps, mapDispatchToProps)
 class ExampleView extends Component {
@@ -31,7 +27,9 @@ class ExampleView extends Component {
   }
 
   componentDidMount() {
-    this.props.getAwesomeCode();
+    const { getAwesomeCode } = this.props
+
+    getAwesomeCode()
   }
 
   render() {
@@ -46,4 +44,4 @@ class ExampleView extends Component {
   }
 }
 
-export default ExampleView;
+export default ExampleView

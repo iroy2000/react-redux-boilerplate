@@ -11,8 +11,8 @@ import rootReducer from './rootReducers';
 
 // Redux DevTools Extension for Chrome and Firefox
 const reduxDevTool = () => {
-  return typeof window === 'object' &&
-  typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f;
+  return typeof window === 'object'
+  && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f;
 };
 
 export default function configureStore(initialState, history) {

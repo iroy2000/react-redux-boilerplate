@@ -11,8 +11,6 @@
     "defaultCDNBase": "if-any"
   },
   "optimization": {
-    "commonMinCount": 3,
-    "cssExclusion": true,
     "analyzeMode": false,
     "analyze": {
       "port": 8888

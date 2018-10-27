@@ -23,15 +23,13 @@ export const actions = {
 };
 
 export const reducers = {
-  [UPDATE_EXAMPLE]: (state, { payload }) =>
-    state.merge({
-      ...payload,
-    }),
+  [UPDATE_EXAMPLE]: (state, { payload }) => state.merge({
+    ...payload,
+  }),
 }
 
-export const initialState = () =>
-  Map({
-    result: '',
-  })
+export const initialState = () => Map({
+  result: '',
+})
 
 export default handleActions(reducers, initialState());

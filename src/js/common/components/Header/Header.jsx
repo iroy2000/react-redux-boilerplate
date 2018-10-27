@@ -5,7 +5,8 @@ import './Header.css';
 
 class Header extends PureComponent {
   render() {
-    const { pathname } = this.props.location;
+    const { location } = this.props;
+    const { pathname } = location;
 
     const isHome = pathname === '/';
     const isJustAnotherPage = pathname === '/page';
@@ -15,15 +16,15 @@ class Header extends PureComponent {
         <ul>
           <li className={!isHome ? 'active' : ''}>
             {
-              isHome ?
-                'Home' : <Link to="/">Home</Link>
+              isHome
+                ? 'Home' : <Link to="/">Home</Link>
 
             }
           </li>
           <li className={!isJustAnotherPage ? 'active' : ''}>
             {
-              isJustAnotherPage ?
-                'Just Another Page' : <Link to="/page">Just Another Page</Link>
+              isJustAnotherPage
+                ? 'Just Another Page' : <Link to="/page">Just Another Page</Link>
             }
           </li>
         </ul>

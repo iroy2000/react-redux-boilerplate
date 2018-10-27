@@ -3,9 +3,9 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import SaveAssetsJson from 'assets-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import precss from 'precss';
-import postcssCssnext from 'postcss-cssnext';
+import postcssPresetEnv from 'postcss-preset-env';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
@@ -19,22 +19,15 @@ const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
 const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
+// webpack 4 mode
+// https://webpack.js.org/concepts/mode/
+webpackConfig.mode = 'production'
+
 const webpackProdOutput = {
   publicPath: PUBLIC_PATH,
   filename: `${config.get('assetPath')}/[name]-[hash].js`,
   chunkFilename: `${config.get('assetPath')}/[id].[hash].js`,
 };
-
-// This section is for common chunk behavior
-// do we need to exclude css from this rule
-const optimizationMinChunks = config.get('optimization.cssExclusion') ?
-  (module, count) => {
-    return module.resource &&
-      !(/\.css/).test(module.resource) &&
-      count >= config.get('optimization.commonMinCount');
-  }
-  :
-  config.get('optimization.commonMinCount');
 
 const html = config.get('html');
 
@@ -42,18 +35,17 @@ const html = config.get('html');
 // to deploy the generated html to production.
 // I don't mind you name your page as Retro
 // if you want to ...
-const htmlPlugins = html.map(page =>
-  new HtmlWebpackPlugin({
-    title: page.title,
-    template: `src/assets/template/${page.template}`,
-    inject: 'body',
-    filename: page.filename,
-    minify: {
-      removeComments: true,
-      collapseWhitespace: true,
-      conservativeCollapse: true,
-    }
-  }));
+const htmlPlugins = html.map((page) => new HtmlWebpackPlugin({
+  title: page.title,
+  template: `src/assets/template/${page.template}`,
+  inject: 'body',
+  filename: page.filename,
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    conservativeCollapse: true,
+  },
+}));
 
 // ----------------------------------------------------------
 //  Extending Webpack Configuration
@@ -64,28 +56,29 @@ webpackConfig.output = Object.assign(webpackConfig.output, webpackProdOutput);
 
 webpackConfig.module.rules = webpackConfig.module.rules.concat({
   test: /\.css$/,
-  use: ExtractTextPlugin.extract({
-    fallback: 'style-loader',
-    use: [
-      {
-        loader: 'css-loader',
-        options: { sourceMap: true, importLoaders: 1 }
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader
+    },
+    {
+      loader: 'css-loader',
+      options: { sourceMap: true, importLoaders: 1 },
+    },
+    {
+      loader: 'postcss-loader',
+      ident: 'postcss',
+      options: {
+        sourceMap: true,
+        plugins: () => [
+          precss(),
+          postcssPresetEnv({
+            browsers: ['last 2 versions', 'ie >= 9'],
+            compress: true,
+          }),
+        ],
       },
-      {
-        loader: 'postcss-loader',
-        options: {
-          sourceMap: true,
-          plugins: () => [
-            precss(),
-            postcssCssnext({
-              browsers: ['last 2 versions', 'ie >= 9'],
-              compress: true,
-            }),
-          ],
-        },
-      }
-    ]
-  })
+    },
+  ],
 });
 
 webpackConfig.devtool = 'source-map';
@@ -120,7 +113,7 @@ if (IS_S3_DEPLOY) {
 }
 
 if (config.get('optimization.analyzeMode') === true) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
   webpackConfig.plugins = webpackConfig.plugins.concat(
     new BundleAnalyzerPlugin({
@@ -135,9 +128,6 @@ if (config.get('optimization.analyzeMode') === true) {
 webpackConfig.plugins.push(
   new webpack.DefinePlugin({
     __CONFIG__: JSON.stringify(config.get('app')),
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    },
   }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
@@ -146,14 +136,7 @@ webpackConfig.plugins.push(
   // how you want your code to be optimized
   // all configurable
   new webpack.IgnorePlugin(/un~$/),
-  new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
-  }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'common',
-    filename: `${config.get('assetPath')}/common-[hash].js`,
-    minChunks: optimizationMinChunks,
-  }),
+
   new SaveAssetsJson({
     path: path.join(__dirname, 'docroot'),
     filename: 'assets.json',
@@ -162,10 +145,11 @@ webpackConfig.plugins.push(
       version: process.env.PACKAGE_VERSION,
     },
   }),
-  new ExtractTextPlugin({
-    filename: `${config.get('assetPath')}/[name]-[hash].css`,
-    disable: false,
-    allChunks: true,
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: '[name]-[hash].css',
+    chunkFilename: '[id]-[hash].css'
   })
 );
 
