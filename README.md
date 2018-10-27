@@ -333,16 +333,15 @@ In order to take advantage of this capabilities
 You first need to import:
 
 ```
-import Loadable from 'react-loadable';
+// Currently it lives inside common component, mostly as example
+// It is a react-loadable wrapper
+import LazyLoading from '../../common/components/LazyLoading'
 ```
 
 And you now can lazy load anything like the following:
 
 ```
-const LazyExample = Loadable({
-  loader: () => import('YOUR_PATH_TO/components/YourComponent'),
-  loading: LazyLoading,
-})
+const LazyExample = LazyLoading(() => import('YOUR_PATH_TO/components/YourComponent'))
 ```
 Can it be easier ??
 
@@ -541,7 +540,7 @@ We are now on Webpack 4 and React 16.4, plus up-to-date with all our dependencie
 
 We removed css-next in favor of postcss-preset-env.
 
-We removed extract-text-webpack-plugin to mini-css-extract-plugin because of Webpack 4 upgrade
+We removed extract-text-webpack-plugin to mini-css-extract-plugin because of Webpack 4 upgrade.
 
 __9 / 26 / 2017__
 
