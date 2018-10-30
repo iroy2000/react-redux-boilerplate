@@ -148,8 +148,8 @@ webpackConfig.plugins.push(
   new MiniCssExtractPlugin({
     // Options similar to the same options in webpackOptions.output
     // both options are optional
-    filename: '[name]-[hash].css',
-    chunkFilename: '[id]-[hash].css'
+    filename: `${config.get('assetPath')}/[name]-[hash].css`,
+    chunkFilename: `${config.get('assetPath')}/[id]-[hash].css`,
   })
 );
 
