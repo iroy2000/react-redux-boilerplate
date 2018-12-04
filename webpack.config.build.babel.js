@@ -62,7 +62,12 @@ webpackConfig.module.rules = webpackConfig.module.rules.concat({
     },
     {
       loader: 'css-loader',
-      options: { sourceMap: true, importLoaders: 1 },
+      options: {
+        sourceMap: true,
+        importLoaders: 1,
+        modules: true,
+        localIdentName: '[name]__[local]_[hash:base64]',
+      },
     },
     {
       loader: 'postcss-loader',

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import './Example.css';
+import styles from './Example.css';
 
 /**
  * Example
@@ -45,7 +45,7 @@ class Example extends PureComponent {
 
     if (result && result.size && result.size > 0) {
       return (
-        <div className="exampleOutput">
+        <div className={styles.exampleOutput}>
           <h1>
             Let&apos;s Get
             <span className="emphasize">Started</span>

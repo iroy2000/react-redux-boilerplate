@@ -53,14 +53,14 @@ __Note:__ This boilerplate is not to show case how to code in React / Redux, it 
 
 Features
 
-* React 16
+* React 16.6
 * Redux
 * Saga
 * ES6 / ES7
 * ImmutableJS
 * PreCSS ( supports SASS-like markup in your CSS )
-* PostCSS ( it support CSS modules, and we recommended B.E.M style )
-* Webpack 3
+* PostCSS ( with CSS modules activated by default )
+* Webpack 4
 * Reselect
 * Lazy Loading component supports
 * Type Checking with Babel Type Check ( Flow syntax )
@@ -198,8 +198,9 @@ All your javascript code lives in folder `src/js`
   -- src/
     -- js/
       -- common/
-        -- components/   --> all share components here
-        -- types/        --> all flow types are here
+        -- api/          --> all api requests
+        -- components/   --> all share components
+        -- types/        --> all flow types
       -- redux/
         -- modules/      --> all redux code
         -- saga/         --> all redux-saga code

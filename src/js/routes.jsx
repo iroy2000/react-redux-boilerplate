@@ -5,11 +5,15 @@ import {
   withRouter,
 } from 'react-router-dom'
 
-import LazyLoading from './common/components/LazyLoading'
+import LazyLoading from 'common/components/LazyLoading'
 
-const ExampleRouteHandler = LazyLoading(() => import('./views/example'))
-const Header = LazyLoading(() => import('./common/components/Header/Header'))
+import styles from '../style/index.css'
 
+// This is show case how you can lazy loading component
+const ExampleRouteHandler = LazyLoading(() => import('views/example'))
+const Header = LazyLoading(() => import('common/components/Header/Header'))
+
+// Please remove that, it is an example
 const JustAnotherPage = () => (
   <div>
     <h2>This is Just Another Page</h2>
@@ -17,13 +21,14 @@ const JustAnotherPage = () => (
   </div>
 )
 
+// This show case how you can access routing info in your component
 const HeaderWithRouter = withRouter((props) => <Header {...props} />)
 
 module.exports = (
-  <div className="container">
+  <div className={styles.container}>
     <HeaderWithRouter />
     <hr />
-    <div className="container__content">
+    <div className={styles.content}>
       <Switch>
         <Route exact path="/" component={ExampleRouteHandler} />
         <Route path="/page" component={JustAnotherPage} />
