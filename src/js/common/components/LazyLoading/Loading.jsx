@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import './Loading.css'
+import styles from './Loading.css'
 
 class Loading extends PureComponent {
   getMessage() {
@@ -17,7 +17,7 @@ class Loading extends PureComponent {
       if (timedOut) {
         return <div>{errorMessage}</div>;
       } if (pastDelay) {
-        return <div className="loader">Loading...</div>;
+        return <div className={styles.loader}>Loading...</div>;
       }
       return null;
     } if (error) {

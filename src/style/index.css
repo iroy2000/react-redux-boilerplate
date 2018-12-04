@@ -6,12 +6,13 @@
   font-size: 16px;
   margin-left: 60px;
   margin-right: 60px;
-}
 
-.container__content {
-}
+  .content {
 
-h1, h2 {
-  /* This is how you use custom fonts */
-  font-family: YourFavoriteFont;
+  }
+
+  h1, h2 {
+    /* This is how you use custom fonts */
+    font-family: YourFavoriteFont;
+  }
 }
