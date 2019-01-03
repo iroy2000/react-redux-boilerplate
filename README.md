@@ -230,7 +230,16 @@ React Redux Boilerplate supports production preview, which means that you can ru
 
 1. Run `npm run build` and wait until it is done
 2. Go to the project `docroot`, you will see a `index.html`  (template is customizable, please read `Developing Template` section)
-3. Open that `index.html` in your browser, and that is the build version that just got generated
+3. Serve the build directory, for example like so:
+
+```bash
+npm i -g http-server
+cd docroot
+http-server
+```
+By default http-server will serve your production build at port 8080.  Docs are [here](https://www.npmjs.com/package/http-server).
+
+4. Navigate to [that address](http://localhost:8080) to see your build.
 
 That's very easy, isn't it?
 
