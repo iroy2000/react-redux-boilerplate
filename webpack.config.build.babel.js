@@ -6,6 +6,7 @@ import SaveAssetsJson from 'assets-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import precss from 'precss';
 import postcssPresetEnv from 'postcss-preset-env';
+import AWS from 'aws-sdk';
 
 import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 
@@ -13,9 +14,7 @@ import webpackConfig, { JS_SOURCE } from './webpack.config.common';
 //  CONSTANT DECLARATION
 // ----------------------------------------------------------
 
-const S3_DEPLOY = config.get('s3.s3Deploy') || 'false';
-const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
-
+const IS_S3_DEPLOY = Boolean(process.env.S3_DEPLOY);
 const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
 const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
 
@@ -97,14 +96,21 @@ if (IS_S3_DEPLOY) {
 
   // Please read README if you have no idea where
   // `process.env.AWS_ACCESS_KEY` is coming from
+  let s3Options = {};
+  if (process.env.AWS_PROFILE) {
+    s3Options = new AWS.SharedIniFileCredentials({ profile: process.env.AWS_PROFILE });
+  }
+  if (process.env.AWS_ACCESS_KEY) {
+    s3Options.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+  }
+  if (process.env.AWS_SECRET_KEY) {
+    s3Options.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+  }
   const s3Config = new S3Plugin({
     // Only upload css and js
     // include: /.*\.(css|js)/,
     // s3Options are required
-    s3Options: {
-      accessKeyId: process.env.AWS_ACCESS_KEY,
-      secretAccessKey: process.env.AWS_SECRET_KEY,
-    },
+    ...s3Options,
     s3UploadOptions: {
       Bucket: process.env.AWS_BUCKET,
     },

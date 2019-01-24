@@ -167,6 +167,7 @@ If you see the landing page, it means you have set up everything successfully.
 ```sh
 $ npm run dev       # build and watch, but javascript not minified
 $ npm run build     # build a minified production version
+$ npm run build:s3  # build a minified production version, deploy it to S3 as a static app
 $ npm run lint      # linting using ESLint
 $ npm run test      # run test using Jest
 $ npm run clean     # it runs before each build, so you don't need to
@@ -294,23 +295,40 @@ __Note:__ If you want to add new npm target ( e.g. `npm run build:stage` ), you 
 
 ### Configuring secret key/value pair
 
-There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secret over there ( we have put that into `.gitignore` just in case ). For example, in order to use the feature to deploy to S3, you need to provide the following information.
+There are times you may want to put in `secret information` you don't want to check into the source code.  In this boilerplate, you just need to create a file called `.env` in your `PROJECT_ROOT`, and you can put your secrets there ( we have put that into `.gitignore` just in case ).
 
+Specifically for deployment to S3, there are two options for providing your secrets:
+1. In ~/.aws/credentials, configure a block like so, for example for a profile called "default":
+
+```bash
+[default]
+AWS_ACCESS_KEY_ID=XXXXXXXX     # replace with your key
+AWS_SECRET_ACCESS_KEY=XXXXXXX  # replace with your secret
 ```
-AWS_ACCESS_KEY=YOUR_AWS_ACCESS_KEY
-AWS_SECRET_KEY=YOUR_AWS_SECRET_KEY
-AWS_BUCKET=YOUR_AWS_BUCKET
-AWS_CDN_URL=YOUR_AWS_CDN_URL
 
+2. You can provide the same values in a `.env` file within your project:
+
+```bash
+AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_KEY
 ```
 
-And your in node application or webpack config, those key/value pair will inject into `process.env` ( e.g. `process.env.AWS_ACCESS_KEY` ).
+If you are using the AWS CLI, chances are you already have an `~/.aws/credentials` file, so you may find option 1 simpler locally.  Option 2 may be better when using a build server like Jenkins.
 
-__Note__: Using `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkin or alike type of tools, you can inject environment variables there.
+Finally, no matter which of the above two options you choose, you will ALSO need to provide these additional values in your `.env` file, or otherwise set them as environment variables when you build:
+
+```bash
+AWS_BUCKET=YOUR_AWS_BUCKET      # REQUIRED for S3 deploy
+AWS_CDN_URL=YOUR_AWS_CDN_URL    # OPTIONAL for S3 deploy
+```
+
+And your in node application or webpack config, those key/value pairs will be injected into `process.env` ( e.g. `process.env.AWS_ACCESS_KEY_ID` ).
+
+__Note__: Using the `.env` file is optional, it meant to keep secret and inject information into environment variables, if you are using Jenkins or a like type of tool, you can inject environment variables there.
 
 However, with `.env`, you can create a ready to use list of environment variables for your different environment.  You can even have another service to generate the `.env` file before building the project, but in terms of how to achieve that, it is out of scope of this documentation.
 
-__Just remember__, `.env` file suppose to keep your secret, and prevent your from saving sensitive secret into source code repository \0/ !! `DO NOT` check in `.env` into your source repo !!
+__Just remember__, `.env` file is supposed to keep your secret, and prevent you from saving sensitive secrets into your source code repository \0/ !! **DO NOT** check `.env` into your source repo !!
 
 We are using [dotenv](https://github.com/motdotla/dotenv) for the `.env` feature, they have pretty good documentation.
 
@@ -442,44 +460,15 @@ And this boilerplate has a process integrated to upload artifacts ( assets.json 
 
 
 * __How to activate S3 support ?__
-	* S3 upload is optional here, but if you want to activate that, please go to your config and make `"s3Deploy": true` and fill up the `s3` config ( bucket, accessKey ... etc).  Remember that you can put the same config in different environment in case you want each one has different behavior. Below is an `example` in `config/default.json`
-
-
-        ```
-        ( STEP 1 )
-
-        // Example in config/default.json
-        // You can overwrite default using your other config file
-        // ========================================================
-        // default.json     - global
-        // development.json - development   ( npm run dev )
-        // release.json     - test/release  ( npm run build:release )
-        // production.json  - production    ( npm run build )
-        // ========================================================
-        {
-          "s3Deploy": true,
-        }
-        ```
-
-        And create a `.env` file and put in the following information.  Please read [Configuration](#configuration) section for more information.
-
-
-        ```
-        ( STEP 2 )
-
-        AWS_ACCESS_KEY=blah...
-        AWS_SECRET_KEY=blah...
-        AWS_BUCKET=blah...
-        AWS_CDN_URL=blah...
-        ```
-
+	* S3 upload is optional here
+      1. Make sure you have provided your AWS credentials to the project (secret and access key).  Please read [Configuration](#configuration) section for more information.
+      2. Use the `npm run build:s3` script to build and deploy.
 
 * __What is our standard to control our npm module dependencies ?__
     * We are using `^version`, it means "Compatible with version". The reason we are using `^version` is simply we want the ability for us to roll back to previous working version together with the source code.
 
 * __How to add javascript unit test ?__
     * All React JS test are under \__tests__ directory and this tool will find all the test, you don't need to do anything besides putting your test in, but please use a structure that mimic your source location that you are testing, or it will create confusion.
-
 
 * __What is B.E.M style  ?__
     * B.E.M is short for `Block, Element, Modifier` and is a naming convention for classes in HTML and CSS. Its goal is to help developers better understand the relationship between the HTML and CSS and make our code base more maintainable. Please read the links below for getting deeper insight of it.
