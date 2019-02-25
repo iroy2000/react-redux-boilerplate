@@ -14,7 +14,7 @@ require('dotenv').config({ silent: true });
 
 const HOST = process.env.HOST || config.get('host') || '0.0.0.0'
 const PORT = process.env.PORT || config.get('port') || '8080'
-const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
+const APP_ENTRY_POINT = `${JS_SOURCE}/main`;
 
 const webpackDevOutput = {
   publicPath: config.get('publicPath'),
@@ -31,6 +31,11 @@ webpackConfig.output = Object.assign(webpackConfig.output, webpackDevOutput);
 webpackConfig.devServer = {
   host: HOST,
   port: PORT,
+  // please look at app-history
+  // this config is using HTML5 History API
+  // If you would like to switch back to browser history,
+  // you can turn this to true, and modify app-history accordingly.
+  historyApiFallback: false,
   disableHostCheck: true,
   clientLogLevel: 'error',
   compress: true,

@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
-import { HashRouter as Router } from 'react-router-dom'
+// You could use BrowserRoute or HashRoute
+// But passing in history directly to Route will
+// give your app more flexibility on deeper integration of `history`
+import { Router } from 'react-router-dom'
 
 export default class Root extends Component {
   get content() {
-    const { routes } = this.props
+    const { routes, history } = this.props
 
     return (
-      <Router>
+      <Router history={history}>
         {routes}
       </Router>
     )
@@ -26,6 +29,7 @@ export default class Root extends Component {
 }
 
 Root.propTypes = {
+  history: PropTypes.object.isRequired,
   routes: PropTypes.element.isRequired,
   store: PropTypes.object.isRequired,
 }

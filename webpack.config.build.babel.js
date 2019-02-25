@@ -17,7 +17,7 @@ const S3_DEPLOY = config.get('s3.s3Deploy') || 'false';
 const IS_S3_DEPLOY = String(S3_DEPLOY) === 'true';
 
 const PUBLIC_PATH = IS_S3_DEPLOY ? process.env.AWS_CDN_URL : config.get('publicPath');
-const APP_ENTRY_POINT = `${JS_SOURCE}/router`;
+const APP_ENTRY_POINT = `${JS_SOURCE}/main`;
 
 // webpack 4 mode
 // https://webpack.js.org/concepts/mode/

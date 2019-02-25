@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { fromJS } from 'immutable'
-import createHistory from 'history/createHashHistory'
-import { syncHistoryWithStore } from 'react-router-redux'
 
 import routes from './routes'
 import Root from './Root'
 import configureStore from './redux/configureStore'
+import { history } from './app-history'
 
 let initialState = {}
 
@@ -23,11 +22,8 @@ if (window.__INITIAL_STATE__) {
     })
 }
 
-const hashHistory = createHistory()
+const store = configureStore(initialState, history)
 
-const store = configureStore(initialState, hashHistory)
-
-const history = syncHistoryWithStore(hashHistory, store)
 
 // Render the React application to the DOM
 // Root component is to bootstrap Provider, Router and DevTools
