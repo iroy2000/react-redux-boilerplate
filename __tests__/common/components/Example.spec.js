@@ -1,14 +1,13 @@
 import React from 'react'
-import { fromJS } from 'immutable'
 import Enzyme, { shallow } from 'enzyme'
 
 import { Example } from  '../../../src/js/common/components/Example'
 
 const fixture = {
   example: {
-    result: fromJS({
+    result: {
       testing: 'data',
-    }),
+    },
   },
 };
 

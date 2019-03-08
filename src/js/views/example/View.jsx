@@ -8,8 +8,6 @@ import { exampleSelector } from '../../redux/selectors/exampleSelector'
 import { ExampleWithError } from '../../common/components/Example'
 import { ErrorBoundary } from '../../common/components/Utilities'
 
-require('../../../style/index.css')
-
 const LazyExample = LazyLoading(() => import('../../common/components/Example/Example'))
 
 const mapStateToProps = (state) => ({

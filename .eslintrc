@@ -8,7 +8,8 @@
     "__CONFIG__": true,
     "__ENV__": true
   },
-  "extends": "airbnb",
+  "extends": ["airbnb"],
+  "plugins": ["flowtype", "react"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
