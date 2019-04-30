@@ -62,6 +62,7 @@ Features
 * PostCSS ( with CSS modules activated by default )
 * Webpack 4
 * Reselect
+* i18n / i10n supports ( react-intl )
 * Lazy Loading component supports
 * Type Checking with Babel Type Check ( Flow syntax )
 * ESLint for syntax check
@@ -535,6 +536,10 @@ This boilerplate will be maintained separately.  So please do not check in any b
 
 ## Updates
 
+__04 / 30 / 2019__
+
+Adding i18n / i10n support by adding [react-intl](https://github.com/yahoo/react-intl)
+
 __10 / 25 / 2018__
 
 We are now on Webpack 4 and React 16.4, plus up-to-date with all our dependencies.
@@ -558,17 +563,6 @@ There is a bug in `imagemin` with Node 6 or above, and [here is the discussion](
 If you are using mac, you can fix that by doing this
 
 `brew install automake autoconf libtool dpkg pkgconfig nasm libpng`
-
-__7 / 15 / 2017__
-
-We added Enzyme to make React unit testing easier :)
-
-__6 / 20 / 2017__
-
-Webpack 3 just announced yesterday, we are so excited about it, thus we also upgraded this boilerplate to use `Webpack 3`.
-
-If you encounter issues related to `Webpack 3`, it is good to report that back so the community can benefit from it.
-
 
 ## License ?!
 In theory, knowledge should be free, so please visit [wtfpl](http://www.wtfpl.net/) for this boilerplate license if you really care.

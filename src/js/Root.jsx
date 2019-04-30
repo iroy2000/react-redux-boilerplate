@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 // But passing in history directly to Route will
 // give your app more flexibility on deeper integration of `history`
 import { Router } from 'react-router-dom'
+import { IntlProvider } from 'react-intl'
 
 export default class Root extends Component {
   get content() {
@@ -21,9 +22,11 @@ export default class Root extends Component {
     const { store } = this.props
 
     return (
-      <Provider store={store}>
-        {this.content}
-      </Provider>
+      <IntlProvider locale="en">
+        <Provider store={store}>
+          {this.content}
+        </Provider>
+      </IntlProvider>
     )
   }
 }
