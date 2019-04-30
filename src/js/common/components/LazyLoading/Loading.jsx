@@ -21,7 +21,6 @@ class Loading extends PureComponent {
       }
       return null;
     } if (error) {
-      console.log(error)
       return <div>{errorMessage}</div>;
     }
 
