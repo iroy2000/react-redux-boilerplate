@@ -10,9 +10,9 @@
 // don't make changes in here.
 // import createHistory from 'history/createBrowserHistory'
 
-import createHistory from 'history/createHashHistory'
+import { createHashHistory } from 'history'
 
-const history = createHistory()
+const history = createHashHistory()
 
 // Exposing history for deep integration needs
 // For example, saga and utilities
