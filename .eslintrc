@@ -8,7 +8,7 @@
     "__CONFIG__": true,
     "__ENV__": true
   },
-  "extends": ["airbnb"],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "plugins": ["flowtype", "react"],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -19,6 +19,7 @@
   },
   // Rule changes from Airbnb's eslint config
   "rules": {
+    "prettier/prettier": "error",
     "import/no-unresolved": 0,
     "new-cap": 0,
     "semi": 0,
