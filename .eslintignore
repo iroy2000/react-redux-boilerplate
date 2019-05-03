@@ -16,3 +16,4 @@ webpack.config.prod.js
 /dist
 /dist-server
 /config/webpack/dist
+*.md

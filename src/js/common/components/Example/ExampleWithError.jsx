@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import styles from "./Example.css";
+import styles from './Example.css';
 
 class ExampleWithError extends PureComponent {
   render() {
@@ -11,7 +11,7 @@ class ExampleWithError extends PureComponent {
       return (
         <div className={styles.exampleOutput}>
           <h1>This should catch by ErrorBoundary</h1>
-          {result.something_not_existed.get("something_not_existed")}
+          {result.something_not_existed.get('something_not_existed')}
         </div>
       );
     }

@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import styles from "./Example.css";
+import styles from './Example.css';
 
 /**
  * Example

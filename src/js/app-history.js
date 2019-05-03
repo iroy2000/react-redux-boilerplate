@@ -10,7 +10,7 @@
 // don't make changes in here.
 // import createHistory from 'history/createBrowserHistory'
 
-import { createHashHistory } from "history";
+import { createHashHistory } from 'history';
 
 const history = createHashHistory();
 
