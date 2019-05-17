@@ -5,11 +5,6 @@
   "publicPath": "/",
   "assetPath": "assets",
   "jsSourcePath": "src/js",
-  "s3": {
-    "s3Deploy": false,
-    "bucket": "if-any",
-    "defaultCDNBase": "if-any"
-  },
   "optimization": {
     "analyzeMode": false,
     "analyze": {
