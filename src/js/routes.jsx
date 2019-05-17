@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Route,
-  Switch,
-  withRouter,
-} from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import LazyLoading from 'common/components/LazyLoading'
 
@@ -17,7 +13,10 @@ const Header = LazyLoading(() => import('common/components/Header/Header'))
 const JustAnotherPage = () => (
   <div>
     <h2>This is Just Another Page</h2>
-    <p>Please remove this from your route, it is just to show case basic setup for router.</p>
+    <p>
+      Please remove this from your route, it is just to show case basic setup
+      for router.
+    </p>
   </div>
 )
 

@@ -12,4 +12,5 @@ __BUT__ before you start developing a real large scale project, please do ask yo
 If you read to this point, I assumed you are a very serious developer, please help me to read the following links if you haven't!
 
 [SOLID JavaScript](http://aspiringcraftsman.com/2011/12/08/solid-javascript-single-responsibility-principle/)
+
 [Twelve Factor App](https://12factor.net/)

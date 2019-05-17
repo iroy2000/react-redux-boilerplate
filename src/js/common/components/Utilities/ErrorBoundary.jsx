@@ -15,7 +15,7 @@ class ErrorBoundary extends PureComponent {
     super(props)
     this.state = {
       hasError: false,
-    };
+    }
   }
 
   componentDidCatch(error, info) {
@@ -23,7 +23,7 @@ class ErrorBoundary extends PureComponent {
     console.log(error, info)
     this.setState({
       hasError: true,
-    });
+    })
   }
 
   render() {
@@ -33,9 +33,10 @@ class ErrorBoundary extends PureComponent {
     if (hasError) {
       return (
         <div style={style}>
-          Something is going wrong!! This error is caught by ErrorBoundary feature in React 16 \o/
+          Something is going wrong!! This error is caught by ErrorBoundary
+          feature in React 16 \o/
         </div>
-      );
+      )
     }
 
     return children

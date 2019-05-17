@@ -1,26 +1,25 @@
 import React, { PureComponent } from 'react';
 
-import styles from './Loading.css'
+import styles from './Loading.css';
 
 class Loading extends PureComponent {
   getMessage() {
     const {
-      isLoading,
-      timedOut,
-      pastDelay,
-      error,
+      isLoading, timedOut, pastDelay, error,
     } = this.props;
 
-    const errorMessage = 'We can&apos;t pull up information at this point, please try again.'
+    const errorMessage = 'We can&apos;t pull up information at this point, please try again.';
 
     if (isLoading) {
       if (timedOut) {
         return <div>{errorMessage}</div>;
-      } if (pastDelay) {
+      }
+      if (pastDelay) {
         return <div className={styles.loader}>Loading...</div>;
       }
       return null;
-    } if (error) {
+    }
+    if (error) {
       return <div>{errorMessage}</div>;
     }
 
@@ -28,7 +27,7 @@ class Loading extends PureComponent {
   }
 
   render() {
-    return this.getMessage()
+    return this.getMessage();
   }
 }
 

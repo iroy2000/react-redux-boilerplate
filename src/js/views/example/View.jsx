@@ -3,20 +3,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 // This is i18n and i10n
-import {
-  FormattedMessage,
-  FormattedDate,
-  FormattedTime,
-} from 'react-intl'
+import { FormattedMessage, FormattedDate, FormattedTime } from 'react-intl'
 
 import LazyLoading from '../../common/components/LazyLoading'
 import { actions as exampleActions } from '../../redux/modules/example'
 import { exampleSelector } from '../../redux/selectors/exampleSelector'
-import { ExampleWithError } from '../../common/components/Example'
-import { ErrorBoundary } from '../../common/components/Utilities'
+import { ExampleWithError } from '../../common/components/Example';
+import { ErrorBoundary } from '../../common/components/Utilities';
 
 // This is lazy loading example
-const LazyExample = LazyLoading(() => import('../../common/components/Example/Example'))
+const LazyExample = LazyLoading(() => import('../../common/components/Example/Example'));
 
 class ExampleView extends Component {
   static propTypes = {
@@ -35,26 +31,37 @@ class ExampleView extends Component {
   }
 
   render() {
-    const {
-      myArbitraryNumber,
-      currentTime,
-    } = this.state
+    const { myArbitraryNumber, currentTime } = this.state
+
+    // Note for i18n and i10n
+    // if `id` is found, it will use the matched message
+    // otherwise, it will use defaultMessage as fallback
 
     return (
       <Fragment>
         <LazyExample {...this.props} />
         <h2>This framework supports i18n and i10n out of the box.</h2>
-        <FormattedMessage
-          id="hooray"
-          defaultMessage={`A locallized random number: {myArbitraryNumber, number} {myArbitraryNumber, plural,
-            one {item}
-            other {items}
-          }`}
-          values={{
-            name: <b>Visitor</b>,
-            myArbitraryNumber,
-          }}
-        />
+        <p>
+          <FormattedMessage
+            id="greetings.hello"
+            defaultMessage={'Hello {name}'}
+            values={{
+              name: <b>Visitor</b>,
+            }}
+          />
+        </p>
+        <p>
+          <FormattedMessage
+            id="hooray"
+            defaultMessage={`A locallized random number: {myArbitraryNumber, number} {myArbitraryNumber, plural,
+              one {item}
+              other {items}
+            }`}
+            values={{
+              myArbitraryNumber,
+            }}
+          />
+        </p>
         <p>
           The date is: &nbsp;
           <FormattedDate value={currentTime} />

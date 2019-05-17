@@ -15,17 +15,14 @@ class Header extends PureComponent {
       <header className={styles.globalHeader}>
         <ul>
           <li className={!isHome ? styles.active : ''}>
-            {
-              isHome
-                ? 'Home' : <Link to="/">Home</Link>
-
-            }
+            {isHome ? 'Home' : <Link to="/">Home</Link>}
           </li>
           <li className={!isJustAnotherPage ? styles.active : ''}>
-            {
-              isJustAnotherPage
-                ? 'Just Another Page' : <Link to="/page">Just Another Page</Link>
-            }
+            {isJustAnotherPage ? (
+              'Just Another Page'
+            ) : (
+              <Link to="/page">Just Another Page</Link>
+            )}
           </li>
         </ul>
       </header>
