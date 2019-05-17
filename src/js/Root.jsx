@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 // You could use BrowserRoute or HashRoute
 // But passing in history directly to Route will
 // give your app more flexibility on deeper integration of `history`
 import { Router } from 'react-router-dom'
-import { IntlProvider } from 'react-intl'
 
-export default class Root extends Component {
+import I18NProvider from 'common/components/Utilities/I18NProvider'
+
+export default class Root extends React.PureComponent {
   get content() {
     const { routes, history } = this.props
 
@@ -18,9 +19,9 @@ export default class Root extends Component {
     const { store } = this.props
 
     return (
-      <IntlProvider locale="en">
+      <I18NProvider>
         <Provider store={store}>{this.content}</Provider>
-      </IntlProvider>
+      </I18NProvider>
     )
   }
 }

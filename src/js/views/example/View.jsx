@@ -33,21 +33,35 @@ class ExampleView extends Component {
   render() {
     const { myArbitraryNumber, currentTime } = this.state
 
+    // Note for i18n and i10n
+    // if `id` is found, it will use the matched message
+    // otherwise, it will use defaultMessage as fallback
+
     return (
       <Fragment>
         <LazyExample {...this.props} />
         <h2>This framework supports i18n and i10n out of the box.</h2>
-        <FormattedMessage
-          id="hooray"
-          defaultMessage={`A locallized random number: {myArbitraryNumber, number} {myArbitraryNumber, plural,
-            one {item}
-            other {items}
-          }`}
-          values={{
-            name: <b>Visitor</b>,
-            myArbitraryNumber,
-          }}
-        />
+        <p>
+          <FormattedMessage
+            id="greetings.hello"
+            defaultMessage={'Hello {name}'}
+            values={{
+              name: <b>Visitor</b>,
+            }}
+          />
+        </p>
+        <p>
+          <FormattedMessage
+            id="hooray"
+            defaultMessage={`A locallized random number: {myArbitraryNumber, number} {myArbitraryNumber, plural,
+              one {item}
+              other {items}
+            }`}
+            values={{
+              myArbitraryNumber,
+            }}
+          />
+        </p>
         <p>
           The date is: &nbsp;
           <FormattedDate value={currentTime} />
